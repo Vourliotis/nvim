@@ -19,11 +19,6 @@ if exists('g:vscode')
 endif
 source C:/Users/Xenofon/AppData/Local/nvim/plug-config/quickscope.vim
 
-" Add paths to node and python here
-if !empty(glob("C:/Users/Xenofon/AppData/Local/nvim/paths.vim"))
-  source C:/Users/Xenofon/AppData/Local/nvim/paths.vim
-endif
-
 " Better nav for omnicomplete TODO figure out why this is being overridden
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")

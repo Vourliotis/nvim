@@ -1,11 +1,15 @@
 {
   //Misc
+  "workbench.list.automaticKeyboardNavigation": false,
   "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
   "terminal.integrated.shellArgs.windows": [
     "-nologo"
   ],
   "terminal.integrated.fontFamily": "CascadiaCode Nerd Font",
   "diffEditor.ignoreTrimWhitespace": false,
+  "editor.minimap.enabled": false,
+  "vsicons.dontShowNewVersionMessage": true,
+  "editor.tabSize": 2,
 
   //Formatting
   "[html]": {
@@ -1022,6 +1026,5 @@
       "command": "workbench.action.toggleZenMode"
     }
   ],
-  "editor.minimap.enabled": false,
-  "vsicons.dontShowNewVersionMessage": true,
+  "git.confirmSync": false,
 }

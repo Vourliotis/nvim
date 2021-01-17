@@ -5,6 +5,11 @@
     "when": "neovim.mode != 'insert' && !inputFocus"
   },
   {
+    "key": "ctrl+c",
+    "command": "editor.action.clipboardCopyAction",
+    "when": "neovim.mode != 'insert'"
+  },
+  {
       "command": "vscode-neovim.compositeEscape1",
       "key": "j",
       "when": "neovim.mode == insert && editorTextFocus",

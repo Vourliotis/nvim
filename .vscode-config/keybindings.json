@@ -4,16 +4,50 @@
     "command": "whichkey.show",
     "when": "neovim.mode != 'insert' && !inputFocus"
   },
+
+  //Custom Keybindings
+  {
+    "key": "backspace",
+    "command": "deleteLeft",
+    "when": "neovim.mode != 'insert', && editorTextFocus"
+  },
+  {
+    "command": "-vscode-neovim.send",
+    "key": "ctrl+v"
+  },
+  {
+    "key": "ctrl+v",
+    "command": "editor.action.clipboardPasteAction",
+    "when": "neovim.mode != 'insert', && editorTextFocus && editorHasSelection"
+  }, 
+  {
+    "command": "-vscode-neovim.send",
+    "key": "ctrl+x"
+  },
+  {
+    "key": "ctrl+x",
+    "command": "editor.action.clipboardCutAction",
+    "when": "neovim.mode != 'insert', && editorTextFocus && editorHasSelection"
+  },
+  {
+    "command": "-vscode-neovim.send",
+    "key": "ctrl+c"
+  },
   {
     "key": "ctrl+c",
     "command": "editor.action.clipboardCopyAction",
     "when": "neovim.mode != 'insert'"
   },
   {
-    "key": "backspace",
-    "command": "deleteLeft",
-    "when": "neovim.mode != 'insert', && editorTextFocus"
+    "command": "-vscode-neovim.send",
+    "key": "ctrl+w"
   },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeActiveEditor",
+  },
+  
+  //Neovim Keybindings
   {
       "command": "vscode-neovim.compositeEscape1",
       "key": "j",
@@ -245,5 +279,13 @@
   {
     "key": "ctrl+shift+t",
     "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "ctrl+insert",
+    "command": "-editor.action.clipboardCopyAction"
+  },
+  {
+    "key": "ctrl+insert",
+    "command": "editor.action.clipboardCopyAction"
   }
 ]

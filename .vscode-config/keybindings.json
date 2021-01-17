@@ -10,6 +10,11 @@
     "when": "neovim.mode != 'insert'"
   },
   {
+    "key": "backspace",
+    "command": "deleteLeft",
+    "when": "neovim.mode != 'insert', && editorTextFocus"
+  },
+  {
       "command": "vscode-neovim.compositeEscape1",
       "key": "j",
       "when": "neovim.mode == insert && editorTextFocus",

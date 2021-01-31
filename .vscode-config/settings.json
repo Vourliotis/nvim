@@ -1,15 +1,20 @@
 {
   //Misc
   "workbench.list.automaticKeyboardNavigation": false,
+  "terminal.integrated.fontFamily": "CaskaydiaCove NF",
   "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
   "terminal.integrated.shellArgs.windows": [
     "-nologo"
   ],
-  "terminal.integrated.fontFamily": "CascadiaCode Nerd Font",
-  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.fontFamily": "Fira Code Retina, Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 15,
   "editor.minimap.enabled": false,
-  "vsicons.dontShowNewVersionMessage": true,
   "editor.tabSize": 2,
+  "editor.renderLineHighlight": "none",
+  "editor.scrollBeyondLastLine": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "vsicons.dontShowNewVersionMessage": true,
 
   //Formatting
   "[html]": {
@@ -57,7 +62,7 @@
   //Workbench
   "workbench.startupEditor": "welcomePage",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "One Monokai",
 
   //Vim
   "vscode-neovim.neovimExecutablePaths.win32": "C:\\tools\\neovim\\Neovim\\bin\\nvim.exe",
@@ -1027,4 +1032,7 @@
     }
   ],
   "git.confirmSync": false,
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "workbench.sideBar.location": "left",
 }

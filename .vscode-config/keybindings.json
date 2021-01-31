@@ -44,7 +44,7 @@
   },
   {
     "key": "ctrl+w",
-    "command": "workbench.action.closeActiveEditor"
+    "command": "workbench.action.closeActiveEditor",
   },
   
   //Neovim Keybindings

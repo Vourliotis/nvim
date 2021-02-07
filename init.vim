@@ -6,18 +6,18 @@
 
 
 " General Settings
-source C:/Users/Xenofon/AppData/Local/nvim/vim-plug/plugins.vim
-source C:/Users/Xenofon/AppData/Local/nvim/general/settings.vim
-source C:/Users/Xenofon/AppData/Local/nvim/general/functions.vim
-source C:/Users/Xenofon/AppData/Local/nvim/keys/mappings.vim
+source $HOME/AppData/Local/nvim/vim-plug/plugins.vim
+source $HOME/AppData/Local/nvim/general/settings.vim
+source $HOME/AppData/Local/nvim/general/functions.vim
+source $HOME/AppData/Local/nvim/keys/mappings.vim
 
 if exists('g:vscode')
   " VS Code extension
-  source C:/Users/Xenofon/AppData/Local/nvim/vscode/settings.vim
-  source C:/Users/Xenofon/AppData/Local/nvim/plug-config/easymotion.vim
-  source C:/Users/Xenofon/AppData/Local/nvim/plug-config/highlightyank.vim
+  source $HOME/AppData/Local/nvim/vscode/settings.vim
+  source $HOME/AppData/Local/nvim/plug-config/easymotion.vim
+  source $HOME/AppData/Local/nvim/plug-config/highlightyank.vim
 endif
-source C:/Users/Xenofon/AppData/Local/nvim/plug-config/quickscope.vim
+source $HOME/AppData/Local/nvim/plug-config/quickscope.vim
 
 " Better nav for omnicomplete TODO figure out why this is being overridden
 inoremap <expr> <c-j> ("\<C-n>")

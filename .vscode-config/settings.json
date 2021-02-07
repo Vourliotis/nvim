@@ -1,20 +1,38 @@
 {
-  //Misc
+  //Editor
+  "editor.fontLigatures": true,
+  "editor.fontSize": 15,
+  "editor.tabSize": 2,
+  "editor.renderLineHighlight": "none",
+  "editor.scrollBeyondLastLine": false,
+  "editor.formatOnSave": true,
+  "editor.fontFamily": "CaskaydiaCove NF,  Fira Code Retina, Consolas, 'Courier New', monospace",
+  "editor.occurrencesHighlight": false,
+
+  //Workbench
+  "workbench.startupEditor": "welcomePage",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "One Monokai",
   "workbench.list.automaticKeyboardNavigation": false,
+  "workbench.list.smoothScrolling": true,
+  "workbench.colorCustomizations": {
+    // "editor.selectionBackground": "#ffffff35"
+    "editor.selectionBackground": "#ffffffe9"
+  },
+  
+  //Terminal
   "terminal.integrated.fontFamily": "CaskaydiaCove NF",
   "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
   "terminal.integrated.shellArgs.windows": [
     "-nologo"
   ],
-  "editor.fontFamily": "Fira Code Retina, Consolas, 'Courier New', monospace",
-  "editor.fontLigatures": true,
-  "editor.fontSize": 15,
-  "editor.minimap.enabled": false,
-  "editor.tabSize": 2,
-  "editor.renderLineHighlight": "none",
-  "editor.scrollBeyondLastLine": false,
   "diffEditor.ignoreTrimWhitespace": false,
-  "vsicons.dontShowNewVersionMessage": true,
+  "explorer.openEditors.visible": 0, 
+  "files.autoSave": "afterDelay",
+  "files.hotExit": "off",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
 
   //Formatting
   "[html]": {
@@ -45,6 +63,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  
+  //Peacock
+  "peacock.affectStatusBar": false,
+  "peacock.affectActivityBar": false,
 
   //Latex
   "latex-workshop.view.pdf.viewer": "tab",
@@ -58,11 +80,10 @@
     "push:command"
   ],
   "git.autofetch": true,
+  "git.confirmSync": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.codeLens.enabled": false,
 
-  //Workbench
-  "workbench.startupEditor": "welcomePage",
-  "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "One Monokai",
 
   //Vim
   "vscode-neovim.neovimExecutablePaths.win32": "C:\\tools\\neovim\\Neovim\\bin\\nvim.exe",
@@ -1031,8 +1052,4 @@
       "command": "workbench.action.toggleZenMode"
     }
   ],
-  "git.confirmSync": false,
-  "editor.formatOnSave": true,
-  "files.autoSave": "onFocusChange",
-  "workbench.sideBar.location": "left",
 }

@@ -13,6 +13,15 @@
   },
   {
     "command": "-vscode-neovim.send",
+    "key": "ctrl+i"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "command": "-vscode-neovim.send",
     "key": "ctrl+v"
   },
   {

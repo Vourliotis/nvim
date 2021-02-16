@@ -1,23 +1,21 @@
 {
   //Editor
   "editor.fontLigatures": true,
-  "editor.fontSize": 15,
   "editor.tabSize": 2,
   "editor.renderLineHighlight": "none",
   "editor.scrollBeyondLastLine": false,
   "editor.formatOnSave": true,
-  "editor.fontFamily": "CaskaydiaCove NF,  Fira Code Retina, Consolas, 'Courier New', monospace",
   "editor.occurrencesHighlight": false,
+  "editor.fontSize": 14,
+  "editor.fontFamily": "Fira Code Retina, CaskaydiaCove NF, Consolas, 'Courier New', monospace",
 
   //Workbench
   "workbench.startupEditor": "welcomePage",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "One Monokai",
   "workbench.list.automaticKeyboardNavigation": false,
   "workbench.list.smoothScrolling": true,
   "workbench.colorCustomizations": {
-    // "editor.selectionBackground": "#ffffff35"
-    "editor.selectionBackground": "#ffffffe9"
+     "editor.selectionBackground": "#6769fd4b"
   },
   
   //Terminal
@@ -867,6 +865,12 @@
       ]
     },
     {
+      "key": "w",
+      "name": "Save...",
+      "type": "command",
+      "command": "workbench.action.files.save"
+    },
+    {
       "key": "t",
       "name": "Terminal...",
       "type": "bindings",
@@ -940,6 +944,12 @@
       "name": "Split Vertical",
       "type": "command",
       "command": "workbench.action.splitEditor"
+    },
+    {
+      "key": "x",
+      "name": "Extensions",
+      "type": "command",
+      "command": "workbench.view.extensions"
     },
     {
       "key": "w",
@@ -1021,35 +1031,13 @@
       ]
     },
     {
-      "key": "x",
-      "name": "Extensions",
-      "type": "command",
-      "command": "workbench.view.extensions"
-    },
-    {
-      "key": "y",
-      "name": "Sync...",
-      "type": "bindings",
-      "bindings": [
-        {
-          "key": "d",
-          "name": "Download Settings",
-          "type": "command",
-          "command": "extension.downloadSettings"
-        },
-        {
-          "key": "u",
-          "name": "Upload Settings",
-          "type": "command",
-          "command": "extension.updateSettings"
-        }
-      ]
-    },
-    {
       "key": "z",
       "name": "Toggle zen mode",
       "type": "command",
       "command": "workbench.action.toggleZenMode"
     }
   ],
+  "workbench.colorTheme": "One Monokai",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 }

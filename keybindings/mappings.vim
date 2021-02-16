@@ -20,9 +20,10 @@ if exists('g:vscode')
   nmap <S-Tab> :Tabprev<CR>
 endif
 
-" Better nav for omnicomplete
+" Better nav for 	
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
 " Map jk to esc
 :imap jk <Esc>
+:imap kj <Esc>

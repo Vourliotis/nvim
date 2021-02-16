@@ -9,7 +9,7 @@
 source $HOME/AppData/Local/nvim/vim-plug/plugins.vim
 source $HOME/AppData/Local/nvim/general/settings.vim
 source $HOME/AppData/Local/nvim/general/functions.vim
-source $HOME/AppData/Local/nvim/keys/mappings.vim
+source $HOME/AppData/Local/nvim/keybindings/mappings.vim
 
 if exists('g:vscode')
   " VS Code extension

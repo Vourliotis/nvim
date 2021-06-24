@@ -20,10 +20,15 @@ if exists('g:vscode')
   nmap <S-Tab> :Tabprev<CR>
 endif
 
-" Better nav for 	
+" Better nav for  
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
-" Map jk to esc
+" Map jk, ξκ to esc
 :imap jk <Esc>
 :imap kj <Esc>
+:imap ξκ <Esc>
+:imap κξ <Esc>
+
+" Map Greek characters in Normal Mode
+set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz

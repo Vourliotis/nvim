@@ -1,33 +1,66 @@
 {
   //Editor
   "editor.fontLigatures": true,
+  "editor.fontSize": 15,
   "editor.tabSize": 2,
   "editor.renderLineHighlight": "none",
   "editor.scrollBeyondLastLine": false,
   "editor.formatOnSave": true,
-  "editor.occurrencesHighlight": false,
-  "editor.fontSize": 14,
   "editor.fontFamily": "Fira Code Retina, CaskaydiaCove NF, Consolas, 'Courier New', monospace",
+  "editor.occurrencesHighlight": false,
+  "editor.minimap.enabled": false,
 
   //Workbench
-  "workbench.startupEditor": "welcomePage",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.colorTheme": "One Monokai",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.list.automaticKeyboardNavigation": false,
   "workbench.list.smoothScrolling": true,
-  "workbench.colorCustomizations": {
-     "editor.selectionBackground": "#6769fd4b"
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
   },
-  
+  "workbench.colorCustomizations": {
+    //  "editor.selectionBackground": "#ffffffe9"
+  },
+
   //Terminal
   "terminal.integrated.fontFamily": "CaskaydiaCove NF",
-  "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
-  "terminal.integrated.shellArgs.windows": [
-    "-nologo"
-  ],
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "path": "pwsh.exe",
+      "args": ["-nologo"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+
+  //Misc
   "diffEditor.ignoreTrimWhitespace": false,
-  "explorer.openEditors.visible": 0, 
-  "files.autoSave": "afterDelay",
+  "explorer.openEditors.visible": 0,
   "files.hotExit": "off",
+  "cSpell.language": "en,el",
+  "cSpell.enabled": false,
+  "cSpell.userWords": [
+    "'",
+    "διαλειτουργικές",
+    "διατέμνει",
+    "καθ'όλη",
+    "κεντρικοποιημένη",
+    "μεταδεδομένα",
+    "μεταδεδομένων",
+    "οπτικοποίησης",
+    "παραλληλοποιούνται",
+    "υποενότητα",
+    "χρονισμένο",
+    "χρονοδρομολόγηση"
+  ],
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
@@ -61,13 +94,42 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  
+
   //Peacock
   "peacock.affectStatusBar": false,
   "peacock.affectActivityBar": false,
 
   //Latex
   "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.clean.subfolder.enabled": true,
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.snm",
+    "*.synctex(busy)",
+    "*.synctex.gz(busy)",
+    "*.nav",
+    "*.ilg",
+    "*.synctex.gz",
+    "*.loi"
+  ],
 
   //Git
   "git.enableSmartCommit": true,
@@ -81,7 +143,6 @@
   "git.confirmSync": false,
   "gitlens.currentLine.enabled": false,
   "gitlens.codeLens.enabled": false,
-
 
   //Vim
   "vscode-neovim.neovimExecutablePaths.win32": "C:\\tools\\neovim\\Neovim\\bin\\nvim.exe",
@@ -1036,8 +1097,5 @@
       "type": "command",
       "command": "workbench.action.toggleZenMode"
     }
-  ],
-  "workbench.colorTheme": "One Monokai",
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  ]
 }

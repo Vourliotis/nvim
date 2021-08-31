@@ -9,9 +9,8 @@ if has("unix")
   call plug#end()
 elseif has("win32")
   if empty(glob('$HOME/AppData/Local/nvim/autoload/plug.vim'))
-    silent !curl -fLo C:/Users/Xenofon/AppData/Local/nvim/autoload/plug.vim --create-dirs
-      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall | source $MYVIMRC
+    iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+      ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim/autoload/plug.vim" -Force
   endif
   call plug#begin('$HOME/AppData/Local/nvim/autoload/plugged')
     " Text Navigation

@@ -7,9 +7,3 @@ let g:EasyMotion_prompt = '🔎 '
 
 " s{char}{char} to move to {char}{char}
 nmap <silent> s <Plug>(easymotion-s2)
-nmap <silent> S <Plug>(easymotion-overwin-f2)
-
-if !exists('g:vscode')
-  nmap s <Plug>(easymotion-s2)
-  nmap t <Plug>(easymotion-t2)
-endif

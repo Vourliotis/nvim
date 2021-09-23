@@ -1,5 +1,5 @@
 :set ma
-set iskeyword+=-                      	" Treat dash separated words as a word text object"
+set iskeyword+=-                      	" Treat dash separated words as a word text object
 set formatoptions-=cro                  " Stop newline continution of comments
 
 syntax enable                           " Enable syntax highlighing
@@ -9,7 +9,7 @@ set whichwrap+=<,>,[,],h,l
 set encoding=utf-8                      " Display with this encoding
 set pumheight=10                        " Make popup menu smaller
 set fileencoding=utf-8                  " Write with this encoding
-set ruler              			            " Show the cursor position all the time
+set ruler              			        " Show the cursor position all the time
 set cmdheight=2                         " Add more space for displaying messages
 set mouse=a                             " Enable the mouse
 set splitbelow                          " Put the horizontal splits below
@@ -37,6 +37,6 @@ set clipboard=unnamedplus               " Allow copy pasting between NeoVim and 
 set incsearch                           " Enable incremental search
 set ignorecase                          " Set search to case-insensitive
 set smartcase                           " Enable smart search
-" set cursorline                         " Enable highlighting of the current line
+" set cursorline                        " Enable highlighting of the current line
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

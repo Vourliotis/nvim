@@ -1,6 +1,4 @@
-" TODO there is a more contemporary version of this file
-" TODO Also some of it is redundant
-"VSCode
+"VSCode specific functions
 function! s:split(...) abort
     let direction = a:1
     let file = a:2
@@ -88,15 +86,12 @@ xnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
 
 nnoremap gr <Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>
 
-" Bind C-/ to vscode commentary since calling from vscode produces double comments due to multiple cursors
+" Bind C-/ to VSCode commentary since calling from VSCode produces double comments due to multiple cursors
 xnoremap <expr> <C-/> <SID>vscodeCommentary()
 nnoremap <expr> <C-/> <SID>vscodeCommentary() . '_'
-
 nnoremap <silent> <C-w>_ :<C-u>call VSCodeNotify('workbench.action.toggleEditorWidths')<CR>
-
 nnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
 xnoremap <silent> <Space> :<C-u>call <SID>openWhichKeyInVisualMode()<CR>
-
 xnoremap <silent> <C-P> :<C-u>call <SID>openVSCodeCommandsInVisualMode()<CR>
 
 xmap gc  <Plug>VSCodeCommentary

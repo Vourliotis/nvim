@@ -22,6 +22,8 @@ call plug#begin(g:nvim_home.'/autoload/plugged')
   else
     " 's' motion key
     Plug 'easymotion/vim-easymotion'
+    " Comments using 'C-_'
+    Plug 'preservim/nerdcommenter'
   endif
 call plug#end()
 

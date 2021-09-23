@@ -22,4 +22,6 @@ exec 'source' g:nvim_home.'/plug-config/highlightyank.vim'
 " VSCode settings
 if exists('g:vscode')
   exec 'source' g:nvim_home.'vscode/settings.vim'
+else
+  exec 'source' g:nvim_home.'/plug-config/nerdcommenter.vim'
 endif

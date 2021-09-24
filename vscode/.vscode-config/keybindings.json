@@ -1,47 +1,52 @@
 [
-  //Which Key Show Keybind
+  //Which Key Show Button
   {
     "key": "space",
     "command": "whichkey.show",
-    "when": "neovim.mode != 'insert' && !inputFocus"
+    "when": "neovim.mode != 'insert' && editorTextFocus"
   },
 
-  //Custom Keybindings
+  //NeoVim Escape Keys
   {
-    "key": "backspace",
-    "command": "deleteLeft",
-    "when": "neovim.mode != 'insert', && editorTextFocus"
+    "command": "vscode-neovim.compositeEscape1",
+    "key": "j",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "j"
   },
+  {
+    "command": "vscode-neovim.compositeEscape2",
+    "key": "k",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "k"
+  },
+
+  //Disable NeoVim keybindings
   {
     "command": "-vscode-neovim.send",
     "key": "ctrl+i"
-  },
-  {
-    "key": "ctrl+i",
-    "command": "editor.action.rename",
-    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
   },
   {
     "command": "-vscode-neovim.send",
     "key": "ctrl+v"
   },
   {
-    "key": "ctrl+v",
-    "command": "editor.action.clipboardPasteAction",
-    "when": "neovim.mode != 'insert', && editorTextFocus && editorHasSelection"
-  }, 
-  {
     "command": "-vscode-neovim.send",
     "key": "ctrl+x"
   },
   {
-    "key": "ctrl+x",
-    "command": "editor.action.clipboardCutAction",
-    "when": "neovim.mode != 'insert', && editorTextFocus && editorHasSelection"
+    "command": "-vscode-neovim.send",
+    "key": "ctrl+c"
   },
   {
     "command": "-vscode-neovim.send",
-    "key": "ctrl+c"
+    "key": "ctrl+w"
+  },
+
+  //Custom NeoVim functionality
+  {
+    "key": "backspace",
+    "command": "deleteLeft",
+    "when": "neovim.mode != 'insert', && editorTextFocus"
   },
   {
     "key": "ctrl+c",
@@ -49,25 +54,124 @@
     "when": "neovim.mode != 'insert'"
   },
   {
-    "command": "-vscode-neovim.send",
-    "key": "ctrl+w"
+    "key": "ctrl+v",
+    "command": "editor.action.clipboardPasteAction",
+    "when": "neovim.mode != 'insert', && editorTextFocus && editorHasSelection"
+  },
+  {
+    "key": "ctrl+x",
+    "command": "editor.action.clipboardCutAction",
+    "when": "neovim.mode != 'insert', && editorTextFocus && editorHasSelection"
+  },
+  {
+    "key": "shift+k",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus && neovim.mode != 'insert'"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "selectNextSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "selectPrevSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  },
+
+  //VSCode Keybindings
+  {
+    "key": "ctrl+l",
+    "when": "sideBarFocus",
+    "command": "workbench.action.focusActiveEditorGroup"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.focusSideBar"
   },
   {
     "key": "ctrl+w",
-    "command": "workbench.action.closeActiveEditor",
-  },
-  
-  // Neovim Keybindings
-  {
-      "command": "vscode-neovim.compositeEscape1",
-      "key": "j",
-      "when": "neovim.mode == insert && editorTextFocus",
-      "args": "j"
+    "command": "workbench.action.closeActiveEditor"
   },
   {
-      "command": "vscode-neovim.compositeEscape2",
-      "key": "k",
-      "when": "neovim.mode == insert && editorTextFocus",
-      "args": "k"
+    "key": "ctrl+f",
+    "command": "-vscode-neovim.ctrl-f",
+    "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
   },
+
+  //Sidebar Keybindings
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "y",
+    "command": "filesExplorer.copy",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+  },
+  {
+    "key": "x",
+    "command": "filesExplorer.cut",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "v",
+    "command": "explorer.openToSide",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+a",
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+
+  //Terminal Keybindings
+  {
+    "key": "alt+j",
+    "command": "workbench.action.terminal.focus",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.togglePanel"
+  },
+  {
+    "key": "escape",
+    "command": "-notebook.cell.quitEdit",
+    "when": "inputFocus && notebookEditorFocused && !editorHasSelection && !editorHoverVisible"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "workbench.action.increaseViewSize"
+  },
+  {
+    "key": "ctrl+shift+h",
+    "command": "workbench.action.decreaseViewSize"
+  },
+  {
+    "key": "ctrl+shift+t",
+    "command": "workbench.action.toggleMaximizedPanel"
+  }
+  //Misc Keybindings
 ]

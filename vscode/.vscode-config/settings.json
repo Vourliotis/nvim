@@ -1,4 +1,188 @@
-//VSCode Which Key Settings
+{
+  //Editor
+  "editor.fontLigatures": true,
+  "editor.fontSize": 15,
+  "editor.tabSize": 2,
+  "editor.renderLineHighlight": "none",
+  "editor.scrollBeyondLastLine": false,
+  "editor.formatOnSave": true,
+  "editor.fontFamily": "Fira Code Retina, CaskaydiaCove NF, Consolas, 'Courier New', monospace",
+  "editor.occurrencesHighlight": false,
+  "editor.minimap.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.lineNumbers": "relative",
+
+  //Workbench
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.colorTheme": "One Monokai",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.list.automaticKeyboardNavigation": false,
+  "workbench.list.smoothScrolling": true,
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.sideBar.location": "left",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  // "workbench.colorCustomizations": {
+  //  "editor.selectionBackground": "#ffffffe9"
+  // },
+
+  //Terminal
+  "terminal.integrated.fontFamily": "CaskaydiaCove NF",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "path": "pwsh.exe",
+      "args": ["-nologo"]
+    }
+  },
+
+  //Misc
+  "diffEditor.ignoreTrimWhitespace": false,
+  "explorer.openEditors.visible": 0,
+  "files.hotExit": "off",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "remote.SSH.remotePlatform": {
+    "Froundy": "linux",
+    "foundry": "linux"
+  },
+
+  //Python
+  "python.venvPath": "~/.venv",
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+
+  //Ruby
+  "ruby.useLanguageServer": true,
+  "solargraph.formatting": true,
+  "[ruby]": {
+    "editor.defaultFormatter": "castwide.solargraph"
+  },
+  // "ruby.lint": {
+  //   "rubocop": true
+  // },
+
+  //cSpell
+  "cSpell.language": "en,el",
+  "cSpell.enabled": false,
+  "cSpell.enableFiletypes": [
+    "!c",
+    "!cpp",
+    "!csharp",
+    "!css",
+    "!go",
+    "!graphql",
+    "!handlebars",
+    "!haskell",
+    "!jade",
+    "!java",
+    "!javascript",
+    "!javascriptreact",
+    "!json",
+    "!jsonc",
+    "!less",
+    "!php",
+    "!pug",
+    "!python",
+    "!rust",
+    "!scala",
+    "!scss",
+    "!typescript",
+    "!typescriptreact",
+    "!yaml",
+    "!yml"
+  ],
+
+  //Formatting
+  "[html]": {
+    "editor.defaultFormatter": "HookyQR.beautify",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[graphql]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+
+  //Peacock
+  "peacock.affectStatusBar": false,
+  "peacock.affectActivityBar": false,
+
+  //Latex
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.clean.subfolder.enabled": true,
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.snm",
+    "*.synctex(busy)",
+    "*.synctex.gz(busy)",
+    "*.nav",
+    "*.ilg",
+    "*.synctex.gz",
+    "*.loi"
+  ],
+
+  //Git
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "stash-push:command",
+    "switch:command",
+    "push:command"
+  ],
+
+  //Vim
+  "vscode-neovim.neovimExecutablePaths.win32": "C:\\tools\\neovim\\Neovim\\bin\\nvim.exe",
+  "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\Xenofon\\AppData\\Local\\nvim\\init.vim",
   "whichkey.sortOrder": "alphabetically",
   "whichkey.delay": 0,
   "whichkey.bindings": [

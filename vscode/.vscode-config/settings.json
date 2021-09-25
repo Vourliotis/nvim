@@ -8,9 +8,9 @@
   "editor.formatOnSave": true,
   "editor.fontFamily": "Fira Code Retina, CaskaydiaCove NF, Consolas, 'Courier New', monospace",
   "editor.occurrencesHighlight": false,
-  "editor.minimap.enabled": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
 
   //Workbench
   "workbench.startupEditor": "newUntitledFile",
@@ -960,12 +960,6 @@
           "command": "workbench.debug.action.toggleRepl"
         }
       ]
-    },
-    {
-      "key": "w",
-      "name": "Save...",
-      "type": "command",
-      "command": "workbench.action.files.save"
     },
     {
       "key": "t",

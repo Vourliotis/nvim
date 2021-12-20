@@ -15,7 +15,6 @@ else
   nmap <S-Tab> :Tabprev<CR>
 endif
 
-
 " Better identation
 vnoremap < <gv
 vnoremap > >gv

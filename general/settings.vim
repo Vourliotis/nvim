@@ -9,7 +9,7 @@ set whichwrap+=<,>,[,],h,l
 set encoding=utf-8                      " Display with this encoding
 set pumheight=10                        " Make popup menu smaller
 set fileencoding=utf-8                  " Write with this encoding
-set ruler              			        " Show the cursor position all the time
+set ruler                               " Show the cursor position all the time
 set cmdheight=2                         " Add more space for displaying messages
 set mouse=a                             " Enable the mouse
 set splitbelow                          " Put the horizontal splits below

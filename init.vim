@@ -25,3 +25,4 @@ if exists('g:vscode')
 else
   exec 'source' g:nvim_home.'/plug-config/nerdcommenter.vim'
 endif
+

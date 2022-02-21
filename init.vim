@@ -19,6 +19,7 @@ exec 'source' g:nvim_home.'/keybindings/mappings.vim'
 exec 'source' g:nvim_home.'/plug-config/quickscope.vim'
 exec 'source' g:nvim_home.'/plug-config/easymotion.vim'
 exec 'source' g:nvim_home.'/plug-config/highlightyank.vim'
+
 " VSCode settings
 if exists('g:vscode')
   exec 'source' g:nvim_home.'/vscode/settings.vim'

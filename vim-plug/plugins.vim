@@ -10,19 +10,14 @@ if empty(glob(g:nvim_home.'/autoload/plug.vim'))
 endif
 
 call plug#begin(g:nvim_home.'/autoload/plugged')
-  " 'f' text navigation key
+  " Navigate line with 'f'
   Plug 'unblevable/quick-scope'
   " Highlight yanked text
   Plug 'machakann/vim-highlightedyank'
-  if exists('g:vscode')
-    " 's' motion key for VSCode
-    Plug 'ChristianChiarulli/vscode-easymotion'
-    " Easy motion for VSCode from the nvim extension author
-    " Plug 'asvetliakov/vim-easymotion'
-  else
-    " 's' motion key
-    Plug 'easymotion/vim-easymotion'
-    " Comments using 'C-_'
+  " Jump anywhere in the document with 's'
+  Plug 'phaazon/hop.nvim'
+
+  if !exists('g:vscode')
     Plug 'preservim/nerdcommenter'
   endif
 call plug#end()

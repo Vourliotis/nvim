@@ -14,7 +14,6 @@ end
 require 'user.core.options'
 require 'user.core.keymaps'
 vim.cmd("exec 'source' g:nvim_home.'/vim-plug/plugins.vim'")
-vim.cmd("exec 'source' g:nvim_home.'/general/functions.vim'")
 vim.cmd("exec 'source' g:nvim_home.'/plug-config/quickscope.vim'")
 vim.cmd("exec 'source' g:nvim_home.'/plug-config/hop.vim'")
 vim.cmd("exec 'source' g:nvim_home.'/plug-config/highlightyank.vim'")

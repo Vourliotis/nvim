@@ -1,12 +1,4 @@
 "VSCode specific functions
-function! s:manageEditorSize(...)
-    let count = a:1
-    let to = a:2
-    for i in range(1, count ? count : 1)
-        call VSCodeNotify(to == 'increase' ? 'workbench.action.increaseViewSize' : 'workbench.action.decreaseViewSize')
-    endfor
-endfunction
-
 function! s:vscodeCommentary(...) abort
     if !a:0
         let &operatorfunc = matchstr(expand('<sfile>'), '[^. ]*$')

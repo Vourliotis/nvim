@@ -13,9 +13,9 @@ endif
 
 " General settings
 lua require "user.core.options"
+lua require "user.core.keymaps"
 exec 'source' g:nvim_home.'/vim-plug/plugins.vim'
 exec 'source' g:nvim_home.'/general/functions.vim'
-exec 'source' g:nvim_home.'/keybindings/mappings.vim'
 exec 'source' g:nvim_home.'/plug-config/quickscope.vim'
 exec 'source' g:nvim_home.'/plug-config/hop.vim'
 exec 'source' g:nvim_home.'/plug-config/highlightyank.vim'

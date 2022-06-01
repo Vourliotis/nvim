@@ -182,7 +182,9 @@
 
   //Vim
   "vscode-neovim.neovimExecutablePaths.win32": "C:\\tools\\neovim\\Neovim\\bin\\nvim.exe",
-  "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\Xenofon\\AppData\\Local\\nvim\\init.vim",
+  "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\Xenofon\\AppData\\Local\\nvim\\init.lua",
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.linux": "/home/xvourliotis/config/nvim/init.lua",
   "whichkey.sortOrder": "alphabetically",
   "whichkey.delay": 0,
   "whichkey.bindings": [

@@ -16,7 +16,6 @@ require 'user.core.keymaps'
 vim.cmd("exec 'source' g:nvim_home.'/vim-plug/plugins.vim'")
 vim.cmd("exec 'source' g:nvim_home.'/plug-config/quickscope.vim'")
 vim.cmd("exec 'source' g:nvim_home.'/plug-config/hop.vim'")
-vim.cmd("exec 'source' g:nvim_home.'/plug-config/highlightyank.vim'")
 
 -- VSCode only settings
 if vim.g.vscode then

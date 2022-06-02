@@ -12,8 +12,6 @@ endif
 call plug#begin(g:nvim_home.'/autoload/plugged')
   " Navigate line with 'f'
   Plug 'unblevable/quick-scope'
-  " Highlight yanked text
-  Plug 'machakann/vim-highlightedyank'
   " Jump anywhere in the document with 's'
   Plug 'phaazon/hop.nvim'
 

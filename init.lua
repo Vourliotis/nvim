@@ -11,8 +11,9 @@ elseif vim.fn.has('win32') == 1 then
 end
 
 -- General settings
-require 'user.core.options'
-require 'user.core.keymaps'
+require 'core'
+require 'core.options'
+require 'core.keymaps'
 vim.cmd("exec 'source' g:nvim_home.'/vim-plug/plugins.vim'")
 vim.cmd("exec 'source' g:nvim_home.'/plug-config/quickscope.vim'")
 vim.cmd("exec 'source' g:nvim_home.'/plug-config/hop.vim'")
@@ -24,6 +25,3 @@ if vim.g.vscode then
 else
   vim.cmd("exec 'source' g:nvim_home.'/plug-config/nerdcommenter.vim'")
 end
-
--- Source NeoVim files after save
-vim.cmd('autocmd BufWritePost */nvim/** source %')

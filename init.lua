@@ -24,3 +24,6 @@ if vim.g.vscode then
 else
   vim.cmd("exec 'source' g:nvim_home.'/plug-config/nerdcommenter.vim'")
 end
+
+-- Source NeoVim files after save
+vim.cmd('autocmd BufWritePost */nvim/** source %')

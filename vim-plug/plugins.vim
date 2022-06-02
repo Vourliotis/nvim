@@ -17,6 +17,7 @@ call plug#begin(g:nvim_home.'/autoload/plugged')
 
   if !exists('g:vscode')
     Plug 'preservim/nerdcommenter'
+    Plug 'https://gitlab.com/__tpb/monokai-pro.nvim'
   endif
 call plug#end()
 

@@ -11,12 +11,12 @@ elseif vim.fn.has('win32') == 1 then
 end
 
 -- General settings
-require 'core'
-require 'core.options'
-require 'core.keymaps'
 vim.cmd("exec 'source' g:nvim_home.'/vim-plug/plugins.vim'")
 vim.cmd("exec 'source' g:nvim_home.'/plug-config/quickscope.vim'")
 vim.cmd("exec 'source' g:nvim_home.'/plug-config/hop.vim'")
+require 'core'
+require 'core.keymaps'
+require 'core.options'
 
 -- VSCode only settings
 if vim.g.vscode then
@@ -24,4 +24,5 @@ if vim.g.vscode then
 -- TUI/GUI NeoVim only settings
 else
   vim.cmd("exec 'source' g:nvim_home.'/plug-config/nerdcommenter.vim'")
+  vim.cmd("exec 'source' g:nvim_home.'/plug-config/monokai-pro.vim'")
 end

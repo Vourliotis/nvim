@@ -33,6 +33,13 @@ local options = {                          -- :help options
 }
 
 vim.opt.shortmess:append 'c'               -- Stop giving messages to ins-compleciton-menu
+vim.cmd [[
+  augroup highlight_yank
+  autocmd!
+  au TextYankPost * silent! lua vim.highlight.on_yank({timeout=200})
+  augroup END
+]]
+
 
 for option, setting in pairs(options) do
   vim.opt[option] = setting

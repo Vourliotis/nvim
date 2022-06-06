@@ -14,14 +14,8 @@ vim.opt.langmap = 'ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,�
 --   term_mode = 't'
 --   command_mode = 'c'
 
-
--- VSCode only settings
-if vim.g.vscode then
-  keymap('n', '<Tab>', ':Tabnext<CR>', opts)
-  keymap('n', '<S-Tab>', ':Tabprev<CR>', opts)
-  keymap('', '<Space>', '<Nop>', opts)
 -- TUI/GUI NeoVim only settings
-else
+if not vim.g.vscode then
   vim.g.mapleader = ' '
   vim.g.maplocalleader = ' '
   keymap('n', '<leader>e', ':Lex 30<cr>', opts)
@@ -35,14 +29,15 @@ else
   -- Navigate buffers
   keymap('n', '<S-l>', ':bnext<CR>', opts)
   keymap('n', '<S-h>', ':bprevious<CR>', opts)
+
+  -- Better window navigation
+  keymap('n', '<C-h>', '<C-w>h', opts)
+  keymap('n', '<C-j>', '<C-w>j', opts)
+  keymap('n', '<C-k>', '<C-w>k', opts)
+  keymap('n', '<C-l>', '<C-w>l', opts)
 end
 
 -- Normal --
--- Better window navigation
-keymap('n', '<C-h>', '<C-w>h', opts)
-keymap('n', '<C-j>', '<C-w>j', opts)
-keymap('n', '<C-k>', '<C-w>k', opts)
-keymap('n', '<C-l>', '<C-w>l', opts)
 keymap('n', 's', '<cmd>HopChar2<CR>', opts)
 
 -- Insert --

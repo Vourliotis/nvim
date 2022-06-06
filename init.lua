@@ -9,5 +9,5 @@ require 'plugins'
 
 -- VSCode only settings
 if vim.g.vscode then
- vim.cmd("exec 'source' g:nvim_home.'/vscode/settings.vim'")
+  require 'vscode'
 end

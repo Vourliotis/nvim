@@ -5,8 +5,5 @@ elseif vim.fn.has('win32') == 1 then
   vim.g['nvim_home'] = '~/AppData/Local/nvim'
 end
 
--- Source NeoVim files after save
-vim.cmd('autocmd BufWritePost */nvim/** source %')
-
 require 'core.keymaps'
 require 'core.options'

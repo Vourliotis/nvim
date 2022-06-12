@@ -27,13 +27,17 @@ local Plug = {
   ends = function()
     vim.fn['plug#end']()
 
-    -- Automatically install missing plugins on startup
-    vim.cmd [[
-      autocmd VimEnter *
-        if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-          PlugInstall --sync | q
-        endif
-    ]]
+    vim.api.nvim_create_autocmd('VimEnter', {
+      pattern = "*",
+      callback = function()
+        vim.cmd [[
+          if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+            PlugInstall --sync | q
+          endif
+        ]]
+      end,
+      desc = 'Install missing plugins on startup'
+    })
 
     -- Run configs after running `Plug`
     for i, config in pairs(configs.start) do

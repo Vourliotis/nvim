@@ -1,32 +1,38 @@
-local Plug = require 'core.vimplug'
+local function nocode()
+  return vim.fn.exists('g:vscode') == 0
+end
 
-Plug.begin(vim.g.nvim_home..'/autoload/plugged')
+local plugins = {
+  ["lewis6991/impatient.nvim"] = {},
 
-Plug('phaazon/hop.nvim', {
-  config = function()
-    require('plugins.configs.hop')
-  end
-})
+  ["wbthomason/packer.nvim"] = {},
 
-Plug('unblevable/quick-scope', {
-  config = function()
-    require('plugins.configs.quickscope')
-  end
-})
+  ['phaazon/hop.nvim'] = {
+    config = function()
+      require('plugins.configs.hop')
+    end
+  },
 
-if not vim.g.vscode then
-  Plug('preservim/nerdcommenter', {
+  ['unblevable/quick-scope'] = {
+    config = function()
+      require('plugins.configs.quickscope')
+    end
+  },
+
+  ['preservim/nerdcommenter'] = {
+    cond = nocode,
     config = function()
       require('plugins.configs.nerdcommenter')
-    end
-  })
+    end,
+  },
 
-  Plug('https://gitlab.com/__tpb/monokai-pro.nvim', {
-    as = '__tpb/monokai-pro.nvim',
+  ['https://gitlab.com/__tpb/monokai-pro.nvim'] = {
+    cond = nocode,
+    as = 'monokai-pro.nvim',
     config = function()
       require('plugins.configs.monokaipro')
     end
-  })
-end
+  }
+}
 
-Plug.ends()
+require("core.packer").run(plugins)

@@ -8,11 +8,6 @@ A lot of people find it hard to transition from a GUI editor like VSCode to NeoV
 hopes to make this a lot easier by allowing people to switch between these too and experiment at their
 own pace.
 
-## Why vim-plug over Packer?
-Even though the aim is to have as many config files and plugins written in Lua, vim-plug is preffered
-for its ability to easily exclude which plugins to load. This is needed to be able to support both
-terminal NeoVim and VSCode NeoVim.
-
 ## Installation
 - Install the [vscode-neovim](https://github.com/vscode-neovim/vscode-neovim/) extension
 - Install Neovim 0.5.0 or greater

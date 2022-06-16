@@ -80,7 +80,15 @@ local plugins = {
     config = function()
       require 'plugins.configs.blankline'
     end
-  }
+  },
+
+  ['akinsho/bufferline.nvim'] = {
+    tag = 'v2.*',
+    cond = nocode,
+    config = function()
+      require 'plugins.configs.bufferline'
+    end
+  },
 }
 
 require("core.packer").run(plugins)

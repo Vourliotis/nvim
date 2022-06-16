@@ -57,6 +57,16 @@ local plugins = {
     requires = { 'nvim-telescope/telescope.nvim' },
     run = 'make'
   },
+
+  ['kyazdani42/nvim-tree.lua'] = {
+    cond = nocode,
+    requires = {
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function()
+      require 'plugins.configs.nvimtree'
+    end
+  },
 }
 
 require("core.packer").run(plugins)

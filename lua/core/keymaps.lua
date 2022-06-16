@@ -28,10 +28,6 @@ if not vim.g.vscode then
   keymap('n', '<C-Left>', ':vertical resize -2<CR>', opts)
   keymap('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 
-  -- Navigate buffers
-  keymap('n', '<S-l>', ':bnext<CR>', opts)
-  keymap('n', '<S-h>', ':bprevious<CR>', opts)
-
   -- Better window navigation
   keymap('n', '<C-h>', '<C-w>h', opts)
   keymap('n', '<C-j>', '<C-w>j', opts)
@@ -54,6 +50,18 @@ if not vim.g.vscode then
   keymap('n', '<Leader>gc', ':Telescope git_commits<CR>', opts)
   keymap('n', '<Leader>gb', ':Telescope git_bcommits<CR>', opts)
   keymap('n', '<Leader>gs', ':Telescope git_status<CR>', opts)
+
+  -- Bufferline
+  -- New buffer
+  keymap('n', '<S-b>', '<cmd>enew<CR>', opts)
+  -- Cycle trhough buffers
+  keymap('n', '<TAB>', '<cmd>BufferLineCycleNext<CR>', opts)
+  keymap('n', '<S-Tab>', '<cmd>BufferLineCyclePrev<CR>', opts)
+  -- Reorder buffers
+  keymap('n', '<S-h>', '<cmd>BufferLineMovePrev<CR>', opts)
+  keymap('n', '<S-l>', '<cmd>BufferLineMoveNext<CR>', opts)
+  -- Close buffer and hide terminal
+  keymap('n', '<C-w>', ':lua require("core.utils").close_buffer()<CR>', opts)
 end
 
 -- Normal --

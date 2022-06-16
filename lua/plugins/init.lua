@@ -32,7 +32,15 @@ local plugins = {
     config = function()
       require('plugins.configs.monokaipro')
     end
-  }
+  },
+
+   ['nvim-treesitter/nvim-treesitter'] = {
+    cond = nocode,
+    run = ':TSUpdate',
+    config = function()
+       require 'plugins.configs.treesitter'
+    end
+  },
 }
 
 require("core.packer").run(plugins)

@@ -3,6 +3,8 @@ local function nocode()
 end
 
 local plugins = {
+  ['nvim-lua/plenary.nvim'] = {},
+
   ["lewis6991/impatient.nvim"] = {},
 
   ["wbthomason/packer.nvim"] = {},
@@ -40,6 +42,20 @@ local plugins = {
     config = function()
        require 'plugins.configs.treesitter'
     end
+  },
+
+  ['nvim-telescope/telescope.nvim'] = {
+    cond = nocode,
+    cmd = 'Telescope',
+    config = function()
+       require 'plugins.configs.telescope'
+    end
+  },
+
+  ['nvim-telescope/telescope-fzy-native.nvim'] = {
+    cond = nocode,
+    requires = { 'nvim-telescope/telescope.nvim' },
+    run = 'make'
   },
 }
 

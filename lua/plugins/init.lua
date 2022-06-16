@@ -73,6 +73,13 @@ local plugins = {
     config = function()
       require 'plugins.configs.alpha'
     end
+  },
+
+  ['lukas-reineke/indent-blankline.nvim'] = {
+    cond = nocode,
+    config = function()
+      require 'plugins.configs.blankline'
+    end
   }
 }
 

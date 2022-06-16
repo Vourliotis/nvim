@@ -89,6 +89,16 @@ local plugins = {
       require 'plugins.configs.bufferline'
     end
   },
+
+  ['nvim-lualine/lualine.nvim'] = {
+    cond = nocode,
+    requires = {
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function()
+      require 'plugins.configs.lualine'
+    end
+  }
 }
 
 require("core.packer").run(plugins)

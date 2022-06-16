@@ -18,7 +18,9 @@ vim.opt.langmap = 'ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,�
 if not vim.g.vscode then
   vim.g.mapleader = ' '
   vim.g.maplocalleader = ' '
-  keymap('n', '<leader>e', ':Lex 30<cr>', opts)
+
+  -- nvim-tree
+  keymap('n', '<leader>e', '<cmd> NvimTreeToggle <CR>', opts)
 
   -- Resize with arrows
   keymap('n', '<C-Up>', ':resize +2<CR>', opts)

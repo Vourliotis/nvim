@@ -67,6 +67,13 @@ local plugins = {
       require 'plugins.configs.nvimtree'
     end
   },
+
+  ['goolord/alpha-nvim'] = {
+    cond = nocode,
+    config = function()
+      require 'plugins.configs.alpha'
+    end
+  }
 }
 
 require("core.packer").run(plugins)

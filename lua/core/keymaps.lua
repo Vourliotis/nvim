@@ -35,6 +35,23 @@ if not vim.g.vscode then
   keymap('n', '<C-j>', '<C-w>j', opts)
   keymap('n', '<C-k>', '<C-w>k', opts)
   keymap('n', '<C-l>', '<C-w>l', opts)
+
+  -- Telescope
+  -- Show key bindings list
+  keymap('n', '<Leader>?', ':Telescope keymaps<CR>', opts)
+  -- Search pattern
+  keymap('n', '<leader>fw', ':Telescope live_grep<CR>', opts)
+  -- Find files by name
+  keymap('n', '<Leader>ff', ':Telescope find_files<CR>', opts)
+  keymap('n', '<Leader>fa', ':Telescope find_files follow=true no_ignore=true hidden=true<CR>', opts)
+  -- Search in files history
+  keymap('n', '<Leader>fo', ':Telescope oldfiles<CR>', opts)
+  -- Search in active buffers list
+  keymap('n', '<Leader>fb', ':Telescope buffers<CR>', opts)
+  -- git
+  keymap('n', '<Leader>gc', ':Telescope git_commits<CR>', opts)
+  keymap('n', '<Leader>gb', ':Telescope git_bcommits<CR>', opts)
+  keymap('n', '<Leader>gs', ':Telescope git_status<CR>', opts)
 end
 
 -- Normal --

@@ -62,6 +62,12 @@ if not vim.g.vscode then
   keymap('n', '<S-l>', '<cmd>BufferLineMoveNext<CR>', opts)
   -- Close buffer and hide terminal
   keymap('n', '<C-w>', ':lua require("core.utils").close_buffer()<CR>', opts)
+
+  -- Git
+  keymap('n', '<leader>gd', '<cmd>VGit buffer_diff_preview<CR>', opts)
+  keymap('n', '<leader>gh', '<cmd>VGit buffer_history_preview<CR>', opts)
+  keymap('n', '<C-]>', '<cmd>VGit hunk_down<CR>', opts)
+  keymap('n', '<C-[>', '<cmd>VGit hunk_up<CR>', opts)
 end
 
 -- Normal --

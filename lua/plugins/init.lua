@@ -113,6 +113,14 @@ local plugins = {
       require 'plugins.configs.vgit'
     end
   },
+
+  ['akinsho/toggleterm.nvim'] = {
+    cond = nocode,
+    tag = 'v1.*',
+    config = function()
+      require 'plugins.configs.toggleterm'
+    end
+  }
 }
 
 require("core.packer").run(plugins)

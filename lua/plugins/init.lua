@@ -7,7 +7,12 @@ local plugins = {
 
   ["lewis6991/impatient.nvim"] = {},
 
-  ["wbthomason/packer.nvim"] = {},
+  -- ["wbthomason/packer.nvim"] = {},
+
+  -- Fixes sequencing of optional plugins
+  ['ifplusor/packer.nvim'] = {
+    branch = 'fix-sequencing'
+  },
 
   ['phaazon/hop.nvim'] = {
     config = function()
@@ -92,13 +97,22 @@ local plugins = {
 
   ['nvim-lualine/lualine.nvim'] = {
     cond = nocode,
+    after = 'git-blame.nvim',
     requires = {
       'kyazdani42/nvim-web-devicons',
+      'f-person/git-blame.nvim'
     },
     config = function()
       require 'plugins.configs.lualine'
     end
-  }
+  },
+
+  ['tanvirtin/vgit.nvim'] = {
+    cond = nocode,
+    config = function()
+      require 'plugins.configs.vgit'
+    end
+  },
 }
 
 require("core.packer").run(plugins)

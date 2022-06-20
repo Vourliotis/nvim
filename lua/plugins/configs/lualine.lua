@@ -10,7 +10,7 @@ vim.g.gitblame_date_format = '%r'
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'seoul256',
+    theme = 'kanagawa',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},

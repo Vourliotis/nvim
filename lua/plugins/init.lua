@@ -41,11 +41,10 @@ local plugins = {
     end,
   },
 
-  ['https://gitlab.com/__tpb/monokai-pro.nvim'] = {
+  ['rebelot/kanagawa.nvim'] = {
     cond = nocode,
-    as = 'monokai-pro.nvim',
     config = function()
-      require('plugins.configs.monokaipro')
+      require('plugins.configs.kanagawa')
     end
   },
 

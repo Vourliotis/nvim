@@ -26,6 +26,14 @@ local plugins = {
     end
   },
 
+  ['kyazdani42/nvim-web-devicons'] = {
+    cond = nocode
+  },
+
+  ['f-person/git-blame.nvim'] = {
+    cond = nocode
+  },
+
   ['preservim/nerdcommenter'] = {
     cond = nocode,
     config = function()
@@ -64,9 +72,7 @@ local plugins = {
 
   ['kyazdani42/nvim-tree.lua'] = {
     cond = nocode,
-    requires = {
-      'kyazdani42/nvim-web-devicons',
-    },
+    after = 'nvim-web-devicons',
     config = function()
       require 'plugins.configs.nvimtree'
     end
@@ -96,11 +102,7 @@ local plugins = {
 
   ['nvim-lualine/lualine.nvim'] = {
     cond = nocode,
-    after = 'git-blame.nvim',
-    requires = {
-      'kyazdani42/nvim-web-devicons',
-      'f-person/git-blame.nvim'
-    },
+    after = { 'nvim-web-devicons', 'git-blame.nvim' },
     config = function()
       require 'plugins.configs.lualine'
     end

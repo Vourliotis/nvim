@@ -53,13 +53,12 @@ local plugins = {
     cond = nocode,
     cmd = 'Telescope',
     config = function()
-       require 'plugins.configs.telescope'
+      require 'plugins.configs.telescope'
     end
   },
 
-  ['nvim-telescope/telescope-fzy-native.nvim'] = {
+  ['nvim-telescope/telescope-fzf-native.nvim'] = {
     cond = nocode,
-    requires = { 'nvim-telescope/telescope.nvim' },
     run = 'make'
   },
 

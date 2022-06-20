@@ -59,12 +59,14 @@ telescope.setup({
     commands = defaults(),
     help_tags = defaults(),
   },
-  extension = {
-    fzy_native = {
+  extensions = {
+    fzf_native = {
+      fuzzy = true,
       override_generic_sorter = true,
-      override_file_sorter = true
+      override_file_sorter = true,
+      case_mode = 'smart_case'
     },
   }
 })
 
-telescope.load_extension('fzy_native')
+telescope.load_extension('fzf')

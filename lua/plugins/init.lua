@@ -120,6 +120,68 @@ local plugins = {
     config = function()
       require 'plugins.configs.toggleterm'
     end
+  },
+
+  ['rafamadriz/friendly-snippets'] = {
+    cond = nocode,
+    event = 'InsertEnter'
+  },
+
+  ['hrsh7th/nvim-cmp'] = {
+    cond = nocode,
+    after = 'friendly-snippets',
+    config = function()
+      require 'plugins.configs.cmp'
+    end,
+   },
+
+   ['L3MON4D3/LuaSnip'] = {
+    cond = nocode,
+    after = 'nvim-cmp',
+    config = function()
+      require 'plugins.configs.luasnip'
+    end,
+   },
+
+  ['saadparwaiz1/cmp_luasnip'] = {
+    cond = nocode,
+    after = 'LuaSnip',
+  },
+
+  ['hrsh7th/cmp-nvim-lua'] = {
+    cond = nocode,
+    after = 'cmp_luasnip',
+  },
+
+  ['hrsh7th/cmp-nvim-lsp'] = {
+    cond = nocode,
+    after = 'cmp-nvim-lua',
+  },
+
+  ['hrsh7th/cmp-buffer'] = {
+    cond = nocode,
+    after = 'cmp-nvim-lsp',
+  },
+
+  ["hrsh7th/cmp-path"] = {
+    cond = nocode,
+    after = 'cmp-buffer',
+  },
+
+  ['windwp/nvim-autopairs'] = {
+    cond = nocode,
+    after = 'cmp-path',
+    config = function()
+      require 'plugins.configs.autopairs'
+    end
+  },
+
+  ['RRethy/nvim-treesitter-endwise'] = {
+    cond = nocode,
+    after = 'nvim-treesitter',
+    config = function()
+      require('nvim-treesitter.configs').setup { endwise = { enable = true } }
+    end
   }
 }
 

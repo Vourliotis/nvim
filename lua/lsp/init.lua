@@ -56,7 +56,7 @@ nvim_lsp.solargraph.setup({
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
   single_file_support = true,
-  settings = { solargraph = { diagnostics = true } },
+  settings = { solargraph = { diagnostics = false } },
 })
 
 nvim_lsp.tsserver.setup({

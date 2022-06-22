@@ -182,6 +182,19 @@ local plugins = {
     config = function()
       require('nvim-treesitter.configs').setup { endwise = { enable = true } }
     end
+  },
+
+  ['neovim/nvim-lspconfig'] = {
+    cond = nocode,
+    after = 'cmp-path'
+  },
+
+  ['williamboman/nvim-lsp-installer'] = {
+    cond = nocode,
+    after = 'nvim-lspconfig',
+    config = function()
+      require 'lsp'
+    end
   }
 }
 

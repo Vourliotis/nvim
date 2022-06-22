@@ -195,6 +195,14 @@ local plugins = {
     config = function()
       require 'lsp'
     end
+  },
+
+  ['jose-elias-alvarez/null-ls.nvim'] = {
+    cond = nocode,
+    after = 'nvim-lsp-installer',
+    config = function()
+      require 'plugins.configs.null-ls'
+    end
   }
 }
 

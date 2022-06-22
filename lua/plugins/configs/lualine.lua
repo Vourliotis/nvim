@@ -1,12 +1,5 @@
 local git_blame = require('gitblame')
 
--- Disable virtual text
-vim.g.gitblame_display_virtual_text = 0
-
--- Display time relative
-vim.g.gitblame_message_template = '<summary> • <date> • <author>'
-vim.g.gitblame_date_format = '%r'
-
 require('lualine').setup {
   options = {
     icons_enabled = true,

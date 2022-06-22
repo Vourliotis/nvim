@@ -31,7 +31,12 @@ local plugins = {
   },
 
   ['f-person/git-blame.nvim'] = {
-    cond = nocode
+    cond = nocode,
+    setup = function ()
+      vim.g.gitblame_date_format = "%r"
+      vim.g.gitblame_message_template = "<summary> • <date> • <author>"
+      vim.g.gitblame_display_virtual_text = 0
+    end
   },
 
   ['preservim/nerdcommenter'] = {

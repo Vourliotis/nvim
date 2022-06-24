@@ -1,29 +1,29 @@
 local present, lsp_installer = pcall(require, 'nvim-lsp-installer')
 
 if not present then
-   return
+  return
 end
 
 local options = {
-   automatic_installation = true,
-   ui = {
-      icons = {
-         server_installed = ' ',
-         server_pending = ' ',
-         server_uninstalled = ' ﮊ',
-      },
-      keymaps = {
-         toggle_server_expand = '<CR>',
-         install_server = 'i',
-         update_server = 'u',
-         check_server_version = 'c',
-         update_all_servers = 'U',
-         check_outdated_servers = 'C',
-         uninstall_server = 'X',
-      },
-   },
+  automatic_installation = true,
+  ui = {
+    icons = {
+      server_installed = ' ',
+      server_pending = ' ',
+      server_uninstalled = ' ﮊ',
+    },
+    keymaps = {
+      toggle_server_expand = '<CR>',
+      install_server = 'i',
+      update_server = 'u',
+      check_server_version = 'c',
+      update_all_servers = 'U',
+      check_outdated_servers = 'C',
+      uninstall_server = 'X',
+    },
+  },
 
-   max_concurrent_installers = 10,
+  max_concurrent_installers = 10,
 }
 
 lsp_installer.setup(options)
@@ -66,22 +66,22 @@ nvim_lsp.tsserver.setup({
   root_dir = nvim_lsp.util.root_pattern('package.json'),
 })
 
-nvim_lsp.sumneko_lua.setup {
-   on_attach = handlers.lsp_on_attach,
-   capabilities = capabilities,
-   settings = {
-      Lua = {
-         diagnostics = {
-            globals = { 'vim' },
-         },
-         workspace = {
-            library = {
-               [vim.fn.expand '$VIMRUNTIME/lua'] = true,
-               [vim.fn.expand '$VIMRUNTIME/lua/vim/lsp'] = true,
-            },
-            maxPreload = 100000,
-            preloadFileSize = 10000,
-         },
+nvim_lsp.sumneko_lua.setup({
+  on_attach = handlers.lsp_on_attach,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
       },
-   },
-}
+      workspace = {
+        library = {
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+        },
+        maxPreload = 100000,
+        preloadFileSize = 10000,
+      },
+    },
+  },
+})

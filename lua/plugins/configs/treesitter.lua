@@ -1,4 +1,4 @@
-local present, treesitter = pcall(require, "nvim-treesitter.configs")
+local present, treesitter = pcall(require, 'nvim-treesitter.configs')
 
 if not present then
   return
@@ -13,7 +13,7 @@ local options = {
     'html',
     'css',
     'scss',
-    'json'
+    'json',
   },
   highlight = {
     enable = true,

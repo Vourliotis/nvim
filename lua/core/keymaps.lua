@@ -68,6 +68,9 @@ if not vim.g.vscode then
   keymap('n', '<leader>gh', '<cmd>VGit buffer_history_preview<CR>', opts)
   keymap('n', '<C-]>', '<cmd>VGit hunk_down<CR>', opts)
   keymap('n', '<C-[>', '<cmd>VGit hunk_up<CR>', opts)
+
+  -- LSP
+  keymap('n', "<leader>'f", ':lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
 -- Normal --

@@ -5,12 +5,12 @@ local keymap = vim.keymap.set
 
 -- Add borders to hover windows.
 M.hover = lsp.with(lsp.handlers.hover, {
-  border = "single",
+  border = 'single',
 })
 
 -- Add borders to signature help windows.
 M.signature_help = lsp.with(lsp.handlers.signature_help, {
-  border = "single",
+  border = 'single',
 })
 
 -- Custom on attach function.
@@ -28,7 +28,7 @@ M.on_attach = function(client, bufr)
 
   -- Formatting is conditional on server capabilities.
   if client.server_capabilities.document_formatting then
-    if vim.fn.has("nvim-0.8") == 1 then
+    if vim.fn.has('nvim-0.8') == 1 then
       keymap('n', "'f", '<cmd>lua vim.lsp.buf.format()<CR>', opts)
     else
       keymap('n', "'f", '<cmd>lua vim.lsp.buf.formatting_sync()<CR>', opts)
@@ -42,7 +42,7 @@ end
 -- Custom on attach function which also disables formatting where null-ls will
 -- be used to format.
 M.lsp_on_attach_no_formatting = function(client)
-  if vim.fn.has("nvim-0.8") == 1 then
+  if vim.fn.has('nvim-0.8') == 1 then
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
   else

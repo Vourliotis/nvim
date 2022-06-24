@@ -4,13 +4,13 @@ local telescope = require('telescope')
 local actions = require('telescope.actions')
 
 command('TGrep', function(input)
-  require('telescope.builtin').grep_string({search = input.args})
-end, {nargs = 1})
+  require('telescope.builtin').grep_string({ search = input.args })
+end, { nargs = 1 })
 
 local defaults = function(title)
   return {
     prompt_title = title,
-    results_title = false
+    results_title = false,
   }
 end
 
@@ -18,7 +18,7 @@ local dropdown = function(title, previewer)
   return {
     prompt_title = title,
     previewer = previewer or false,
-    theme = 'dropdown'
+    theme = 'dropdown',
   }
 end
 
@@ -29,7 +29,7 @@ telescope.setup({
         ['<esc>'] = actions.close,
         ['<C-k>'] = actions.move_selection_previous,
         ['<C-j>'] = actions.move_selection_next,
-      }
+      },
     },
 
     -- Default layout options
@@ -40,7 +40,7 @@ telescope.setup({
     layout_config = {
       preview_cutoff = 25,
       mirror = true,
-      prompt_position = 'top'
+      prompt_position = 'top',
     },
   },
   pickers = {
@@ -64,9 +64,9 @@ telescope.setup({
       fuzzy = true,
       override_generic_sorter = true,
       override_file_sorter = true,
-      case_mode = 'smart_case'
+      case_mode = 'smart_case',
     },
-  }
+  },
 })
 
 telescope.load_extension('fzf')

@@ -7,7 +7,7 @@ require('vgit').setup({
       enabled = false,
     },
     scene = {
-      diff_preference = "split",
+      diff_preference = 'split',
     },
-  }
+  },
 })

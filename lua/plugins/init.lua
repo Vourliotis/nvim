@@ -5,38 +5,38 @@ end
 local plugins = {
   ['nvim-lua/plenary.nvim'] = {},
 
-  ["lewis6991/impatient.nvim"] = {},
+  ['lewis6991/impatient.nvim'] = {},
 
   -- ["wbthomason/packer.nvim"] = {},
 
   -- Fixes sequencing of optional plugins
   ['ifplusor/packer.nvim'] = {
-    branch = 'fix-sequencing'
+    branch = 'fix-sequencing',
   },
 
   ['phaazon/hop.nvim'] = {
     config = function()
       require('plugins.configs.hop')
-    end
+    end,
   },
 
   ['unblevable/quick-scope'] = {
     config = function()
       require('plugins.configs.quickscope')
-    end
+    end,
   },
 
   ['kyazdani42/nvim-web-devicons'] = {
-    cond = nocode
+    cond = nocode,
   },
 
   ['f-person/git-blame.nvim'] = {
     cond = nocode,
-    setup = function ()
-      vim.g.gitblame_date_format = "%r"
-      vim.g.gitblame_message_template = "<summary> • <date> • <author>"
+    setup = function()
+      vim.g.gitblame_date_format = '%r'
+      vim.g.gitblame_message_template = '<summary> • <date> • <author>'
       vim.g.gitblame_display_virtual_text = 0
-    end
+    end,
   },
 
   ['preservim/nerdcommenter'] = {
@@ -50,103 +50,103 @@ local plugins = {
     cond = nocode,
     config = function()
       require('plugins.configs.kanagawa')
-    end
+    end,
   },
 
-   ['nvim-treesitter/nvim-treesitter'] = {
+  ['nvim-treesitter/nvim-treesitter'] = {
     cond = nocode,
     run = ':TSUpdate',
     config = function()
-       require 'plugins.configs.treesitter'
-    end
+      require('plugins.configs.treesitter')
+    end,
   },
 
   ['nvim-telescope/telescope.nvim'] = {
     cond = nocode,
     cmd = 'Telescope',
     config = function()
-      require 'plugins.configs.telescope'
-    end
+      require('plugins.configs.telescope')
+    end,
   },
 
   ['nvim-telescope/telescope-fzf-native.nvim'] = {
     cond = nocode,
-    run = 'make'
+    run = 'make',
   },
 
   ['kyazdani42/nvim-tree.lua'] = {
     cond = nocode,
     after = 'nvim-web-devicons',
     config = function()
-      require 'plugins.configs.nvimtree'
-    end
+      require('plugins.configs.nvimtree')
+    end,
   },
 
   ['goolord/alpha-nvim'] = {
     cond = nocode,
     config = function()
-      require 'plugins.configs.alpha'
-    end
+      require('plugins.configs.alpha')
+    end,
   },
 
   ['lukas-reineke/indent-blankline.nvim'] = {
     cond = nocode,
     config = function()
-      require 'plugins.configs.blankline'
-    end
+      require('plugins.configs.blankline')
+    end,
   },
 
   ['akinsho/bufferline.nvim'] = {
     tag = 'v2.*',
     cond = nocode,
     config = function()
-      require 'plugins.configs.bufferline'
-    end
+      require('plugins.configs.bufferline')
+    end,
   },
 
   ['nvim-lualine/lualine.nvim'] = {
     cond = nocode,
     after = { 'nvim-web-devicons', 'git-blame.nvim' },
     config = function()
-      require 'plugins.configs.lualine'
-    end
+      require('plugins.configs.lualine')
+    end,
   },
 
   ['tanvirtin/vgit.nvim'] = {
     cond = nocode,
     config = function()
-      require 'plugins.configs.vgit'
-    end
+      require('plugins.configs.vgit')
+    end,
   },
 
   ['akinsho/toggleterm.nvim'] = {
     cond = nocode,
     tag = 'v1.*',
     config = function()
-      require 'plugins.configs.toggleterm'
-    end
+      require('plugins.configs.toggleterm')
+    end,
   },
 
   ['rafamadriz/friendly-snippets'] = {
     cond = nocode,
-    event = 'InsertEnter'
+    event = 'InsertEnter',
   },
 
   ['hrsh7th/nvim-cmp'] = {
     cond = nocode,
     after = 'friendly-snippets',
     config = function()
-      require 'plugins.configs.cmp'
+      require('plugins.configs.cmp')
     end,
-   },
+  },
 
-   ['L3MON4D3/LuaSnip'] = {
+  ['L3MON4D3/LuaSnip'] = {
     cond = nocode,
     after = 'nvim-cmp',
     config = function()
-      require 'plugins.configs.luasnip'
+      require('plugins.configs.luasnip')
     end,
-   },
+  },
 
   ['saadparwaiz1/cmp_luasnip'] = {
     cond = nocode,
@@ -168,7 +168,7 @@ local plugins = {
     after = 'cmp-nvim-lsp',
   },
 
-  ["hrsh7th/cmp-path"] = {
+  ['hrsh7th/cmp-path'] = {
     cond = nocode,
     after = 'cmp-buffer',
   },
@@ -177,45 +177,45 @@ local plugins = {
     cond = nocode,
     after = 'cmp-path',
     config = function()
-      require 'plugins.configs.autopairs'
-    end
+      require('plugins.configs.autopairs')
+    end,
   },
 
   ['RRethy/nvim-treesitter-endwise'] = {
     cond = nocode,
     after = 'nvim-treesitter',
     config = function()
-      require('nvim-treesitter.configs').setup { endwise = { enable = true } }
-    end
+      require('nvim-treesitter.configs').setup({ endwise = { enable = true } })
+    end,
   },
 
   ['neovim/nvim-lspconfig'] = {
     cond = nocode,
-    after = 'cmp-path'
+    after = 'cmp-path',
   },
 
   ['williamboman/nvim-lsp-installer'] = {
     cond = nocode,
     after = 'nvim-lspconfig',
     config = function()
-      require 'lsp'
-    end
+      require('lsp')
+    end,
   },
 
   ['jose-elias-alvarez/null-ls.nvim'] = {
     cond = nocode,
     after = 'nvim-lsp-installer',
     config = function()
-      require 'plugins.configs.null-ls'
-    end
+      require('plugins.configs.null-ls')
+    end,
   },
 
   ['norcalli/nvim-colorizer.lua'] = {
     cond = nocode,
     config = function()
       require('colorizer').setup()
-    end
-  }
+    end,
+  },
 }
 
-require("core.packer").run(plugins)
+require('core.packer').run(plugins)

@@ -208,6 +208,13 @@ local plugins = {
     config = function()
       require 'plugins.configs.null-ls'
     end
+  },
+
+  ['norcalli/nvim-colorizer.lua'] = {
+    cond = nocode,
+    config = function()
+      require('colorizer').setup()
+    end
   }
 }
 

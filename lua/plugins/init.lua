@@ -39,10 +39,10 @@ local plugins = {
     end,
   },
 
-  ['preservim/nerdcommenter'] = {
+  ['numToStr/Comment.nvim'] = {
     cond = nocode,
     config = function()
-      require('plugins.configs.nerdcommenter')
+      require('plugins.configs.comment')
     end,
   },
 

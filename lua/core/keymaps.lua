@@ -72,6 +72,10 @@ if not vim.g.vscode then
 
   -- LSP
   keymap('n', "<leader>'f", ':lua vim.lsp.buf.formatting()<CR>', opts)
+
+  -- Comments
+  keymap('n', '<C-_>', 'gcc', { silent = true })
+  keymap('v', '<C-_>', 'gcgv', { silent = true })
 end
 
 -- Normal --

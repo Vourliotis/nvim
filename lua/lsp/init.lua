@@ -43,14 +43,6 @@ local capabilities = lsp.protocol.make_client_capabilities()
 capabilities = cmp_lsp.update_capabilities(capabilities)
 
 -- The Language Servers.
-nvim_lsp.html.setup({
-  on_attach = handlers.lsp_on_attach,
-  capabilities = capabilities,
-  cmd = { 'vscode-html-language-server', '--stdio' },
-  filetypes = { 'eruby', 'html' },
-  flags = { debounce_text_changes = 300 },
-})
-
 nvim_lsp.solargraph.setup({
   on_attach = handlers.lsp_on_attach_no_formatting,
   capabilities = capabilities,

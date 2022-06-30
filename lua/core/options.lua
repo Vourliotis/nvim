@@ -36,12 +36,12 @@ for option, setting in pairs(options) do
   vim.opt[option] = setting
 end
 
-vim.opt.shortmess:append 'c'               -- Stop giving messages to ins-compleciton-menu
 vim.g.loaded_ruby_provider = 0             -- Disables the ruby provider
 vim.g.loaded_node_provider = 0             -- Disables the node provider
 
+vim.cmd 'autocmd FileType * set formatoptions-=cro'
 vim.cmd 'set whichwrap+=<,>,[,],h,l'
-vim.cmd [[set iskeyword+=-]]
+vim.cmd 'set iskeyword+=-'
 vim.cmd [[
   augroup highlight_yank
   autocmd!

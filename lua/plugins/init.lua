@@ -39,6 +39,13 @@ local plugins = {
     end,
   },
 
+  ['akinsho/git-conflict.nvim'] = {
+    cond = nocode,
+    config = function()
+      require('git-conflict').setup()
+    end
+  },
+
   ['numToStr/Comment.nvim'] = {
     cond = nocode,
     config = function()

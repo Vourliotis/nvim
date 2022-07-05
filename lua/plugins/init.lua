@@ -223,6 +223,13 @@ local plugins = {
       require('colorizer').setup()
     end,
   },
+
+  ['petertriho/nvim-scrollbar'] = {
+    cond = nocode,
+    config = function()
+      require('scrollbar').setup()
+    end
+  }
 }
 
 require('core.packer').run(plugins)

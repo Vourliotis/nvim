@@ -29,7 +29,8 @@ local options = {                          -- :help options
   sidescrolloff = 8,                       -- Minimal number of screen columns to keep left and right the cursor
   cmdheight = 2,                           -- More space in the neovim command line for displaying messages
   pumheight = 10,                          -- Make popup menu smaller
-  background = 'dark'                      -- Tell NeoVim what the background color is
+  background = 'dark',                     -- Tell NeoVim what the background color is
+  laststatus = 3                           -- Use global statusline
 }
 
 for option, setting in pairs(options) do

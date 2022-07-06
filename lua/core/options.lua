@@ -38,6 +38,7 @@ end
 
 vim.g.loaded_ruby_provider = 0             -- Disables the ruby provider
 vim.g.loaded_node_provider = 0             -- Disables the node provider
+vim.g.loaded_perl_provider = 0             -- Disables the perl provider
 
 vim.cmd 'autocmd FileType * set formatoptions-=cro'
 vim.cmd 'set whichwrap+=<,>,[,],h,l'

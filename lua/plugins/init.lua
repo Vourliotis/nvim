@@ -113,7 +113,7 @@ local plugins = {
 
   ['nvim-lualine/lualine.nvim'] = {
     cond = nocode,
-    after = { 'nvim-web-devicons', 'git-blame.nvim' },
+    after = { 'nvim-web-devicons', 'git-blame.nvim', 'kanagawa.nvim' },
     config = function()
       require('plugins.configs.lualine')
     end,

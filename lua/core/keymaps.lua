@@ -19,7 +19,7 @@ if not vim.g.vscode then
   vim.g.mapleader = ' '
   vim.g.maplocalleader = ' '
 
-  keymap('n', '<leader>n', '<cmd> noh <CR>', opts)
+  keymap('n', '<leader>n', '<cmd>noh<CR><cmd>echo ""<CR>', opts)
   -- nvim-tree
   keymap('n', '<leader>e', '<cmd> NvimTreeToggle <CR>', opts)
 

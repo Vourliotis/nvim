@@ -73,6 +73,9 @@ if not vim.g.vscode then
 
   -- LSP
   keymap('n', "<leader>'f", ':lua vim.lsp.buf.formatting()<CR>', opts)
+  keymap('n', '<leader>k', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
+  keymap('n', '[e', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
+  keymap('n', ']e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
 
   -- Comments
   keymap('n', '<C-_>', 'gcc', { silent = true })

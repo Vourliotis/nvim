@@ -43,7 +43,7 @@ local plugins = {
     cond = nocode,
     config = function()
       require('git-conflict').setup()
-    end
+    end,
   },
 
   ['numToStr/Comment.nvim'] = {
@@ -228,8 +228,8 @@ local plugins = {
     cond = nocode,
     config = function()
       require('scrollbar').setup()
-    end
-  }
+    end,
+  },
 }
 
 require('core.packer').run(plugins)

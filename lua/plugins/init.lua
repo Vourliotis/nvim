@@ -213,7 +213,7 @@ local plugins = {
     cond = nocode,
     after = 'nvim-lsp-installer',
     config = function()
-      require('plugins.configs.null-ls')
+      require('lsp.configs.null-ls')
     end,
   },
 

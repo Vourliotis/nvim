@@ -239,6 +239,15 @@ local plugins = {
       require('scrollbar').setup()
     end,
   },
-}
 
+  ['lukas-reineke/virt-column.nvim'] = {
+    cond = nocode,
+    config = function()
+      require('virt-column').setup({
+        char = '▕',
+        vim.cmd('highlight clear ColorColumn'),
+      })
+    end,
+  },
+}
 require('core.packer').run(plugins)

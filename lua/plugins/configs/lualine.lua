@@ -75,13 +75,13 @@ local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
-ins_left {
+ins_left({
   function()
     return '▊'
   end,
   color = { fg = colors.orange },
   padding = { left = 0, right = 1 },
-}
+})
 
 ins_left({
   'filename',
@@ -134,7 +134,7 @@ ins_right({
 
 ins_right({
   'filetype',
-  color = { fg = colors.fg, gui = 'bold' }
+  color = { fg = colors.fg, gui = 'bold' },
 })
 
 ins_right({
@@ -143,6 +143,5 @@ ins_right({
   color = { fg = colors.yellow, gui = 'bold' },
   padding = { left = 1, right = 1 },
 })
-
 
 lualine.setup(config)

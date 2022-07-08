@@ -1,3 +1,4 @@
+-- stylua: ignore
 local options = {                          -- :help options
   backup = false,                          -- Don't create a backup file
   clipboard = 'unnamedplus',               -- Allow NeoVim to access system clipboard
@@ -37,20 +38,21 @@ for option, setting in pairs(options) do
   vim.opt[option] = setting
 end
 
-vim.g.loaded_ruby_provider = 0             -- Disables the ruby provider
-vim.g.loaded_node_provider = 0             -- Disables the node provider
-vim.g.loaded_perl_provider = 0             -- Disables the perl provider
+-- Disable providers
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
 
-vim.cmd 'autocmd FileType * set formatoptions-=cro'
-vim.cmd 'set whichwrap+=<,>,[,],h,l'
-vim.cmd 'set iskeyword+=-'
-vim.cmd [[
+vim.cmd('autocmd FileType * set formatoptions-=cro')
+vim.cmd('set whichwrap+=<,>,[,],h,l')
+vim.cmd('set iskeyword+=-')
+vim.cmd([[
   augroup highlight_yank
   autocmd!
   au TextYankPost * silent! lua vim.highlight.on_yank({timeout=200})
   augroup END
-]]
+]])
 
 if not vim.g.vscode then
-  vim.cmd 'autocmd FileType ruby set colorcolumn=80'
+  vim.cmd('autocmd FileType ruby set colorcolumn=80')
 end

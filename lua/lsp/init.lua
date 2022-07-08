@@ -82,9 +82,9 @@ nvim_lsp.gopls.setup({
   on_attach = handlers.lsp_on_attach_no_formatting,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
-  cmd = {"gopls", "serve"},
-  filetypes = {"go", "gomod"},
-  root_dir = nvim_lsp.util.root_pattern("go.work", "go.mod", ".git"),
+  cmd = { 'gopls', 'serve' },
+  filetypes = { 'go', 'gomod' },
+  root_dir = nvim_lsp.util.root_pattern('go.work', 'go.mod', '.git'),
   settings = {
     gopls = {
       analyses = {

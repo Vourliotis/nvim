@@ -94,3 +94,9 @@ nvim_lsp.gopls.setup({
     },
   },
 })
+
+nvim_lsp.emmet_ls.setup({
+    on_attach = handlers.lsp_on_attach_no_formatting,
+    capabilities = capabilities,
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+})

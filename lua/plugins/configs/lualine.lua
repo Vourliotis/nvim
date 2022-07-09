@@ -127,7 +127,7 @@ ins_right({
 
 ins_right({
   function()
-    return ' '
+    return '%s{}'
   end,
   color = { bg = colors.red },
   padding = { left = -1 },
@@ -136,7 +136,7 @@ ins_right({
 
 ins_right({
   function()
-    return ' '
+    return '%s{}'
   end,
   color = { bg = colors.yellow },
   padding = { left = -1 },
@@ -145,7 +145,7 @@ ins_right({
 
 ins_right({
   function()
-    return ' '
+    return '%s{}'
   end,
   color = { bg = colors.green },
   padding = { left = -1 },
@@ -154,7 +154,7 @@ ins_right({
 
 ins_right({
   function()
-    return ' '
+    return '%s{}'
   end,
   color = { bg = colors.blue },
   padding = { left = -1 },

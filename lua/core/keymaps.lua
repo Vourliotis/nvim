@@ -83,6 +83,7 @@ if not vim.g.vscode then
 end
 
 -- Normal --
+keymap('n', 'K', '<Nop>', opts)
 keymap('n', 's', '<cmd>HopChar2<CR>', opts)
 
 -- Insert --

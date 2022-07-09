@@ -7,6 +7,7 @@ end
 local options = {
   indentLine_enabled = 1,
   char = '▏',
+  context_char = '▏',
   filetype_exclude = {
     'help',
     'terminal',
@@ -21,6 +22,7 @@ local options = {
   buftype_exclude = { 'terminal' },
   show_trailing_blankline_indent = false,
   show_first_indent_level = false,
+  show_current_context = true,
 }
 
 blankline.setup(options)

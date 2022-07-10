@@ -53,7 +53,3 @@ vim.cmd([[
   au TextYankPost * silent! lua vim.highlight.on_yank({timeout=200})
   augroup END
 ]])
-
-if not vim.g.vscode then
-  vim.cmd('autocmd FileType ruby set colorcolumn=80')
-end

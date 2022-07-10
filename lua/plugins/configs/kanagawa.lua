@@ -7,6 +7,7 @@ local colors = {
   statements = default_colors.autumnYellow,
   nvimtree = '#111119',
   bg_status = default_colors.sumiInk1,
+  fg_border = default_colors.fg,
 }
 
 local overrides = {
@@ -14,7 +15,6 @@ local overrides = {
   Statement = vim.tbl_extend('force', { fg = colors.statements }, default_config.statementStyle),
   Conditional = { fg = colors.keywords },
   NormalFloat = { fg = default_colors.fg, bg = colors.bg },
-  FloatBorder = { fg = default_colors.fg_border, bg = colors.bg },
   ColorColumn = { bg = default_colors.bg_light0 },
   CursorLineNr = { fg = default_colors.fg, bold = true },
   NvimTreeNormal = { fg = default_colors.fg, bg = colors.nvimtree },

@@ -103,11 +103,11 @@ local plugins = {
     end,
   },
 
-  ['akinsho/bufferline.nvim'] = {
-    tag = 'v2.*',
+  ['romgrk/barbar.nvim'] = {
     cond = nocode,
+    after = { 'nvim-tree.lua', 'nvim-web-devicons' },
     config = function()
-      require('plugins.configs.bufferline')
+      require('plugins.configs.barbar')
     end,
   },
 

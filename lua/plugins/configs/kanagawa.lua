@@ -19,11 +19,10 @@ local overrides = {
   CursorLineNr = { fg = default_colors.fg, bold = true },
   NvimTreeNormal = { fg = default_colors.fg, bg = colors.nvimtree },
   NvimTreeNormalNC = { link = 'NvimTreeNormal' },
-  BufferLineFill = { bg = colors.bg },
-  BufferLineBackground = { fg = default_colors.fg, bg = colors.bg },
-  BufferLineBufferVisible = { link = 'BufferLineBackground' },
-  BufferLineSeparator = { fg = colors.bg, bg = colors.bg },
-  BufferLineIndicatorSelected = { fg = colors.bg, bg = colors.bg },
+  BufferCurrent = { bold = true },
+  BufferCurrentMod = { fg = default_colors.springGreen, bold = true },
+  BufferVisibleMod = { fg = default_colors.autumnGreen },
+  BufferInactiveMod = { link = 'BufferVisibleMod' },
 }
 
 vim.cmd('highlight clear ColorColumn')

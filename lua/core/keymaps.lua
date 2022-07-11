@@ -54,16 +54,16 @@ if not vim.g.vscode then
   keymap('n', '<Leader>gs', ':Telescope git_status<CR>', opts)
 
   -- Bufferline
-  -- New buffer
-  keymap('n', '<S-b>', '<cmd>enew<CR>', opts)
-  -- Cycle trhough buffers
-  keymap('n', '<TAB>', '<cmd>BufferLineCycleNext<CR>', opts)
-  keymap('n', '<S-Tab>', '<cmd>BufferLineCyclePrev<CR>', opts)
-  -- Reorder buffers
-  keymap('n', '<S-h>', '<cmd>BufferLineMovePrev<CR>', opts)
-  keymap('n', '<S-l>', '<cmd>BufferLineMoveNext<CR>', opts)
-  -- Close buffer and hide terminal
-  keymap('n', '<C-w>', ':lua require("core.utils").close_buffer()<CR>', opts)
+  keymap('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', opts)
+  keymap('n', '<Tab>', '<Cmd>BufferNext<CR>', opts)
+  -- Re-order to previous/next
+  keymap('n', '<S-h>', '<Cmd>BufferMovePrevious<CR>', opts)
+  keymap('n', '<S-l>', '<Cmd>BufferMoveNext<CR>', opts)
+  -- Pin/unpin buffer
+  keymap('n', '<S-p>', '<Cmd>BufferPin<CR>', opts)
+  -- Close buffer
+  keymap('n', '<C-w>', '<Cmd>BufferClose<CR>', opts)
+  keymap('n', '<C-s>', '<Cmd>BufferPick<CR>', opts)
 
   -- Git
   keymap('n', '<leader>gd', '<cmd>VGit buffer_diff_preview<CR>', opts)

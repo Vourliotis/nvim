@@ -4,6 +4,9 @@ if not present then
   return
 end
 
+-- Diagnostics floating window
+require('lsp.configs.diagnostics')
+
 local options = {
   automatic_installation = true,
   ui = {

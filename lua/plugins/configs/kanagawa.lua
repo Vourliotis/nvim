@@ -15,7 +15,7 @@ local overrides = {
   Statement = vim.tbl_extend('force', { fg = colors.statements }, default_config.statementStyle),
   Conditional = { fg = colors.keywords },
   NormalFloat = { fg = default_colors.fg, bg = colors.bg },
-  ColorColumn = { bg = default_colors.bg_light0 },
+  ColorColumn = { bg = colors.bg },
   CursorLineNr = { fg = default_colors.fg, bold = true },
   NvimTreeNormal = { fg = default_colors.fg, bg = colors.nvimtree },
   NvimTreeNormalNC = { link = 'NvimTreeNormal' },
@@ -25,6 +25,8 @@ local overrides = {
   BufferLineSeparator = { fg = colors.bg, bg = colors.bg },
   BufferLineIndicatorSelected = { fg = colors.bg, bg = colors.bg },
 }
+
+vim.cmd('highlight clear ColorColumn')
 
 require('kanagawa').setup({
   undercurl = true,

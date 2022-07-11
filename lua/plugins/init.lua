@@ -245,7 +245,6 @@ local plugins = {
     config = function()
       require('virt-column').setup({
         char = '▕',
-        vim.cmd('highlight clear ColorColumn'),
       })
     end,
   },

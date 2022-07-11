@@ -217,15 +217,6 @@ local plugins = {
     end,
   },
 
-  ['glepnir/lspsaga.nvim'] = {
-    cond = nocode,
-    branch = 'main',
-    after = 'nvim-lsp-installer',
-    config = function()
-      require('lsp.configs.lspsaga')
-    end,
-  },
-
   ['norcalli/nvim-colorizer.lua'] = {
     cond = nocode,
     config = function()

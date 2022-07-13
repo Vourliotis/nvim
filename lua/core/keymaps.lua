@@ -60,7 +60,7 @@ if not vim.g.vscode then
   keymap('n', '<S-h>', '<Cmd>BufferMovePrevious<CR>', opts)
   keymap('n', '<S-l>', '<Cmd>BufferMoveNext<CR>', opts)
   -- Pin/unpin buffer
-  keymap('n', '<S-p>', '<Cmd>BufferPin<CR>', opts)
+  keymap('n', '<C-p>', '<Cmd>BufferPin<CR>', opts)
   -- Close buffer
   keymap('n', '<C-w>', '<Cmd>BufferClose<CR>', opts)
   keymap('n', '<C-s>', '<Cmd>BufferPick<CR>', opts)

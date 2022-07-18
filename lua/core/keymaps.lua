@@ -79,6 +79,10 @@ if not vim.g.vscode then
   -- Comments
   keymap('n', '<C-_>', 'gcc', { silent = true })
   keymap('v', '<C-_>', 'gcgv', { silent = true })
+
+  -- Harpoon
+  keymap('n', '<leader>hm', ':lua require("harpoon.mark").add_file()<CR>', opts)
+  keymap('n', '<leader>hl', ':Telescope harpoon marks<CR>', opts)
 end
 
 -- Normal --

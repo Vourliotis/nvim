@@ -59,6 +59,13 @@ local plugins = {
     end,
   },
 
+  ['ThePrimeagen/harpoon'] = {
+    cond = nocode,
+    config = function()
+      require('plugins.configs.harpoon')
+    end,
+  },
+
   ['olimorris/persisted.nvim'] = {
     cond = nocode,
     config = function()
@@ -69,7 +76,7 @@ local plugins = {
   ['nvim-telescope/telescope.nvim'] = {
     cond = nocode,
     cmd = 'Telescope',
-    after = 'persisted.nvim',
+    after = { 'persisted.nvim', 'harpoon' },
     config = function()
       require('plugins.configs.telescope')
     end,

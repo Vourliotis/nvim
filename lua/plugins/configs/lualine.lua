@@ -1,6 +1,5 @@
 local lualine = require('lualine')
 local kanagawa = require('kanagawa.colors').setup()
-local git_blame = require('gitblame')
 
 -- stylua: ignore
 local colors = {
@@ -45,10 +44,6 @@ local conditions = {
     local filepath = vim.fn.expand('%:p:h')
     local gitdir = vim.fn.finddir('.git', filepath .. ';')
     return gitdir and #gitdir > 0 and #gitdir < #filepath
-  end,
-
-  available_blame = function()
-    return git_blame.is_blame_text_available()
   end,
 }
 
@@ -118,13 +113,6 @@ ins_left({
 })
 
 -- Right section
-ins_right({
-  git_blame.get_current_blame_text,
-  cond = conditions.available_blame,
-  separator = { left = separators.left },
-  color = { fg = colors.bg, bg = colors.fg },
-})
-
 ins_right({
   function()
     return '%s{}'

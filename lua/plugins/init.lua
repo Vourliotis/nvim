@@ -30,15 +30,6 @@ local plugins = {
     cond = nocode,
   },
 
-  ['f-person/git-blame.nvim'] = {
-    cond = nocode,
-    setup = function()
-      vim.g.gitblame_date_format = '%r'
-      vim.g.gitblame_message_template = '<author>, <date>'
-      vim.g.gitblame_display_virtual_text = 0
-    end,
-  },
-
   ['akinsho/git-conflict.nvim'] = {
     cond = nocode,
     config = function()
@@ -113,7 +104,7 @@ local plugins = {
 
   ['nvim-lualine/lualine.nvim'] = {
     cond = nocode,
-    after = { 'nvim-web-devicons', 'git-blame.nvim', 'kanagawa.nvim' },
+    after = { 'nvim-web-devicons', 'kanagawa.nvim' },
     config = function()
       require('plugins.configs.lualine')
     end,

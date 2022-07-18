@@ -59,9 +59,17 @@ local plugins = {
     end,
   },
 
+  ['olimorris/persisted.nvim'] = {
+    cond = nocode,
+    config = function()
+      require('plugins.configs.persisted')
+    end,
+  },
+
   ['nvim-telescope/telescope.nvim'] = {
     cond = nocode,
     cmd = 'Telescope',
+    after = 'persisted.nvim',
     config = function()
       require('plugins.configs.telescope')
     end,

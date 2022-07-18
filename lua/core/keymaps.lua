@@ -49,6 +49,10 @@ if not vim.g.vscode then
   -- Search in active buffers list
   keymap('n', '<Leader>fb', ':Telescope buffers<CR>', opts)
 
+  -- Sessions
+  keymap('n', '<Leader>sl', ':Telescope persisted<CR>', opts)
+  keymap('n', '<Leader>ss', ':SessionSave<CR>', opts)
+
   -- Bufferline
   keymap('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', opts)
   keymap('n', '<Tab>', '<Cmd>BufferNext<CR>', opts)

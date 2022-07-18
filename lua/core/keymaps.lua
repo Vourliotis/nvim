@@ -48,10 +48,6 @@ if not vim.g.vscode then
   keymap('n', '<Leader>fo', ':Telescope oldfiles<CR>', opts)
   -- Search in active buffers list
   keymap('n', '<Leader>fb', ':Telescope buffers<CR>', opts)
-  -- git
-  keymap('n', '<Leader>gc', ':Telescope git_commits<CR>', opts)
-  keymap('n', '<Leader>gb', ':Telescope git_bcommits<CR>', opts)
-  keymap('n', '<Leader>gs', ':Telescope git_status<CR>', opts)
 
   -- Bufferline
   keymap('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', opts)
@@ -70,6 +66,7 @@ if not vim.g.vscode then
   keymap('n', '<leader>gh', '<cmd>VGit buffer_history_preview<CR>', opts)
   keymap('n', '<C-]>', '<cmd>VGit hunk_down<CR>', opts)
   keymap('n', '<C-[>', '<cmd>VGit hunk_up<CR>', opts)
+  keymap('n', '<leader>gb', '<cmd>VGit toggle_live_blame<CR>', opts)
 
   -- LSP
   keymap('n', "<leader>'f", ':lua vim.lsp.buf.formatting()<CR>', opts)

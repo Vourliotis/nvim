@@ -207,7 +207,7 @@ local plugins = {
     after = 'cmp-path',
   },
 
-  ['williamboman/nvim-lsp-installer'] = {
+  ['williamboman/mason.nvim'] = {
     cond = nocode,
     after = 'nvim-lspconfig',
     config = function()
@@ -217,7 +217,7 @@ local plugins = {
 
   ['jose-elias-alvarez/null-ls.nvim'] = {
     cond = nocode,
-    after = 'nvim-lsp-installer',
+    after = 'mason.nvim',
     config = function()
       require('lsp.configs.null-ls')
     end,

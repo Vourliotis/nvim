@@ -1,10 +1,15 @@
-local present, mason = pcall(require, 'mason')
+local mason_presence, mason = pcall(require, 'mason')
+local mason_lspconfig_presence, mason_lspconfig = pcall(require, 'mason-lspconfig')
 
-if not present then
+if not mason_presence or not mason_lspconfig_presence then
   return
 end
 
 mason.setup()
+mason_lspconfig.setup({
+  -- Whether servers that are set up (via lspconfig) should be automatically installed
+  automatic_installation = { exclude = { 'gopls' } },
+})
 
 -- Diagnostics floating window
 require('lsp.configs.diagnostics')

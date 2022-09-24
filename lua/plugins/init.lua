@@ -223,6 +223,11 @@ local plugins = {
   ['jose-elias-alvarez/null-ls.nvim'] = {
     cond = nocode,
     after = 'mason.nvim',
+  },
+
+  ['jayp0521/mason-null-ls.nvim'] = {
+    cond = nocode,
+    after = 'null-ls.nvim',
     config = function()
       require('lsp.configs.null-ls')
     end,

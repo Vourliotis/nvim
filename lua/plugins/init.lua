@@ -207,9 +207,14 @@ local plugins = {
     after = 'cmp-path',
   },
 
-  ['williamboman/mason.nvim'] = {
+  ['williamboman/mason-lspconfig.nvim'] = {
     cond = nocode,
     after = 'nvim-lspconfig',
+  },
+
+  ['williamboman/mason.nvim'] = {
+    cond = nocode,
+    after = 'mason-lspconfig.nvim',
     config = function()
       require('lsp')
     end,

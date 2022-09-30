@@ -86,3 +86,8 @@ lspconfig.emmet_ls.setup({
   capabilities = capabilities,
   filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'eruby' },
 })
+
+lspconfig.cssls.setup({
+  on_attach = handlers.lsp_on_attach,
+  capabilities = capabilities,
+})

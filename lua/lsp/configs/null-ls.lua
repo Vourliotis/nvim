@@ -6,3 +6,7 @@ require('null-ls').setup({
     require('null-ls').builtins.formatting.erb_lint,
   },
 })
+
+require('mason-null-ls').setup({
+  automatic_installation = true,
+})

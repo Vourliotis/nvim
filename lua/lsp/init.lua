@@ -1,37 +1,20 @@
-local present, lsp_installer = pcall(require, 'nvim-lsp-installer')
+local mason_presence, mason = pcall(require, 'mason')
+local mason_lspconfig_presence, mason_lspconfig = pcall(require, 'mason-lspconfig')
 
-if not present then
+if not mason_presence or not mason_lspconfig_presence then
   return
 end
+
+mason.setup()
+mason_lspconfig.setup({
+  -- Whether servers that are set up (via lspconfig) should be automatically installed
+  automatic_installation = { exclude = { 'gopls' } },
+})
 
 -- Diagnostics floating window
 require('lsp.configs.diagnostics')
 
-local options = {
-  automatic_installation = true,
-  ui = {
-    icons = {
-      server_installed = ' ',
-      server_pending = ' ',
-      server_uninstalled = ' ﮊ',
-    },
-    keymaps = {
-      toggle_server_expand = '<CR>',
-      install_server = 'i',
-      update_server = 'u',
-      check_server_version = 'c',
-      update_all_servers = 'U',
-      check_outdated_servers = 'C',
-      uninstall_server = 'X',
-    },
-  },
-
-  max_concurrent_installers = 10,
-}
-
-lsp_installer.setup(options)
-
-local nvim_lsp = require('lspconfig')
+local lspconfig = require('lspconfig')
 local cmp_lsp = require('cmp_nvim_lsp')
 local handlers = require('lsp.handlers')
 local lsp = vim.lsp
@@ -46,7 +29,7 @@ local capabilities = lsp.protocol.make_client_capabilities()
 capabilities = cmp_lsp.update_capabilities(capabilities)
 
 -- The Language Servers.
-nvim_lsp.solargraph.setup({
+lspconfig.solargraph.setup({
   on_attach = handlers.lsp_on_attach_no_formatting,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
@@ -54,14 +37,14 @@ nvim_lsp.solargraph.setup({
   settings = { solargraph = { diagnostics = false } },
 })
 
-nvim_lsp.tsserver.setup({
+lspconfig.tsserver.setup({
   on_attach = handlers.lsp_on_attach_no_formatting,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
-  root_dir = nvim_lsp.util.root_pattern('package.json'),
+  root_dir = lspconfig.util.root_pattern('package.json'),
 })
 
-nvim_lsp.sumneko_lua.setup({
+lspconfig.sumneko_lua.setup({
   on_attach = handlers.lsp_on_attach,
   capabilities = capabilities,
   settings = {
@@ -81,13 +64,13 @@ nvim_lsp.sumneko_lua.setup({
   },
 })
 
-nvim_lsp.gopls.setup({
+lspconfig.gopls.setup({
   on_attach = handlers.lsp_on_attach_no_formatting,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
   cmd = { 'gopls', 'serve' },
   filetypes = { 'go', 'gomod' },
-  root_dir = nvim_lsp.util.root_pattern('go.work', 'go.mod', '.git'),
+  root_dir = lspconfig.util.root_pattern('go.work', 'go.mod', '.git'),
   settings = {
     gopls = {
       analyses = {
@@ -98,8 +81,8 @@ nvim_lsp.gopls.setup({
   },
 })
 
-nvim_lsp.emmet_ls.setup({
-    on_attach = handlers.lsp_on_attach_no_formatting,
-    capabilities = capabilities,
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+lspconfig.emmet_ls.setup({
+  on_attach = handlers.lsp_on_attach_no_formatting,
+  capabilities = capabilities,
+  filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
 })

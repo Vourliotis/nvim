@@ -73,10 +73,14 @@ local plugins = {
     end,
   },
 
+  ['nvim-telescope/telescope-live-grep-args.nvim'] = {
+    cond = nocode,
+  },
+
   ['nvim-telescope/telescope.nvim'] = {
     cond = nocode,
     cmd = 'Telescope',
-    after = { 'persisted.nvim', 'harpoon' },
+    after = { 'persisted.nvim', 'harpoon', 'telescope-live-grep-args.nvim' },
     config = function()
       require('plugins.configs.telescope')
     end,

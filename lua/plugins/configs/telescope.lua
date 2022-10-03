@@ -33,6 +33,9 @@ telescope.setup({
         ['<C-Down>'] = actions.cycle_history_prev,
       },
     },
+    cache_picker = {
+      num_pickers = 5,
+    },
 
     -- Default layout options
     prompt_prefix = ' ',

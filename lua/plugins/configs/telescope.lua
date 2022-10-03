@@ -46,20 +46,14 @@ telescope.setup({
     },
   },
   pickers = {
-    buffers = dropdown(),
-    find_files = dropdown(),
-    oldfiles = dropdown('History'),
-    keymaps = dropdown(),
-    command_history = dropdown(),
-    colorscheme = dropdown(),
-
+    buffers = dropdown('Buffers'),
+    find_files = dropdown('Files'),
     grep_string = defaults('Search'),
-    treesitter = defaults('Buffer Symbols'),
-    current_buffer_fuzzy_find = defaults('Lines'),
     live_grep = defaults('Grep'),
-
-    commands = defaults(),
-    help_tags = defaults(),
+    commands = defaults('Commands'),
+    help_tags = defaults('Help Tags'),
+    keymaps = defaults('Keymaps'),
+    pickers = defaults('Pickers'),
   },
   extensions = {
     fzf_native = {

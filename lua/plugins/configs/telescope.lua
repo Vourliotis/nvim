@@ -2,6 +2,7 @@ local command = vim.api.nvim_create_user_command
 
 local telescope = require('telescope')
 local actions = require('telescope.actions')
+local lga_actions = require('telescope-live-grep-args.actions')
 
 command('TGrep', function(input)
   require('telescope.builtin').grep_string({ search = input.args })
@@ -29,7 +30,12 @@ telescope.setup({
         ['<esc>'] = actions.close,
         ['<C-k>'] = actions.move_selection_previous,
         ['<C-j>'] = actions.move_selection_next,
+        ['<C-Up>'] = actions.cycle_history_next,
+        ['<C-Down>'] = actions.cycle_history_prev,
       },
+    },
+    cache_picker = {
+      num_pickers = 5,
     },
 
     -- Default layout options
@@ -44,20 +50,14 @@ telescope.setup({
     },
   },
   pickers = {
-    buffers = dropdown(),
-    find_files = dropdown(),
-    oldfiles = dropdown('History'),
-    keymaps = dropdown(),
-    command_history = dropdown(),
-    colorscheme = dropdown(),
-
+    buffers = dropdown('Buffers'),
+    find_files = dropdown('Files'),
     grep_string = defaults('Search'),
-    treesitter = defaults('Buffer Symbols'),
-    current_buffer_fuzzy_find = defaults('Lines'),
     live_grep = defaults('Grep'),
-
-    commands = defaults(),
-    help_tags = defaults(),
+    commands = defaults('Commands'),
+    help_tags = defaults('Help Tags'),
+    keymaps = defaults('Keymaps'),
+    pickers = defaults('Pickers'),
   },
   extensions = {
     fzf_native = {
@@ -66,9 +66,23 @@ telescope.setup({
       override_file_sorter = true,
       case_mode = 'smart_case',
     },
+    live_grep_args = {
+      auto_quoting = true,
+      mappings = {
+        i = {
+          ['<esc>'] = actions.close,
+          ['<C-k>'] = actions.move_selection_previous,
+          ['<C-j>'] = actions.move_selection_next,
+          ['<C-Up>'] = actions.cycle_history_next,
+          ['<C-Down>'] = actions.cycle_history_prev,
+          ['<C-h>'] = lga_actions.quote_prompt(),
+        },
+      },
+    },
   },
 })
 
 telescope.load_extension('fzf')
 telescope.load_extension('persisted')
 telescope.load_extension('harpoon')
+telescope.load_extension('live_grep_args')

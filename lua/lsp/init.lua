@@ -91,3 +91,9 @@ lspconfig.cssls.setup({
   on_attach = handlers.lsp_on_attach,
   capabilities = capabilities,
 })
+
+lspconfig.html.setup({
+  on_attach = handlers.lsp_on_attach,
+  capabilities = capabilities,
+  filetypes = { 'html', 'eruby' },
+})

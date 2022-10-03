@@ -44,10 +44,14 @@ if not vim.g.vscode then
   -- Find files by name
   keymap('n', '<Leader>ff', ':Telescope find_files<CR>', opts)
   keymap('n', '<Leader>fa', ':Telescope find_files follow=true no_ignore=true hidden=true<CR>', opts)
-  -- Search in files history
-  keymap('n', '<Leader>fo', ':Telescope oldfiles<CR>', opts)
   -- Search in active buffers list
   keymap('n', '<Leader>fb', ':Telescope buffers<CR>', opts)
+  -- Resume last search
+  keymap('n', '<Leader>fr', ':Telescope resume<CR>', opts)
+  -- Cached pickers
+  keymap('n', '<Leader>fp', ':Telescope pickers<CR>', opts)
+  -- Help tags
+  keymap('n', '<Leader>fh', ':Telescope help_tags<CR>', opts)
 
   -- Sessions
   keymap('n', '<Leader>sl', ':Telescope persisted<CR>', opts)

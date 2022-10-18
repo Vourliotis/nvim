@@ -40,8 +40,7 @@ if not vim.g.vscode then
   -- Show key bindings list
   keymap('n', '<Leader>?', ':Telescope keymaps<CR>', opts)
   -- Search pattern
-  keymap('n', '<leader>fw', ':Telescope live_grep<CR>', opts)
-  keymap('n', '<leader>fg', ':Telescope live_grep_args<CR>', opts)
+  keymap('n', '<leader>fw', ':Telescope live_grep_args<CR>', opts)
   -- Find files by name
   keymap('n', '<Leader>ff', ':Telescope find_files<CR>', opts)
   keymap('n', '<Leader>fa', ':Telescope find_files follow=true no_ignore=true hidden=true<CR>', opts)

@@ -26,7 +26,7 @@ lsp.handlers['textDocument/signatureHelp'] = handlers.signature_help
 -- The nvim-cmp completion plugin supports most LSP capabilities.
 -- We notify the language servers about that.
 local capabilities = lsp.protocol.make_client_capabilities()
-capabilities = cmp_lsp.update_capabilities(capabilities)
+capabilities = cmp_lsp.default_capabilities(capabilities)
 
 -- The Language Servers.
 lspconfig.solargraph.setup({

@@ -14,7 +14,6 @@ local options = {
     'css',
     'scss',
     'json',
-    'embedded_template',
   },
   highlight = {
     enable = true,

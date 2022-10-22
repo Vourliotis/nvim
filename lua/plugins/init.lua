@@ -16,7 +16,7 @@ local plugins = {
 
   ['phaazon/hop.nvim'] = {
     config = function()
-      require('plugins.configs.hop')
+      require('hop').setup()
     end,
   },
 
@@ -34,7 +34,7 @@ local plugins = {
   ['numToStr/Comment.nvim'] = {
     cond = nocode,
     config = function()
-      require('plugins.configs.comment')
+      require('Comment').setup()
     end,
   },
 

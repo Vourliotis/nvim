@@ -231,6 +231,13 @@ local plugins = {
     end,
   },
 
+  ['j-hui/fidget.nvim'] = {
+    cond = nocode,
+    config = function()
+      require('fidget').setup()
+    end,
+  },
+
   ['norcalli/nvim-colorizer.lua'] = {
     cond = nocode,
     config = function()

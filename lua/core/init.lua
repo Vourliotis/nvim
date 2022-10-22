@@ -5,5 +5,5 @@ elseif vim.fn.has('win32') == 1 then
   vim.g['nvim_home'] = '~/AppData/Local/nvim'
 end
 
-require('core.keymaps')
+require('core.keybindings')
 require('core.options')

@@ -20,12 +20,6 @@ local plugins = {
     end,
   },
 
-  ['unblevable/quick-scope'] = {
-    config = function()
-      require('plugins.configs.quickscope')
-    end,
-  },
-
   ['kyazdani42/nvim-web-devicons'] = {
     cond = nocode,
   },
@@ -262,4 +256,5 @@ local plugins = {
 
   ['vim-scripts/ReplaceWithRegister'] = {},
 }
+
 require('core.packer').run(plugins)

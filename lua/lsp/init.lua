@@ -30,7 +30,7 @@ capabilities = cmp_lsp.default_capabilities(capabilities)
 
 -- The Language Servers.
 lspconfig.solargraph.setup({
-  on_attach = handlers.lsp_on_attach_no_formatting,
+  on_attach = handlers.on_attach_no_formatting,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
   single_file_support = true,
@@ -38,14 +38,14 @@ lspconfig.solargraph.setup({
 })
 
 lspconfig.tsserver.setup({
-  on_attach = handlers.lsp_on_attach_no_formatting,
+  on_attach = handlers.on_attach_no_formatting,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
   root_dir = lspconfig.util.root_pattern('package.json'),
 })
 
 lspconfig.sumneko_lua.setup({
-  on_attach = handlers.lsp_on_attach,
+  on_attach = handlers.on_attach_no_formatting,
   capabilities = capabilities,
   settings = {
     Lua = {
@@ -65,7 +65,7 @@ lspconfig.sumneko_lua.setup({
 })
 
 lspconfig.gopls.setup({
-  on_attach = handlers.lsp_on_attach_no_formatting,
+  on_attach = handlers.on_attach_no_formatting,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
   cmd = { 'gopls', 'serve' },
@@ -82,18 +82,18 @@ lspconfig.gopls.setup({
 })
 
 lspconfig.emmet_ls.setup({
-  on_attach = handlers.lsp_on_attach_no_formatting,
+  on_attach = handlers.on_attach_no_formatting,
   capabilities = capabilities,
   filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'eruby' },
 })
 
 lspconfig.cssls.setup({
-  on_attach = handlers.lsp_on_attach,
+  on_attach = handlers.on_attach,
   capabilities = capabilities,
 })
 
 lspconfig.html.setup({
-  on_attach = handlers.lsp_on_attach,
+  on_attach = handlers.on_attach,
   capabilities = capabilities,
   filetypes = { 'html', 'eruby' },
 })

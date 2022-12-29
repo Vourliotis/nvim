@@ -260,8 +260,6 @@ local plugins = {
       })
     end,
   },
-
-  ['vim-scripts/ReplaceWithRegister'] = {},
 }
 
 require('core.packer').run(plugins)

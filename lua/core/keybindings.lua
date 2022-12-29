@@ -46,6 +46,9 @@ if not vim.g.vscode then
   bind('n', '<C-k>', '<C-w>k')
   bind('n', '<C-l>', '<C-w>l')
 
+  -- Delete selection into void register before pasting
+  bind('x', '<leader>p', '"_dP')
+
   -- Telescope
   -- Show key bindings list
   bind('n', '<Leader>?', '<CMD>Telescope keymaps<CR>')

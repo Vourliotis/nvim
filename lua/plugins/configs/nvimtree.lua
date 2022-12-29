@@ -76,6 +76,16 @@ local options = {
       },
     },
   },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+  },
+  log = {
+    enable = true,
+    types = {
+      diagnostics = true,
+    },
+  },
 }
 
 nvimtree.setup(options)

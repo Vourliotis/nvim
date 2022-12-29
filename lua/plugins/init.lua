@@ -138,30 +138,24 @@ local plugins = {
     end,
   },
 
+  ['L3MON4D3/LuaSnip'] = {
+    cond = nocode,
+  },
+
   ['rafamadriz/friendly-snippets'] = {
     cond = nocode,
+    after = 'LuaSnip',
     event = 'InsertEnter',
   },
 
   ['hrsh7th/nvim-cmp'] = {
     cond = nocode,
     after = 'friendly-snippets',
-    config = function()
-      require('plugins.configs.cmp')
-    end,
-  },
-
-  ['L3MON4D3/LuaSnip'] = {
-    cond = nocode,
-    after = 'nvim-cmp',
-    config = function()
-      require('plugins.configs.luasnip')
-    end,
   },
 
   ['saadparwaiz1/cmp_luasnip'] = {
     cond = nocode,
-    after = 'LuaSnip',
+    after = 'nvim-cmp',
   },
 
   ['hrsh7th/cmp-nvim-lua'] = {
@@ -182,6 +176,9 @@ local plugins = {
   ['hrsh7th/cmp-path'] = {
     cond = nocode,
     after = 'cmp-buffer',
+    config = function()
+      require('plugins.configs.cmp')
+    end,
   },
 
   ['windwp/nvim-autopairs'] = {

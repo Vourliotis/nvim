@@ -1,7 +1,22 @@
-local present, cmp = pcall(require, 'cmp')
+local cmp_present, cmp = pcall(require, 'cmp')
+local luasnip_present, luasnip = pcall(require, 'luasnip')
 
-if not present then
+if not cmp_present or not luasnip_present then
   return
+end
+
+luasnip.config.set_config({
+  history = true,
+  updateevents = 'TextChanged,TextChangedI',
+})
+
+luasnip.filetype_extend('ruby', { 'rails' })
+require('luasnip.loaders.from_vscode').lazy_load()
+
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
 vim.opt.completeopt = 'menuone,noselect'
@@ -23,12 +38,12 @@ local options = {
       winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None',
     },
     documentation = {
-      border = 'rounded'
+      border = 'rounded',
     },
   },
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   formatting = {
@@ -53,8 +68,10 @@ local options = {
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif require('luasnip').expand_or_jumpable() then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
       else
         fallback()
       end
@@ -65,8 +82,10 @@ local options = {
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif require('luasnip').jumpable(-1) then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      elseif has_words_before() then
+        cmp.complete()
       else
         fallback()
       end

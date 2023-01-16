@@ -17,8 +17,8 @@ bind('v', '<', '<gv')
 bind('v', '>', '>gv')
 
 -- Move text up and down
-bind('x', 'J', ":move '>+1<CR>gv=gv")
-bind('x', 'K', ":move '<-2<CR>gv=gv")
+bind('x', 'J', ":move '>+1<CR>gv")
+bind('x', 'K', ":move '<-2<CR>gv")
 
 -- Hop
 bind('n', 's', '<CMD>HopChar2<CR>')

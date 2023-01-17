@@ -95,8 +95,4 @@ if not vim.g.vscode then
   -- Comments
   bind('n', '<C-_>', 'gcc', remap)
   bind('v', '<C-_>', 'gcgv', remap)
-
-  -- Harpoon
-  bind('n', '<leader>hm', '<CMD>lua require("harpoon.mark").add_file()<CR>')
-  bind('n', '<leader>hl', '<CMD>Telescope harpoon marks<CR>')
 end

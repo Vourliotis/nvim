@@ -32,7 +32,8 @@ local options = {                          -- :help options
   cmdheight = 2,                           -- More space in the neovim command line for displaying messages
   pumheight = 10,                          -- Make popup menu smaller
   background = 'dark',                     -- Tell NeoVim what the background color is
-  laststatus = 3                           -- Use global statusline
+  laststatus = 3,                          -- Use global statusline
+  completeopt = 'menu,menuone,noselect'    -- When to display the auto complete popup menu
 }
 
 for option, setting in pairs(options) do

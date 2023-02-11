@@ -4,21 +4,19 @@ if not present then
   return
 end
 
-local options = {
+treesitter.setup({
   ensure_installed = {
     'ruby',
     'javascript',
     'lua',
     'vim',
+    'help',
     'html',
     'css',
     'scss',
-    'json',
   },
   highlight = {
     enable = true,
     use_languagetree = true,
   },
-}
-
-treesitter.setup(options)
+})

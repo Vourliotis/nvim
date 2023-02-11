@@ -1,5 +1,10 @@
+local success, kanagawa = pcall(require, 'kanagawa')
+
+if not success then
+  return
+end
+
 local default_colors = require('kanagawa.colors').setup()
-local default_config = require('kanagawa').config
 
 local colors = {
   bg = default_colors.sumiInk0,
@@ -11,8 +16,8 @@ local colors = {
 }
 
 local overrides = {
-  Keyword = vim.tbl_extend('force', { fg = colors.keywords }, default_config.keywordStyle),
-  Statement = vim.tbl_extend('force', { fg = colors.statements }, default_config.statementStyle),
+  Keyword = vim.tbl_extend('force', { fg = colors.keywords }, kanagawa.config.keywordStyle),
+  Statement = vim.tbl_extend('force', { fg = colors.statements }, kanagawa.config.statementStyle),
   Conditional = { fg = colors.keywords },
   NormalFloat = { fg = default_colors.fg, bg = colors.bg },
   ColorColumn = { bg = colors.bg },
@@ -25,9 +30,7 @@ local overrides = {
   BufferInactiveMod = { link = 'BufferVisibleMod' },
 }
 
-vim.cmd('highlight clear ColorColumn')
-
-require('kanagawa').setup({
+kanagawa.setup({
   undercurl = true,
   commentStyle = { italic = false },
   functionStyle = {},
@@ -44,4 +47,5 @@ require('kanagawa').setup({
   overrides = overrides,
 })
 
+vim.cmd('highlight clear ColorColumn')
 vim.cmd('colorscheme kanagawa')

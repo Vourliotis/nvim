@@ -1,12 +1,8 @@
-local command = vim.api.nvim_create_user_command
+local success, telescope = pcall(require, 'telescope')
 
-local telescope = require('telescope')
-local actions = require('telescope.actions')
-local lga_actions = require('telescope-live-grep-args.actions')
-
-command('TGrep', function(input)
-  require('telescope.builtin').grep_string({ search = input.args })
-end, { nargs = 1 })
+if not success then
+  return
+end
 
 local defaults = function(title)
   return {
@@ -23,6 +19,9 @@ local dropdown = function(title, previewer)
   }
 end
 
+local actions = require('telescope.actions')
+local lga_actions = require('telescope-live-grep-args.actions')
+
 telescope.setup({
   defaults = {
     mappings = {
@@ -35,18 +34,7 @@ telescope.setup({
       },
     },
     cache_picker = {
-      num_pickers = 5,
-    },
-
-    -- Default layout options
-    prompt_prefix = ' ',
-    selection_caret = '❯ ',
-    layout_strategy = 'vertical',
-    sorting_strategy = 'ascending',
-    layout_config = {
-      preview_cutoff = 25,
-      mirror = true,
-      prompt_position = 'top',
+      num_pickers = 10,
     },
   },
   pickers = {
@@ -76,6 +64,7 @@ telescope.setup({
           ['<C-Up>'] = actions.cycle_history_next,
           ['<C-Down>'] = actions.cycle_history_prev,
           ['<C-h>'] = lga_actions.quote_prompt(),
+          ['<C-l>'] = lga_actions.quote_prompt({ postfix = ' --iglob ' }),
         },
       },
     },

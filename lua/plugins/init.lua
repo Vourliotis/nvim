@@ -190,27 +190,33 @@ local plugins = {
     end,
   },
 
-  ['neovim/nvim-lspconfig'] = {
+  ['williamboman/mason.nvim'] = {
     cond = nocode,
-    after = 'cmp-path',
+    after = 'nvim-autopairs',
+    config = function()
+      require('mason').setup()
+    end,
   },
 
   ['williamboman/mason-lspconfig.nvim'] = {
     cond = nocode,
-    after = 'nvim-lspconfig',
+    after = 'mason.nvim',
+    config = function()
+      require('mason-lspconfig').setup()
+    end
   },
 
-  ['williamboman/mason.nvim'] = {
+  ['neovim/nvim-lspconfig'] = {
     cond = nocode,
     after = 'mason-lspconfig.nvim',
     config = function()
-      require('lsp')
-    end,
+      require('plugins.configs.lspconfig')
+    end
   },
 
   ['jose-elias-alvarez/null-ls.nvim'] = {
     cond = nocode,
-    after = 'mason.nvim',
+    after = 'nvim-lspconfig',
   },
 
   ['jayp0521/mason-null-ls.nvim'] = {

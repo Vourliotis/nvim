@@ -4,23 +4,17 @@ if not present then
   return
 end
 
-local options = {
+nvimtree.setup({
   update_focused_file = {
     enable = true,
     update_root = true,
   },
   view = {
     width = 25,
-    hide_root_folder = true,
     adaptive_size = true,
   },
   git = {
     enable = false,
-  },
-  renderer = {
-    indent_markers = {
-      enable = false,
-    },
   },
   diagnostics = {
     enable = true,
@@ -32,9 +26,7 @@ local options = {
       diagnostics = true,
     },
   },
-}
-
-nvimtree.setup(options)
+})
 
 vim.api.nvim_create_autocmd("BufEnter", {
   group = vim.api.nvim_create_augroup("NvimTreeClose", {clear = true}),

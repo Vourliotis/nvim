@@ -8,6 +8,7 @@ require('core')
 
 require('core.packer').bootstrap()
 require('plugins')
+require('lsp')
 
 -- VSCode only settings
 if vim.g.vscode then

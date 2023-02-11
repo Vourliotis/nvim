@@ -1,23 +1,12 @@
-local lsp = vim.lsp
-
 local M = {}
-local bind = vim.keymap.set
-
--- Add borders to hover windows.
-M.hover = lsp.with(lsp.handlers.hover, {
-  border = 'single',
-})
-
--- Add borders to signature help windows.
-M.signature_help = lsp.with(lsp.handlers.signature_help, {
-  border = 'single',
-})
 
 -- Custom on attach function.
-M.on_attach = function(client, bufr)
+M.on_attach = function(_, bufr)
+  local lsp = vim.lsp
+  local bind = vim.keymap.set
   local opts = { buffer = bufr }
 
-  bind('n', "<leader>'f", lsp.buf.format, opts)
+  bind('n', "<LEADER>'f", lsp.buf.format, opts)
   bind('n', 'ga', lsp.buf.code_action, opts)
   bind('n', 'gd', lsp.buf.definition, opts)
   bind('n', 'gD', lsp.buf.declaration, opts)

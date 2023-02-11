@@ -4,7 +4,7 @@ if not success then
   return
 end
 
-local defaults = function(title)
+local default = function(title)
   return {
     prompt_title = title,
     results_title = false,
@@ -33,6 +33,14 @@ telescope.setup({
         ['<C-Down>'] = actions.cycle_history_prev,
       },
     },
+    selection_caret = '❯ ',
+    layout_strategy = 'vertical',
+    sorting_strategy = 'ascending',
+    layout_config = {
+      preview_cutoff = 25,
+      mirror = true,
+      prompt_position = 'top',
+    },
     cache_picker = {
       num_pickers = 10,
     },
@@ -40,12 +48,12 @@ telescope.setup({
   pickers = {
     buffers = dropdown('Buffers'),
     find_files = dropdown('Files'),
-    grep_string = defaults('Search'),
-    live_grep = defaults('Grep'),
-    commands = defaults('Commands'),
-    help_tags = defaults('Help Tags'),
-    keymaps = defaults('Keymaps'),
-    pickers = defaults('Pickers'),
+    grep_string = default('Search'),
+    live_grep = default('Grep'),
+    commands = default('Commands'),
+    help_tags = default('Help Tags'),
+    keymaps = default('Keymaps'),
+    pickers = default('Pickers'),
   },
   extensions = {
     fzf_native = {

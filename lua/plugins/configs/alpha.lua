@@ -1,38 +1,8 @@
-local present, alpha = pcall(require, 'alpha')
+local success, alpha = pcall(require, 'alpha')
 
-if not present then
+if not success then
   return
 end
-
-local function button(sc, txt, keybind)
-  local sc_ = sc:gsub('%s', ''):gsub('SPC', '<leader>')
-
-  local opts = {
-    position = 'center',
-    text = txt,
-    shortcut = sc,
-    cursor = 5,
-    width = 36,
-    align_shortcut = 'right',
-    hl = 'AlphaButtons',
-  }
-
-  if keybind then
-    opts.keymap = { 'n', sc_, keybind, { noremap = true, silent = true } }
-  end
-
-  return {
-    type = 'button',
-    val = txt,
-    on_press = function()
-      local key = vim.api.nvim_replace_termcodes(sc_, true, false, true)
-      vim.api.nvim_feedkeys(key, 'normal', false)
-    end,
-    opts = opts,
-  }
-end
-
-local options = {}
 
 local ascii = {
   '                                                              ',
@@ -52,7 +22,7 @@ local ascii = {
   '                                                              ',
 }
 
-options.header = {
+local header = {
   type = 'text',
   val = ascii,
   opts = {
@@ -61,31 +31,30 @@ options.header = {
   },
 }
 
-options.buttons = {
+
+local dashboard = require('alpha.themes.dashboard')
+local buttons = {
   type = 'group',
   val = {
-    button('SPC f f', '  Find File  ', ':Telescope find_files<CR>'),
-    button('SPC f o', '  Recent File  ', ':Telescope oldfiles<CR>'),
-    button('SPC f w', '  Find Word  ', ':Telescope live_grep<CR>'),
-    button('SPC b m', '  Bookmarks  ', ':Telescope marks<CR>'),
-    button('SPC e s', '  Settings', ':e $MYVIMRC | :cd %:p:h <CR>'),
+    dashboard.button('f', '  Find File', '<CMD>Telescope find_files<CR>'),
+    dashboard.button('w', '  Find Word', '<CMD>Telescope live_grep_args<CR>'),
+    dashboard.button('r', '  Recent File', '<CMD>Telescope oldfiles<CR>'),
+    dashboard.button('u', '  Update Plugins', '<CMD>Lazy sync<CR>'),
+    dashboard.button('c', '  Config', ':e $MYVIMRC | :cd %:p:h <CR>'),
   },
   opts = {
     spacing = 1,
   },
 }
 
--- dynamic header padding
-local fn = vim.fn
-local marginTopPercent = 0.3
-local headerPadding = fn.max({ 2, fn.floor(fn.winheight(0) * marginTopPercent) })
+local dynamic_header_padding = vim.fn.max({ 2, vim.fn.floor(vim.fn.winheight(0) * 0.3) })
 
 alpha.setup({
   layout = {
-    { type = 'padding', val = headerPadding },
-    options.header,
+    { type = 'padding', val = dynamic_header_padding },
+    header,
     { type = 'padding', val = 2 },
-    options.buttons,
+    buttons,
   },
   opts = {},
 })

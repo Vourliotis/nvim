@@ -1,4 +1,9 @@
-local lualine = require('lualine')
+local success, lualine = pcall(require, 'lualine')
+
+if not success then
+  return
+end
+
 local kanagawa = require('kanagawa.colors').setup()
 
 -- stylua: ignore
@@ -181,4 +186,5 @@ ins_right({
   color = { bg = colors.bg_light, fg = colors.fg, gui = 'bold' },
   separator = { left = separators.left },
 })
+
 lualine.setup(config)

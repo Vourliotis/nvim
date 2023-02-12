@@ -4,21 +4,19 @@ if not success then
   return
 end
 
-local kanagawa = require('kanagawa.colors').setup()
+local function get_color(group, attr)
+  return vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID(group)), attr)
+end
 
--- stylua: ignore
 local colors = {
-  bg       = kanagawa.sumiInk0,
-  bg_light = kanagawa.sumiInk1,
-  fg       = kanagawa.fujiWhite,
-  yellow   = kanagawa.autumnYellow,
-  cyan     = kanagawa.crystalBlue,
-  green    = kanagawa.springGreen,
-  orange   = kanagawa.surimiOrange,
-  violet   = kanagawa.oniViolet,
-  magenta  = kanagawa.sakuraPink,
-  blue     = kanagawa.crystalBlue,
-  red      = kanagawa.peachRed,
+  fg = get_color('Normal', 'fg'),
+  bg = get_color('Normal', 'bg'),
+  status_line_fg = get_color('StatusLine', 'fg'),
+  status_line_bg = get_color('StatusLine', 'bg'),
+  success = get_color('diffAdded', 'fg'),
+  error = get_color('diffRemoved', 'fg'),
+  warning = get_color('diffChanged', 'fg'),
+  info = get_color('DiagnosticInfo', 'fg'),
 }
 
 local separators = {
@@ -40,11 +38,9 @@ local conditions = {
   buffer_not_empty = function()
     return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
   end,
-
   hide_in_width = function()
     return vim.fn.winwidth(0) > 80
   end,
-
   check_git_workspace = function()
     local filepath = vim.fn.expand('%:p:h')
     local gitdir = vim.fn.finddir('.git', filepath .. ';')
@@ -93,7 +89,7 @@ ins_left({
   'filename',
   cond = conditions.buffer_not_empty,
   path = 1,
-  color = { bg = colors.bg_light, gui = 'bold' },
+  color = { fg = colors.status_line_fg, bg = colors.status_line_bg, gui = 'bold' },
   separator = { right = separators.slant_bottom_right },
 })
 
@@ -104,9 +100,9 @@ ins_left({
   color = { bg = colors.bg },
   separator = { right = separators.slant_top_right },
   diagnostics_color = {
-    color_error = { fg = colors.red },
-    color_warn = { fg = colors.yellow },
-    color_info = { fg = colors.cyan },
+    color_error = { fg = colors.error },
+    color_warn = { fg = colors.warning },
+    color_info = { fg = colors.info },
   },
 })
 
@@ -122,7 +118,7 @@ ins_right({
   function()
     return '%s{}'
   end,
-  color = { bg = colors.red },
+  color = { bg = colors.error },
   padding = { left = -1 },
   separator = { left = separators.left },
 })
@@ -131,7 +127,7 @@ ins_right({
   function()
     return '%s{}'
   end,
-  color = { bg = colors.yellow },
+  color = { bg = colors.warning },
   padding = { left = -1 },
   separator = { left = separators.left },
 })
@@ -140,7 +136,7 @@ ins_right({
   function()
     return '%s{}'
   end,
-  color = { bg = colors.green },
+  color = { bg = colors.success },
   padding = { left = -1 },
   separator = { left = separators.left },
 })
@@ -149,7 +145,7 @@ ins_right({
   function()
     return '%s{}'
   end,
-  color = { bg = colors.blue },
+  color = { bg = colors.info },
   padding = { left = -1 },
   separator = { left = separators.left },
 })
@@ -171,9 +167,9 @@ ins_right({
   'diff',
   symbols = { added = '+', modified = '~', removed = '-' },
   diff_color = {
-    added = { fg = colors.green, gui = 'bold' },
-    modified = { fg = colors.orange, gui = 'bold' },
-    removed = { fg = colors.red, gui = 'bold' },
+    added = { fg = colors.success, gui = 'bold' },
+    modified = { fg = colors.warning, gui = 'bold' },
+    removed = { fg = colors.error, gui = 'bold' },
   },
   cond = conditions.hide_in_width,
   color = { bg = colors.bg },
@@ -183,7 +179,7 @@ ins_right({
 ins_right({
   'branch',
   icon = '',
-  color = { bg = colors.bg_light, fg = colors.fg, gui = 'bold' },
+  color = { fg = colors.status_line_fg, bg = colors.status_line_bg, gui = 'bold' },
   separator = { left = separators.left },
 })
 

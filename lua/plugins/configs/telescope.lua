@@ -33,6 +33,7 @@ telescope.setup({
         ['<C-Down>'] = actions.cycle_history_prev,
       },
     },
+    prompt_prefix = '',
     selection_caret = '❯ ',
     layout_strategy = 'vertical',
     sorting_strategy = 'ascending',

@@ -22,4 +22,12 @@ return {
       require('Comment').setup()
     end,
   },
+  {
+    'folke/todo-comments.nvim',
+    cond = not vscode,
+    event = 'BufEnter',
+    config = function()
+      require('todo-comments').setup()
+    end,
+  },
 }

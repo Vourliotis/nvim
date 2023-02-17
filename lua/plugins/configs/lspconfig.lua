@@ -15,34 +15,38 @@ require('mason-lspconfig').setup_handlers({
       capabilities = capabilities,
     })
   end,
-})
-
--- Modified language server settings
-lspconfig.solargraph.setup({
-  on_attach = handlers.on_attach_no_formatting,
-  settings = { solargraph = { diagnostics = false } },
-})
-
-lspconfig.tsserver.setup({
-  on_attach = handlers.on_attach_no_formatting,
-})
-
-lspconfig.sumneko_lua.setup({
-  on_attach = handlers.on_attach_no_formatting,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' },
+  ['lua_ls'] = function()
+    lspconfig.sumneko_lua.setup({
+      on_attach = handlers.on_attach_no_formatting,
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { 'vim' },
+          },
+        },
       },
-    },
-  },
-})
-
-lspconfig.emmet_ls.setup({
-  on_attach = handlers.on_attach_no_formatting,
-  filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'eruby' },
-})
-
-lspconfig.html.setup({
-  filetypes = { 'html', 'eruby' },
+    })
+  end,
+  ['solargraph'] = function()
+    lspconfig.solargraph.setup({
+      on_attach = handlers.on_attach_no_formatting,
+      settings = { solargraph = { diagnostics = false } },
+    })
+  end,
+  ['tsserver'] = function()
+    lspconfig.tsserver.setup({
+      on_attach = handlers.on_attach_no_formatting,
+    })
+  end,
+  ['emmet_ls'] = function()
+    lspconfig.emmet_ls.setup({
+      on_attach = handlers.on_attach_no_formatting,
+      filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'eruby' },
+    })
+  end,
+  ['html'] = function()
+    lspconfig.html.setup({
+      filetypes = { 'html', 'eruby' },
+    })
+  end,
 })

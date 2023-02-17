@@ -59,6 +59,17 @@ return {
           require('nvim-treesitter.configs').setup({ endwise = { enable = true } })
         end,
       },
+      {
+        'kevinhwang91/nvim-ufo',
+        cond = not vscode,
+        event = 'BufEnter',
+        dependencies = {
+          'kevinhwang91/promise-async',
+        },
+        config = function()
+          require('plugins.configs.ufo')
+        end,
+      },
     },
     config = function()
       require('plugins.configs.treesitter')

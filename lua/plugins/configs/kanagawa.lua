@@ -28,6 +28,7 @@ local overrides = {
   BufferCurrentMod = { fg = default_colors.springGreen, bold = true },
   BufferVisibleMod = { fg = default_colors.autumnGreen },
   BufferInactiveMod = { link = 'BufferVisibleMod' },
+  MoreMsg = { bg = 'none' },
 }
 
 kanagawa.setup({

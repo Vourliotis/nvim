@@ -11,13 +11,32 @@ bufferline.setup {
   icon_separator_inactive = '',
 }
 
-local nvim_tree_events = require('nvim-tree.events')
-local bufferline_api = require('bufferline.api')
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function(tbl)
+    local set_offset = require('bufferline.api').set_offset
 
-nvim_tree_events.on_tree_open(function()
-  bufferline_api.set_offset(26, 'File Tree')
-end)
+    local bufwinid
+    local last_width
+    local autocmd = vim.api.nvim_create_autocmd('WinScrolled', {
+      callback = function()
+        bufwinid = bufwinid or vim.fn.bufwinid(tbl.buf)
 
-nvim_tree_events.on_tree_close(function()
-  bufferline_api.set_offset(0)
-end)
+        local width = vim.api.nvim_win_get_width(bufwinid)
+        if width ~= last_width then
+          set_offset(width + 1, 'FileTree')
+          last_width = width
+        end
+      end,
+    })
+
+    vim.api.nvim_create_autocmd('BufWipeout', {
+      buffer = tbl.buf,
+      callback = function()
+        vim.api.nvim_del_autocmd(autocmd)
+        set_offset(0)
+      end,
+      once = true,
+    })
+  end,
+  pattern = 'NvimTree',
+})

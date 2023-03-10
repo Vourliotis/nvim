@@ -47,6 +47,3 @@ kanagawa.setup({
   colors = colors,
   overrides = overrides,
 })
-
-vim.cmd('highlight clear ColorColumn')
-vim.cmd('colorscheme kanagawa')

@@ -18,8 +18,10 @@ return {
     cond = not vscode,
     lazy = false,
     priority = 1000,
+    commit = '4c8d487',
     config = function()
       require('plugins.configs.kanagawa')
+      vim.cmd('colorscheme kanagawa')
     end,
   },
   {

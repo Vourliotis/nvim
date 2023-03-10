@@ -19,4 +19,7 @@ treesitter.setup({
     enable = true,
     use_languagetree = true,
   },
+  playground = {
+    enable = false,
+  },
 })

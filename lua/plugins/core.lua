@@ -53,6 +53,7 @@ return {
     cond = not vscode,
     build = ':TSUpdate',
     dependencies = {
+      { 'nvim-treesitter/playground' },
       {
         'RRethy/nvim-treesitter-endwise',
         config = function()

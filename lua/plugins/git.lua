@@ -4,6 +4,7 @@ return {
   {
     'akinsho/git-conflict.nvim',
     cond = not vscode,
+    lazy = false,
     config = function()
       require('git-conflict').setup()
     end,

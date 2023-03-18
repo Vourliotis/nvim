@@ -25,6 +25,17 @@ return {
     end,
   },
   {
+    'rose-pine/neovim',
+    cond = not vscode,
+    name = 'rose-pine',
+    lazy = false,
+    priority = 1000,
+    commit = '63821c1',
+    config = function()
+      require('plugins.configs.rose_pine')
+    end,
+  },
+  {
     'nvim-lualine/lualine.nvim',
     cond = not vscode,
     lazy = false,

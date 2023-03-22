@@ -9,14 +9,16 @@ This configuration hopes to make this a lot easier by allowing people to switch
 between these two and experiment at their own pace.
 
 ## Dependencies
-- [NeoVim 0.7+](https://github.com/neovim/neovim)
+- [NeoVim 0.8+](https://github.com/neovim/neovim)
+- [make](https://www.gnu.org/software/make/)
+- [fzf](https://github.com/junegunn/fzf)
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
-- [vscode-neovim](https://github.com/vscode-neovim/vscode-neovim/) extension
-  for VSCode
+- [vscode-neovim](https://github.com/vscode-neovim/vscode-neovim/) extension for VSCode
 - A clipboard tool for the intergration with the system clipboard (`:help clipboard-tool`)
-- Optional Dependencies:
-  - [ripgrep](https://github.com/BurntSushi/ripgrep)
-  - [fzf](https://github.com/junegunn/fzf)
+- C++ Compiler
+  - ***Linux***: G++
+  - ***Windows***: MinGW
 
 ## Installation
 - Git clone the repo inside your nvim configuration folder which is usually in:
@@ -28,7 +30,7 @@ between these two and experiment at their own pace.
     ```
     $ENV:LocalAppData
     ```
-- Open NeoVim and run `:PackerSync` to install the packages
 - Set your init.lua path in the `vscode-neovim` extension settings
+- Open NeoVim and wait for the plugins to be installed
 
 > Note: Example config files for the above can be found in `/lua/vscode/config/`

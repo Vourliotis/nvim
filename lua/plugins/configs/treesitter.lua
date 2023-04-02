@@ -7,6 +7,8 @@ end
 treesitter.setup({
   ensure_installed = {
     'ruby',
+    'go',
+    'rust',
     'javascript',
     'lua',
     'vim',

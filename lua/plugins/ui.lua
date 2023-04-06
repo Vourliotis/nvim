@@ -21,7 +21,28 @@ return {
     commit = '4c8d487',
     config = function()
       require('plugins.configs.kanagawa')
-      vim.cmd('colorscheme kanagawa')
+    end,
+  },
+  {
+    'rose-pine/neovim',
+    cond = not vscode,
+    name = 'rose-pine',
+    lazy = false,
+    priority = 1000,
+    commit = '63821c1',
+    config = function()
+      require('plugins.configs.rose_pine')
+    end,
+  },
+  {
+    'catppuccin/nvim',
+    code = not vscode,
+    name = 'catppuccin',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('plugins.configs.catppuccin')
+      vim.cmd('colorscheme catppuccin')
     end,
   },
   {

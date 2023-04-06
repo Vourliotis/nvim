@@ -7,10 +7,10 @@ end
 local default_colors = require('kanagawa.colors').setup()
 
 local colors = {
-  bg = default_colors.sumiInk0,
+  bg = '#171717',
   keywords = default_colors.sakuraPink,
   statements = default_colors.autumnYellow,
-  nvimtree = '#111119',
+  nvimtree = '#171717',
   bg_status = default_colors.sumiInk1,
   fg_border = default_colors.fg,
 }

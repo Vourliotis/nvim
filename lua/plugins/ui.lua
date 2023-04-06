@@ -36,7 +36,7 @@ return {
   },
   {
     'catppuccin/nvim',
-    code = not vscode,
+    cond = not vscode,
     name = 'catppuccin',
     lazy = false,
     priority = 1000,

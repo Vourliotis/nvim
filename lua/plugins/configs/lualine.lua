@@ -123,7 +123,7 @@ ins_right({
 
 ins_right({
   function()
-    return '%s{}'
+    return '%z{}'
   end,
   color = { bg = colors.error },
   padding = { left = -1 },
@@ -132,7 +132,7 @@ ins_right({
 
 ins_right({
   function()
-    return '%s{}'
+    return '%z{}'
   end,
   color = { bg = colors.warning },
   padding = { left = -1 },
@@ -141,7 +141,7 @@ ins_right({
 
 ins_right({
   function()
-    return '%s{}'
+    return '%z{}'
   end,
   color = { bg = colors.success },
   padding = { left = -1 },
@@ -150,7 +150,7 @@ ins_right({
 
 ins_right({
   function()
-    return '%s{}'
+    return '%z{}'
   end,
   color = { bg = colors.info },
   padding = { left = -1 },

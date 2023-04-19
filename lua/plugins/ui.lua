@@ -86,9 +86,29 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     cond = not vscode,
-    lazy = false,
+    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       require('plugins.configs.blankline')
+    end,
+  },
+  {
+    'echasnovski/mini.indentscope',
+    cond = not vscode,
+    event = { 'BufReadPre', 'BufNewFile' },
+    init = function()
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { 'help', 'alpha', 'dashboard', 'terminal', 'lazy', 'mason' },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+    end,
+    config = function()
+      require('mini.indentscope').setup({
+        draw = { animation = require('mini.indentscope').gen_animation.none() },
+        options = { try_as_border = true },
+        symbol = '▏',
+      })
     end,
   },
   {

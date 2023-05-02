@@ -4,12 +4,18 @@ if not success then
   return
 end
 
-bufferline.setup {
+bufferline.setup({
   animation = false,
-  closable = false,
-  icon_separator_active = '',
-  icon_separator_inactive = '',
-}
+  icons = {
+    button = false,
+    separator = { left = '' },
+    inactive = {
+      separator = { left = '' },
+    },
+    modified = { button = false },
+    pinned = { button = '車', filename = true },
+  },
+})
 
 vim.api.nvim_create_autocmd('FileType', {
   callback = function(tbl)

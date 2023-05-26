@@ -118,7 +118,7 @@ ins_right({
   function()
     return require('gitblame').get_current_blame_text()
   end,
-  cond = require('gitblame').is_blame_text_available
+  cond = require('gitblame').is_blame_text_available,
 })
 
 ins_right({

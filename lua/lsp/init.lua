@@ -5,26 +5,17 @@ vim.diagnostic.config({
   float = {
     border = 'single',
     format = function(diagnostic)
-      return string.format(
-        '%s (%s) [%s]',
-        diagnostic.message,
-        diagnostic.source,
-        diagnostic.code
-      )
+      return string.format('%s (%s) [%s]', diagnostic.message, diagnostic.source, diagnostic.code)
     end,
   },
 })
 
 -- Add borders to hover windows.
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = 'single',
-  }
-)
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = 'single',
+})
 
 -- Add borders to signature help windows.
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-  vim.lsp.handlers.signature_help, {
-    border = 'single',
-  }
-)
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = 'single',
+})

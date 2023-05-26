@@ -33,10 +33,10 @@ return {
       'saadparwaiz1/cmp_luasnip',
       {
         'windwp/nvim-autopairs',
-         config = function()
-           require('plugins.configs.autopairs')
-         end,
-      }
+        config = function()
+          require('plugins.configs.autopairs')
+        end,
+      },
     },
     config = function()
       require('plugins.configs.cmp')

@@ -31,7 +31,6 @@ local header = {
   },
 }
 
-
 local dashboard = require('alpha.themes.dashboard')
 local buttons = {
   type = 'group',

@@ -11,16 +11,15 @@ return {
         'rafamadriz/friendly-snippets',
         config = function()
           require('luasnip').filetype_extend('ruby', { 'rails' })
-        end
+        end,
       },
     },
     config = function()
       require('luasnip.loaders.from_vscode').lazy_load()
       require('luasnip').config.set_config({
-        history = true,
-        updateevents = 'TextChanged,TextChangedI',
+        history = false,
       })
-    end
+    end,
   },
   {
     'hrsh7th/nvim-cmp',

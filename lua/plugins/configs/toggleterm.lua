@@ -6,7 +6,8 @@ end
 
 toggleterm.setup({
   open_mapping = [[<c-\>]],
-  direction = 'float',
+  direction = 'vertical',
+  size = vim.o.columns * 0.4,
   float_opts = {
     border = 'curved',
     winblend = 0,

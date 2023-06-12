@@ -52,6 +52,7 @@ return {
     'j-hui/fidget.nvim',
     cond = not vscode,
     event = 'BufEnter',
+    tag = 'legacy',
     config = function()
       require('fidget').setup()
     end,

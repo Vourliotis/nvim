@@ -52,9 +52,6 @@ end
 
 ufo.setup({
   fold_virt_text_handler = virtual_text_handler,
-  provider_selector = function(_, _, _)
-    return { 'treesitter', 'indent' }
-  end,
 })
 
 local bind = vim.keymap.set

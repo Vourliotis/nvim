@@ -30,7 +30,16 @@ return {
     priority = 1000,
     config = function()
       require('plugins.configs.catppuccin')
-      vim.cmd('colorscheme catppuccin')
+    end,
+  },
+  {
+    'EdenEast/nightfox.nvim',
+    cond = not vscode,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('plugins.configs.nightfox')
+      vim.cmd('colorscheme nightfox')
     end,
   },
 }

@@ -31,7 +31,9 @@ return {
         config = function()
           require('null-ls').setup({
             sources = {
-              require('null-ls').builtins.diagnostics.rubocop,
+              require('null-ls').builtins.diagnostics.rubocop.with({
+                method = require('null-ls').methods.DIAGNOSTICS_ON_SAVE,
+              }),
               require('null-ls').builtins.diagnostics.stylelint,
               require('null-ls').builtins.diagnostics.eslint_d,
               require('null-ls').builtins.formatting.stylelint,

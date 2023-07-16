@@ -1,0 +1,148 @@
+[
+  // NeoVim
+  {
+    "command": "vscode-neovim.compositeEscape1",
+    "key": "j",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "j"
+  },
+  {
+    "command": "vscode-neovim.compositeEscape2",
+    "key": "k",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "k"
+  },
+
+  // Navigations towards the editor
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "sideBarFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.togglePanel"
+  },
+  
+  // Lists
+  {
+    "key": "j",
+    "command": "list.focusDown",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "k",
+    "command": "list.focusUp",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "l",
+    "command": "list.select",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "o",
+    "command": "list.toggleExpand",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "h",
+    "command": "list.collapse",
+    "when": "listFocus && !inputFocus"
+  },
+  
+  // Quick Open
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.quickOpenNavigateNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.quickOpenNavigatePrevious",
+    "when": "inQuickOpen"
+  },
+
+
+  // File Explorer
+  {
+    "key": "enter",
+    "command": "list.select",
+    "when": "filesExplorerFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "y",
+    "command": "filesExplorer.copy",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "x",
+    "command": "filesExplorer.cut",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "v",
+    "command": "explorer.openToSide",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+a",
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  
+  // Suggestions
+  {
+    "key": "ctrl+j",
+    "command": "selectNextSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "selectPrevSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  },
+  {
+    "key": "tab",
+    "command": "selectNextSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  },
+  {
+    "key": "shift+tab",
+    "command": "selectPrevSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  },
+
+  // Unbind default keybindings
+  {
+    "key": "ctrl+h",
+    "command": "-editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
+  }
+
+]

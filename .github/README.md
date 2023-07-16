@@ -1,36 +1,43 @@
-<h1 align="center">Hybrid NeoVim/VSCode Configuration</h1>
+<h1 align="center">Hybrid NeoVim/VSCode Config</h1>
 
-This is a NeoVim configuration written in Lua, aiming to provide an amazing
-developer experience both when used inside VSCode and when used in the terminal.
+<div align="center">
+  This project hosts a versatile and easy-to-use NeoVim config
+  written in Lua, designed to deliver a comfortable and consistent
+  developer experience in both NeoVim and VSCode.
+</div>
 
-## Why support both terminal NeoVim and VSCode NeoVim?
-A lot of people find it hard to transition from a GUI editor like VSCode to NeoVim.
-This configuration hopes to make this a lot easier by allowing people to switch
-between these two and experiment at their own pace.
+## 💡 Rationale
 
-## Dependencies
-- [NeoVim 0.8+](https://github.com/neovim/neovim)
+Transitioning from a GUI-based text editor such as VSCode to a highly
+customizable terminal-based editor like NeoVim can feel like a daunting task.
+This config aims to smooth out this learning curve, allowing developers
+to switch between these two at their own pace and comfort level.
+The keybinds were deliberatly chosen to offer a consistent developer
+experience across both editors.
+
+## 📦 Dependencies
+
+Before you proceed, make sure you have the following installed:
+
+- [NeoVim 0.9+](https://github.com/neovim/neovim)
 - [make](https://www.gnu.org/software/make/)
-- [fzf](https://github.com/junegunn/fzf)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
-- [vscode-neovim](https://github.com/vscode-neovim/vscode-neovim/) extension for VSCode
-- A clipboard tool for the intergration with the system clipboard (`:help clipboard-tool`)
+- [fzf](https://github.com/junegunn/fzf) - a general-purpose command-line fuzzy finder
+- [ripgrep](https://github.com/BurntSushi/ripgrep) - a line-oriented search tool
+- [Nerd Fonts](https://www.nerdfonts.com/font-downloads) - for icon and glyph support
+- [vscode-neovim](https://github.com/vscode-neovim/vscode-neovim/) - a NeoVim integration extension for VSCode
+- A system clipboard integration tool (`:help clipboard-tool`)
 - C++ Compiler
-  - ***Linux***: G++
-  - ***Windows***: MinGW
+  - **For Linux**: G++
+  - **For Windows**: MinGW
 
-## Installation
-- Git clone the repo inside your nvim configuration folder which is usually in:
-  - ***Linux/Mac***
-    ```
-    $HOME/.config/
-    ```
-  - ***Windows***
-    ```
-    $ENV:LocalAppData
-    ```
-- Set your init.lua path in the `vscode-neovim` extension settings
-- Open NeoVim and wait for the plugins to be installed
+## ⚙️ Installation
 
-> Note: Example config files for the above can be found in `/lua/vscode/config/`
+To use this config, follow these steps:
+
+1. Clone this repository into your nvim config folder, which is typically:
+    - **Linux/Mac**: `$HOME/.config/`
+    - **Windows**: `$ENV:LocalAppData`
+2. Specify the path to your `init.lua` in the `vscode-neovim` extension settings in VSCode.
+3. Open NeoVim, which will automatically install the plugins on the first start.
+
+> **Note**: VSCode config files can be found in the `.vscode/` directory.

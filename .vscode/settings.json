@@ -1,4 +1,7 @@
 {
+  "vscode-neovim.logLevel": "debug",
+  "vscode-neovim.useCtrlKeysForInsertMode": true,
+  "vscode-neovim.useCtrlKeysForNormalMode": true,
   "Lua.diagnostics.globals": [
     "vim"
   ]

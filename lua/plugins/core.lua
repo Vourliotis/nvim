@@ -33,6 +33,7 @@ return {
       { '<LEADER>fr', '<CMD>Telescope resume<CR>', mode = 'n' },
       { '<LEADER>fp', '<CMD>Telescope pickers<CR>', mode = 'n' },
       { '<LEADER>fh', '<CMD>Telescope help_tags<CR>', mode = 'n' },
+      { '<LEADER>fl', '<CMD>Telescope live_grep<CR>', mode = 'n' }
     },
     config = function()
       require('plugins.configs.telescope')

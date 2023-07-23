@@ -30,4 +30,14 @@ return {
       require('todo-comments').setup()
     end,
   },
+  {
+    'folke/trouble.nvim',
+    cond = not vscode,
+    cmd = { 'TroubleToggle', 'Trouble' },
+    opts = { use_diagnostic_signs = true },
+    keys = {
+      { '<leader>xx', '<cmd>TroubleToggle document_diagnostics<cr>' },
+      { '<leader>xX', '<cmd>TroubleToggle workspace_diagnostics<cr>' },
+    },
+  },
 }

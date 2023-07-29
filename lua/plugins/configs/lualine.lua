@@ -158,6 +158,36 @@ ins_right({
 })
 
 ins_right({
+  function()
+    local icon = ''
+    local status = require('copilot.api').status.data
+    return icon .. (status.message or '')
+  end,
+  cond = function()
+    local ok, clients = pcall(vim.lsp.get_active_clients, { name = 'copilot', bufnr = 0 })
+    return ok and #clients > 0
+  end,
+  padding = { left = 1 },
+  color = function()
+    if not package.loaded['copilot'] then
+      return
+    end
+
+    local copilot_colors = {
+      [''] = colors.fg,
+      ['Normal'] = colors.fg,
+      ['Warning'] = colors.error,
+      ['InProgress'] = colors.warning,
+    }
+
+    local status = require('copilot.api').status.data.status
+
+    return { fg = copilot_colors[status], bg = colors.bg }
+  end,
+  separator = { left = separators.left },
+})
+
+ins_right({
   'o:encoding',
   cond = conditions.hide_in_width,
   color = { fg = colors.fg, bg = colors.bg },

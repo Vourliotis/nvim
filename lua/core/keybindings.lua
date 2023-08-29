@@ -37,6 +37,11 @@ if not vim.g.vscode then
   bind('n', '<C-j>', '<C-w>j')
   bind('n', '<C-k>', '<C-w>k')
   bind('n', '<C-l>', '<C-w>l')
+  bind('t', '<ESC><ESC>', '<C-\\><C-n>')
+  bind('t', '<C-h>', '<CMD>wincmd h<CR>')
+  bind('t', '<C-j>', '<CMD>wincmd j<CR>')
+  bind('t', '<C-k>', '<CMD>wincmd k<CR>')
+  bind('t', '<C-l>', '<CMD>wincmd l<CR>')
 
   -- Delete selection into void register before pasting
   bind('x', '<LEADER>p', '"_dP')

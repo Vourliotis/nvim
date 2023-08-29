@@ -95,8 +95,9 @@ return {
     cond = not vscode,
     lazy = false,
     version = 'v2.*',
-    config = function()
-      require('plugins.configs.toggleterm')
-    end,
+    opts = {
+      open_mapping = [[<c-\>]],
+      size = 20,
+    },
   },
 }

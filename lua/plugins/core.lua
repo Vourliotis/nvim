@@ -33,7 +33,7 @@ return {
       { '<LEADER>fr', '<CMD>Telescope resume<CR>', mode = 'n' },
       { '<LEADER>fp', '<CMD>Telescope pickers<CR>', mode = 'n' },
       { '<LEADER>fh', '<CMD>Telescope help_tags<CR>', mode = 'n' },
-      { '<LEADER>fl', '<CMD>Telescope live_grep<CR>', mode = 'n' }
+      { '<LEADER>fl', '<CMD>Telescope live_grep<CR>', mode = 'n' },
     },
     config = function()
       require('plugins.configs.telescope')
@@ -63,7 +63,6 @@ return {
       },
       {
         'kevinhwang91/nvim-ufo',
-        cond = not vscode,
         event = 'BufEnter',
         dependencies = {
           'kevinhwang91/promise-async',
@@ -71,6 +70,20 @@ return {
         config = function()
           require('plugins.configs.ufo')
         end,
+      },
+      {
+        'nvim-treesitter/nvim-treesitter-context',
+        opts = { enable = false },
+        keys = {
+          {
+            '<LEADER>ck',
+            function()
+              return require('treesitter-context').go_to_context()
+            end,
+            mode = 'n',
+          },
+          { '<LEADER>cc', '<CMD>TSContextToggle<CR>', mode = 'n' },
+        },
       },
     },
     config = function()

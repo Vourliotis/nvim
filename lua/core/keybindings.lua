@@ -43,6 +43,12 @@ if not vim.g.vscode then
   bind('t', '<C-k>', '<CMD>wincmd k<CR>')
   bind('t', '<C-l>', '<CMD>wincmd l<CR>')
 
+  -- Tab navigation
+  bind('n', '<LEADER>tt', '<CMD>tabnew %<CR>')
+  bind('n', '<LEADER>tq', '<CMD>tabclose<CR>')
+  bind('n', '<LEADER>tn', '<CMD>tabnext<CR>')
+  bind('n', '<LEADER>tp', '<CMD>tabprev<CR>')
+
   -- Delete selection into void register before pasting
   bind('x', '<LEADER>p', '"_dP')
 

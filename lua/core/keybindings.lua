@@ -24,6 +24,10 @@ bind('x', 'K', ":move '<-2<CR>gv")
 -- Clear highlights and prints
 bind('n', '<LEADER>n', '<CMD>noh<CR><cmd>echo ""<CR>')
 
+-- Copy path to clipboard
+bind('n', '<LEADER>yf', '<CMD>lua vim.fn.setreg("+", vim.fn.expand("%:."))<CR>')
+bind('n', '<LEADER>yl', '<CMD>lua vim.fn.setreg("+", vim.fn.expand("%:.") .. ":" .. vim.fn.line("."))<CR>')
+
 -- TUI/GUI NeoVim only settings
 if not vim.g.vscode then
   -- Resize with arrows

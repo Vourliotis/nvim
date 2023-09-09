@@ -2,30 +2,18 @@ local vscode = require('core.utils').vscode
 
 return {
   {
-    'williamboman/mason.nvim',
+    'neovim/nvim-lspconfig',
     cond = not vscode,
+    version = false,
     event = 'BufEnter',
     dependencies = {
       {
-        'williamboman/mason-lspconfig.nvim',
+        'williamboman/mason.nvim',
         config = function()
-          require('mason-lspconfig').setup()
+          require('mason').setup()
         end,
       },
-      {
-        'neovim/nvim-lspconfig',
-        config = function()
-          require('plugins.configs.lspconfig')
-        end,
-      },
-      {
-        'jayp0521/mason-null-ls.nvim',
-        config = function()
-          require('mason-null-ls').setup({
-            automatic_installation = true,
-          })
-        end,
-      },
+      'williamboman/mason-lspconfig.nvim',
       {
         'jose-elias-alvarez/null-ls.nvim',
         config = function()
@@ -44,10 +32,17 @@ return {
           })
         end,
       },
+      {
+        'jayp0521/mason-null-ls.nvim',
+        config = function()
+          require('mason-null-ls').setup({
+            automatic_installation = true,
+          })
+        end,
+      },
     },
     config = function()
-      require('lsp')
-      require('mason').setup()
+      require('plugins.configs.lspconfig')
     end,
   },
   {

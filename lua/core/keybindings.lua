@@ -58,4 +58,6 @@ if not vim.g.vscode then
 
   -- LSP
   bind('n', '<LEADER>k', vim.diagnostic.open_float)
+  bind('n', '[d', vim.diagnostic.goto_prev)
+  bind('n', ']d', vim.diagnostic.goto_next)
 end

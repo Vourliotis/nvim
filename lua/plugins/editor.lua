@@ -36,8 +36,8 @@ return {
     cmd = { 'TroubleToggle', 'Trouble' },
     opts = { use_diagnostic_signs = true },
     keys = {
-      { '<leader>xx', '<cmd>TroubleToggle document_diagnostics<cr>' },
-      { '<leader>xX', '<cmd>TroubleToggle workspace_diagnostics<cr>' },
+      { '<leader>df', '<cmd>TroubleToggle document_diagnostics<cr>' },
+      { '<leader>dw', '<cmd>TroubleToggle workspace_diagnostics<cr>' },
     },
   },
 }

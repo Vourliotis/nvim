@@ -39,7 +39,6 @@ local buttons = {
     dashboard.button('w', '  Find Word', '<CMD>Telescope live_grep_args<CR>'),
     dashboard.button('r', '  Recent File', '<CMD>Telescope oldfiles<CR>'),
     dashboard.button('u', '  Update Plugins', '<CMD>Lazy sync<CR>'),
-    dashboard.button('c', '  Config', ':e $MYVIMRC | :cd %:p:h <CR>'),
   },
   opts = {
     spacing = 1,

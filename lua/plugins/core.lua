@@ -94,7 +94,6 @@ return {
   {
     'akinsho/toggleterm.nvim',
     cond = not vscode,
-    lazy = false,
     version = 'v2.*',
     opts = {
       open_mapping = [[<c-\>]],

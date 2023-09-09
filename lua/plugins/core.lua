@@ -85,6 +85,7 @@ return {
           { '<LEADER>cc', '<CMD>TSContextToggle<CR>', mode = 'n' },
         },
       },
+      'nvim-treesitter/nvim-treesitter-textobjects',
     },
     config = function()
       require('plugins.configs.treesitter')

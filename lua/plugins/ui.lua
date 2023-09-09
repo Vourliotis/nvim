@@ -8,7 +8,6 @@ return {
   {
     'goolord/alpha-nvim',
     cond = not vscode,
-    lazy = false,
     config = function()
       require('plugins.configs.alpha')
     end,
@@ -16,7 +15,6 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     cond = not vscode,
-    lazy = false,
     dependencies = {
       {
         'f-person/git-blame.nvim',
@@ -82,7 +80,6 @@ return {
   {
     'norcalli/nvim-colorizer.lua',
     cond = not vscode,
-    lazy = false,
     config = function()
       require('colorizer').setup()
     end,
@@ -90,7 +87,6 @@ return {
   {
     'petertriho/nvim-scrollbar',
     cond = not vscode,
-    lazy = false,
     config = function()
       require('scrollbar').setup()
     end,
@@ -98,7 +94,6 @@ return {
   {
     'lukas-reineke/virt-column.nvim',
     cond = not vscode,
-    lazy = false,
     config = function()
       require('virt-column').setup({
         char = '▕',

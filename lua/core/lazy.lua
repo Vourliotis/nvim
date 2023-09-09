@@ -15,23 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   spec = 'plugins',
-  defaults = { lazy = true, version = '*' },
-  install = {},
   checker = { enabled = true },
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        'gzip',
-        'matchit',
-        'matchparen',
-        'netrwPlugin',
-        'tarPlugin',
-        'tohtml',
-        'tutor',
-        'zipPlugin',
-      },
-    },
-  },
 })
 
 vim.keymap.set('n', '<LEADER>l', '<CMD>Lazy<CR>')

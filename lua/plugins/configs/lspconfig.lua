@@ -32,7 +32,6 @@ local servers = {
     filetypes = { 'html', 'eruby' },
   },
   rubocop = {
-    on_attach = handlers.on_attach_no_formatting,
     -- The lspconfig of rubocop runs `bundle exec` in front of the cmd by
     -- default when it detects a Gemfile, and as a result does not use the
     -- executable installed by Mason. This overwrites that behaviour.

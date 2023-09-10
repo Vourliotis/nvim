@@ -40,6 +40,9 @@ local servers = {
       config.cmd = { 'rubocop', '--lsp' }
     end,
   },
+  ruby_ls = {
+    on_attach = handlers.on_attach_no_formatting,
+  },
 }
 
 mason_lspconfig.setup({

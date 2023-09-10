@@ -24,8 +24,7 @@ end
 -- Custom on attach function which also disables formatting where null-ls will
 -- be used to format.
 M.on_attach_no_formatting = function(client, bufr)
-  client.server_capabilities.document_formatting = false
-  client.server_capabilities.document_range_formatting = false
+  client.server_capabilities.documentFormattingProvider = false
 
   M.on_attach(client, bufr)
 end

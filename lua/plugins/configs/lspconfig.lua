@@ -27,7 +27,6 @@ local servers = {
   },
   emmet_ls = {
     on_attach = handlers.on_attach_no_formatting,
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'eruby' },
   },
   html = {
     filetypes = { 'html', 'eruby' },

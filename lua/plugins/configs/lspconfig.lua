@@ -22,14 +22,6 @@ local servers = {
       },
     },
   },
-  solargraph = {
-    on_attach = handlers.on_attach_no_formatting,
-    settings = {
-      solargraph = {
-        diagnostics = false,
-      },
-    },
-  },
   tsserver = {
     on_attach = handlers.on_attach_no_formatting,
   },

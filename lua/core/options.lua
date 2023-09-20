@@ -48,7 +48,6 @@ vim.g.loaded_perl_provider = 0
 vim.cmd('highlight clear ColorColumn')
 vim.cmd('autocmd FileType * set formatoptions-=cro')
 vim.cmd('autocmd FileType eruby setlocal indentexpr=')
-vim.cmd('autocmd FileType ruby setlocal indentexpr=')
 vim.cmd('set whichwrap+=<,>,[,],h,l')
 vim.cmd('set iskeyword+=-')
 vim.cmd([[

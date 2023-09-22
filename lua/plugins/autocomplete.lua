@@ -5,7 +5,7 @@ return {
     'L3MON4D3/LuaSnip',
     cond = not vscode,
     event = 'InsertEnter',
-    build = 'make installl_jsregexp',
+    build = 'make install_jsregexp',
     dependencies = {
       {
         'rafamadriz/friendly-snippets',

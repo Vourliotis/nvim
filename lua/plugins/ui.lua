@@ -52,10 +52,9 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     cond = not vscode,
+    main = 'ibl',
     event = { 'BufReadPre', 'BufNewFile' },
-    config = function()
-      require('plugins.configs.blankline')
-    end,
+    opts = { scope = { enabled = false } },
   },
   {
     'echasnovski/mini.indentscope',

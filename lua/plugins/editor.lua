@@ -13,6 +13,11 @@ return {
           enabled = false,
         },
       },
+      label = {
+        uppercase = false,
+        after = false,
+        before = true,
+      },
     },
     keys = {
       {

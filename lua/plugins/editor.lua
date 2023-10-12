@@ -2,38 +2,11 @@ local vscode = require('core.utils').vscode
 
 return {
   {
-    'folke/flash.nvim',
+    'phaazon/hop.nvim',
     event = 'VeryLazy',
-    opts = {
-      modes = {
-        search = {
-          enabled = false,
-        },
-        char = {
-          enabled = false,
-        },
-      },
-      label = {
-        uppercase = false,
-        after = false,
-        before = true,
-      },
-    },
+    opts = {},
     keys = {
-      {
-        's',
-        mode = { 'n', 'o', 'x' },
-        function()
-          require('flash').jump()
-        end,
-      },
-      {
-        'S',
-        mode = { 'n', 'o', 'x' },
-        function()
-          require('flash').treesitter()
-        end,
-      },
+      { 's', '<CMD>HopChar2<CR>', mode = { 'n', 'v' } },
     },
   },
   {

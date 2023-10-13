@@ -21,8 +21,7 @@ M.on_attach = function(_, bufr)
   bind('i', '<c-k>', lsp.buf.signature_help, opts)
 end
 
--- Custom on attach function which also disables formatting where null-ls will
--- be used to format.
+-- Custom on attach function which disables formatting.
 M.on_attach_no_formatting = function(client, bufr)
   client.server_capabilities.documentFormattingProvider = false
 

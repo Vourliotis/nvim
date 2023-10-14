@@ -10,6 +10,31 @@ return {
     },
   },
   {
+    'stevearc/conform.nvim',
+    cond = not vscode,
+    dependencies = { 'mason.nvim' },
+    lazy = true,
+    cmd = 'ConformInfo',
+    opts = {
+      formatters_by_ft = {
+        lua = { 'stylua' },
+        javascript = { { 'prettierd', 'prettier' } },
+        javascriptreact = { { 'prettierd', 'prettier' } },
+        css = { { 'prettierd', 'prettier' } },
+        scss = { { 'prettierd', 'prettier' } },
+      },
+    },
+    keys = {
+      {
+        "<leader>'f",
+        function()
+          require('conform').format({ lsp_fallback = true })
+        end,
+        mode = 'n',
+      },
+    },
+  },
+  {
     'numToStr/Comment.nvim',
     cond = not vscode,
     keys = {

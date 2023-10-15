@@ -4,220 +4,140 @@ if not success then
   return
 end
 
-local function get_color(group, attr)
-  return vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID(group)), attr)
-end
-
-local colors = {
-  fg = get_color('Normal', 'fg'),
-  bg = get_color('Normal', 'bg'),
-  status_line_fg = get_color('StatusLine', 'fg'),
-  status_line_bg = get_color('StatusLine', 'bg'),
-  success = get_color('diffAdded', 'fg'),
-  error = get_color('diffRemoved', 'fg'),
-  warning = get_color('diffChanged', 'fg'),
-  info = get_color('DiagnosticInfo', 'fg'),
-}
-
-local separators = {
-  vert = '┃',
-  bar = '█',
-  bar_small = '▊',
-  dot = '●',
-  left = '',
-  right = '',
-  left_small = '',
-  right_small = '',
-  slant_bottom_left = '',
-  slant_bottom_right = '',
-  slant_top_left = '',
-  slant_top_right = '',
-}
-
-local conditions = {
-  buffer_not_empty = function()
-    return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
-  end,
-  hide_in_width = function()
-    return vim.fn.winwidth(0) > 80
-  end,
-  check_git_workspace = function()
-    local filepath = vim.fn.expand('%:p:h')
-    local gitdir = vim.fn.finddir('.git', filepath .. ';')
-    return gitdir and #gitdir > 0 and #gitdir < #filepath
-  end,
-}
+local utils = require('ui.utils')
 
 local config = {
-  options = {
-    component_separators = '',
-    section_separators = '',
-    theme = {
-      normal = { c = { fg = colors.fg, bg = nil } },
-      inactive = { c = { fg = colors.fg, bg = nil } },
-    },
-  },
   sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_y = {},
+    lualine_a = {
+      {
+        function()
+          return '%z{}'
+        end,
+        separator = { right = utils.separators.right },
+        color = { bg = utils.colors.success },
+        padding = { right = 0 },
+      },
+      {
+        function()
+          return '%z{}'
+        end,
+        separator = { right = utils.separators.right },
+        color = { bg = utils.colors.warning },
+        padding = { right = 0 },
+      },
+      {
+        function()
+          return '%z{}'
+        end,
+        separator = { right = utils.separators.right },
+        color = { bg = utils.colors.error },
+        padding = { right = 0 },
+      },
+    },
+    lualine_b = {
+      {
+        'filetype',
+        icon_only = true,
+        separator = '',
+        cond = utils.conditions.buffer_not_empty,
+        color = { bg = utils.colors.bg },
+        padding = { left = 1, right = 0 },
+      },
+      {
+        'filename',
+        path = 1,
+        separator = { right = utils.separators.right },
+        cond = utils.conditions.buffer_not_empty,
+        color = { bg = utils.colors.bg },
+      },
+    },
+    lualine_c = {
+      {
+        'diagnostics',
+        sources = { 'nvim_diagnostic' },
+        symbols = { error = ' ', warn = ' ', info = ' ' },
+        diagnostics_color = {
+          color_error = { fg = utils.colors.error },
+          color_warn = { fg = utils.colors.warning },
+          color_info = { fg = utils.colors.info },
+        },
+        separator = { right = utils.separators.bar_small },
+      },
+    },
+    lualine_x = {
+      {
+        function()
+          return require('gitblame').get_current_blame_text()
+        end,
+        cond = require('gitblame').is_blame_text_available,
+      },
+      {
+        'diff',
+        symbols = { added = '+', modified = '~', removed = '-' },
+        diff_color = {
+          added = { fg = utils.colors.success, gui = 'bold' },
+          modified = { fg = utils.colors.warning, gui = 'bold' },
+          removed = { fg = utils.colors.error, gui = 'bold' },
+        },
+        separator = { left = utils.separators.left },
+        color = { bg = utils.colors.bg },
+      },
+    },
+    lualine_y = {
+      {
+        function()
+          local icon = ''
+          local status = require('copilot.api').status.data
+          return icon .. (status.message or '')
+        end,
+        cond = function()
+          local ok, clients = pcall(vim.lsp.get_active_clients, { name = 'copilot', bufnr = 0 })
+          return ok and #clients > 0
+        end,
+        color = function()
+          if not package.loaded['copilot'] then
+            return
+          end
+
+          local copilot_colors = {
+            [''] = utils.colors.fg,
+            ['Normal'] = utils.colors.fg,
+            ['Warning'] = utils.colors.error,
+            ['InProgress'] = utils.colors.warning,
+          }
+
+          local status = require('copilot.api').status.data.status
+
+          return { fg = copilot_colors[status] }
+        end,
+      },
+      {
+        function()
+          return '%z{}'
+        end,
+        separator = { left = utils.separators.left },
+        color = { bg = utils.colors.error },
+        padding = { left = 0 },
+      },
+      {
+        function()
+          return '%z{}'
+        end,
+        separator = { left = utils.separators.left },
+        color = { bg = utils.colors.warning },
+        padding = { left = 0 },
+      },
+      {
+        function()
+          return '%z{}'
+        end,
+        separator = { left = utils.separators.left },
+        color = { bg = utils.colors.success },
+        padding = { left = 0 },
+      },
+    },
     lualine_z = {},
-    lualine_c = {},
-    lualine_x = {},
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_y = {},
-    lualine_z = {},
-    lualine_c = {},
-    lualine_x = {},
   },
 }
-
--- Inserts a component in lualine_c on the left section
-local function ins_left(component)
-  table.insert(config.sections.lualine_c, component)
-end
-
--- Inserts a component in lualine_x on the right section
-local function ins_right(component)
-  table.insert(config.sections.lualine_x, component)
-end
-
-ins_left({
-  'filename',
-  cond = conditions.buffer_not_empty,
-  path = 1,
-  color = { fg = colors.status_line_fg, bg = colors.status_line_bg, gui = 'bold' },
-  separator = { right = separators.slant_bottom_right },
-})
-
-ins_left({
-  'diagnostics',
-  sources = { 'nvim_diagnostic' },
-  symbols = { error = ' ', warn = ' ', info = ' ' },
-  color = { bg = colors.bg },
-  separator = { right = separators.slant_top_right },
-  diagnostics_color = {
-    color_error = { fg = colors.error },
-    color_warn = { fg = colors.warning },
-    color_info = { fg = colors.info },
-  },
-})
-
--- Middle section
-ins_left({
-  function()
-    return '%='
-  end,
-})
-
--- Right section
-ins_right({
-  function()
-    return require('gitblame').get_current_blame_text()
-  end,
-  cond = require('gitblame').is_blame_text_available,
-})
-
-ins_right({
-  function()
-    return '%z{}'
-  end,
-  color = { bg = colors.error },
-  padding = { left = -1 },
-  separator = { left = separators.left },
-})
-
-ins_right({
-  function()
-    return '%z{}'
-  end,
-  color = { bg = colors.warning },
-  padding = { left = -1 },
-  separator = { left = separators.left },
-})
-
-ins_right({
-  function()
-    return '%z{}'
-  end,
-  color = { bg = colors.success },
-  padding = { left = -1 },
-  separator = { left = separators.left },
-})
-
-ins_right({
-  function()
-    return '%z{}'
-  end,
-  color = { bg = colors.info },
-  padding = { left = -1 },
-  separator = { left = separators.left },
-})
-
-ins_right({
-  function()
-    local icon = ''
-    local status = require('copilot.api').status.data
-    return icon .. (status.message or '')
-  end,
-  cond = function()
-    local ok, clients = pcall(vim.lsp.get_active_clients, { name = 'copilot', bufnr = 0 })
-    return ok and #clients > 0
-  end,
-  padding = { left = 1 },
-  color = function()
-    if not package.loaded['copilot'] then
-      return
-    end
-
-    local copilot_colors = {
-      [''] = colors.fg,
-      ['Normal'] = colors.fg,
-      ['Warning'] = colors.error,
-      ['InProgress'] = colors.warning,
-    }
-
-    local status = require('copilot.api').status.data.status
-
-    return { fg = copilot_colors[status], bg = colors.bg }
-  end,
-  separator = { left = separators.left },
-})
-
-ins_right({
-  'o:encoding',
-  cond = conditions.hide_in_width,
-  color = { fg = colors.fg, bg = colors.bg },
-  separator = { left = separators.left },
-})
-
-ins_right({
-  'filetype',
-  color = { fg = colors.fg, bg = colors.bg, gui = 'bold' },
-  separator = { left = separators.left },
-})
-
-ins_right({
-  'diff',
-  symbols = { added = '+', modified = '~', removed = '-' },
-  diff_color = {
-    added = { fg = colors.success, gui = 'bold' },
-    modified = { fg = colors.warning, gui = 'bold' },
-    removed = { fg = colors.error, gui = 'bold' },
-  },
-  cond = conditions.hide_in_width,
-  color = { bg = colors.bg },
-  separator = { left = separators.left },
-})
-
-ins_right({
-  'branch',
-  icon = '',
-  color = { fg = colors.status_line_fg, bg = colors.status_line_bg, gui = 'bold' },
-  separator = { left = separators.left },
-})
 
 lualine.setup(config)

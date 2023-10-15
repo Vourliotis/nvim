@@ -10,6 +10,52 @@ return {
     },
   },
   {
+    'stevearc/conform.nvim',
+    cond = not vscode,
+    dependencies = { 'mason.nvim' },
+    lazy = true,
+    cmd = 'ConformInfo',
+    opts = {
+      formatters_by_ft = {
+        lua = { 'stylua' },
+        javascript = { { 'prettierd', 'prettier' } },
+        javascriptreact = { { 'prettierd', 'prettier' } },
+        css = { { 'prettierd', 'prettier' } },
+        scss = { { 'prettierd', 'prettier' } },
+      },
+    },
+    keys = {
+      {
+        "<leader>'f",
+        function()
+          require('conform').format({ lsp_fallback = true })
+        end,
+        mode = 'n',
+      },
+    },
+  },
+  {
+    'mfussenegger/nvim-lint',
+    cond = not vscode,
+    event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
+    opts = {
+      events = { 'BufWritePost', 'BufReadPost', 'InsertLeave' },
+      linters_by_ft = {
+        css = { 'stylelint' },
+        scss = { 'stylelint' },
+      },
+    },
+    config = function(_, opts)
+      require('lint').linters_by_ft = opts.linters_by_ft
+
+      vim.api.nvim_create_autocmd(opts.events, {
+        callback = function()
+          require('lint').try_lint()
+        end,
+      })
+    end,
+  },
+  {
     'numToStr/Comment.nvim',
     cond = not vscode,
     keys = {

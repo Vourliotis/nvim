@@ -13,7 +13,6 @@ capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFold
 
 local servers = {
   lua_ls = {
-    on_attach = handlers.on_attach_no_formatting,
     settings = {
       Lua = {
         diagnostics = {
@@ -21,12 +20,6 @@ local servers = {
         },
       },
     },
-  },
-  tsserver = {
-    on_attach = handlers.on_attach_no_formatting,
-  },
-  emmet_ls = {
-    on_attach = handlers.on_attach_no_formatting,
   },
   html = {
     filetypes = { 'html', 'eruby' },
@@ -38,9 +31,6 @@ local servers = {
     on_new_config = function(config, _)
       config.cmd = { 'rubocop', '--lsp' }
     end,
-  },
-  ruby_ls = {
-    on_attach = handlers.on_attach_no_formatting,
   },
 }
 

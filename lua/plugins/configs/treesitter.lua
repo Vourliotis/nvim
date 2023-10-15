@@ -12,7 +12,7 @@ treesitter.setup({
     'javascript',
     'lua',
     'vim',
-    'help',
+    'vimdoc',
     'html',
     'css',
     'scss',

@@ -86,6 +86,11 @@ return {
         },
       },
       'nvim-treesitter/nvim-treesitter-textobjects',
+      {
+        'windwp/nvim-ts-autotag',
+        event = 'InsertEnter',
+        opts = {},
+      },
     },
     config = function()
       require('plugins.configs.treesitter')

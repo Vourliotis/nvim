@@ -136,7 +136,13 @@ local config = {
         padding = { left = 0 },
       },
     },
-    lualine_z = {},
+    lualine_z = {
+      {
+        require('noice').api.status.mode.get,
+        cond = require('noice').api.status.mode.has,
+        color = { fg = utils.colors.bg },
+      },
+    },
   },
 }
 

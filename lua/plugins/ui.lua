@@ -26,6 +26,7 @@ return {
           vim.g.gitblame_date_format = '%r'
         end,
       },
+      { 'folke/noice.nvim' },
     },
     config = function()
       require('plugins.configs.lualine')

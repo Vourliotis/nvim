@@ -40,14 +40,21 @@ return {
     end,
   },
   {
-    'kyazdani42/nvim-tree.lua',
+    'echasnovski/mini.files',
     cond = not vscode,
+    version = '*',
     keys = {
-      { '<LEADER>e', '<CMD>NvimTreeToggle<CR>', mode = 'n' },
+      {
+        '<LEADER>e',
+        function()
+          if not MiniFiles.close() then
+            MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+          end
+        end,
+        mode = 'n',
+      },
     },
-    config = function()
-      require('plugins.configs.nvimtree')
-    end,
+    opts = {},
   },
   {
     'nvim-treesitter/nvim-treesitter',

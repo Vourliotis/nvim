@@ -13,9 +13,6 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({
-  spec = 'plugins',
-  checker = { enabled = true },
-})
+require('lazy').setup({ spec = 'plugins' })
 
 vim.keymap.set('n', '<LEADER>l', '<CMD>Lazy<CR>')

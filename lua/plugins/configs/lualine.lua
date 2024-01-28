@@ -67,9 +67,8 @@ local config = {
     lualine_x = {
       {
         function()
-          return require('gitblame').get_current_blame_text()
+          return require('gitblame').get_current_blame_text() or ''
         end,
-        cond = require('gitblame').is_blame_text_available,
       },
       {
         'diff',

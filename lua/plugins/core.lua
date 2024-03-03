@@ -57,6 +57,16 @@ return {
       { '<LEADER>fp', '<CMD>Telescope pickers<CR>', mode = 'n' },
       { '<LEADER>fh', '<CMD>Telescope help_tags<CR>', mode = 'n' },
       { '<LEADER>fl', '<CMD>Telescope live_grep<CR>', mode = 'n' },
+      {
+        '<LEADER>/',
+        function()
+          require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown({
+            winblend = 10,
+            previewer = false,
+          }))
+        end,
+        mode = 'n',
+      },
     },
     config = function()
       require('plugins.configs.telescope')

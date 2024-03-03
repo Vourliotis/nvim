@@ -13,9 +13,26 @@ return {
           { '<LEADER>sl', '<CMD>Telescope persisted<CR>', mode = 'n' },
           { '<LEADER>ss', '<CMD>SessionSave<CR>', mode = 'n' },
         },
-        config = function()
-          require('plugins.configs.persisted')
-        end,
+        opts = {
+          use_git_branch = true,
+          autosave = false,
+          after_save = function()
+            print('Session saved!')
+          end,
+          after_source = function(session)
+            print('Loaded session ' .. session.name)
+          end,
+          telescope = {
+            before_source = function()
+              -- Close all open buffers
+              -- Thanks to https://github.com/avently
+              vim.api.nvim_input('<ESC>:%bd<CR>')
+            end,
+            after_source = function(session)
+              print('Loaded session ' .. session.name)
+            end,
+          },
+        },
       },
       {
         'nvim-telescope/telescope-live-grep-args.nvim',
@@ -47,6 +64,8 @@ return {
       {
         '<LEADER>e',
         function()
+          local MiniFiles = require('mini.files')
+
           if not MiniFiles.close() then
             MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
           end

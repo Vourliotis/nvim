@@ -4,9 +4,7 @@ return {
   {
     'akinsho/git-conflict.nvim',
     cond = not vscode,
-    config = function()
-      require('git-conflict').setup()
-    end,
+    opts = {},
   },
   {
     'tanvirtin/vgit.nvim',
@@ -18,8 +16,18 @@ return {
       { '<LEADER>gp', '<CMD>VGit hunk_up<CR>', mode = 'n' },
       { '<LEADER>gb', '<CMD>VGit toggle_live_blame<CR>', mode = 'n' },
     },
-    config = function()
-      require('plugins.configs.vgit')
-    end,
+    opts = {
+      settings = {
+        live_blame = {
+          enabled = false,
+        },
+        authorship_code_lens = {
+          enabled = false,
+        },
+        scene = {
+          diff_preference = 'split',
+        },
+      },
+    },
   },
 }

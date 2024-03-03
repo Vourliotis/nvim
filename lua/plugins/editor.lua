@@ -64,17 +64,13 @@ return {
       { '<C-_>', 'gcgv', mode = 'v', remap = true },
       { '<C-/>', 'gcgv', mode = 'v', remap = true },
     },
-    config = function()
-      require('Comment').setup()
-    end,
+    opts = {},
   },
   {
     'folke/todo-comments.nvim',
     cond = not vscode,
     event = 'BufEnter',
-    config = function()
-      require('todo-comments').setup()
-    end,
+    opts = {},
   },
   {
     'folke/trouble.nvim',

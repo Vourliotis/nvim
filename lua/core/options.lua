@@ -70,14 +70,23 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
+-- Clear highlighting for ColorColumn
 vim.cmd('highlight clear ColorColumn')
-vim.cmd('autocmd FileType * set formatoptions-=cro')
-vim.cmd('autocmd FileType eruby setlocal indentexpr=')
-vim.cmd('set whichwrap+=<,>,[,],h,l')
-vim.cmd('set iskeyword+=-')
-vim.cmd([[
-  augroup highlight_yank
-  autocmd!
-  au TextYankPost * silent! lua vim.highlight.on_yank({timeout=200})
-  augroup END
-]])
+
+-- Remove 'c', 'r', 'o' from 'formatoptions' for all file types
+-- Prevents automatic comment formatting in new lines
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = '*',
+  callback = function()
+    vim.opt.formatoptions:remove({ 'c', 'r', 'o' })
+  end,
+})
+
+-- Highlight when yanking text
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking text',
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank({ timeout = 200 })
+  end,
+})

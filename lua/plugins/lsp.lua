@@ -7,6 +7,7 @@ return {
     dependencies = {
       { 'williamboman/mason.nvim', opts = {} },
       'williamboman/mason-lspconfig.nvim',
+      { 'WhoIsSethDaniel/mason-tool-installer.nvim', opts = {} },
     },
     config = function()
       require('plugins.configs.lspconfig')

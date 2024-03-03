@@ -46,9 +46,21 @@ return {
       { '<A-w>', '<CMD>BufferClose!<CR>', mode = 'n' },
       { '<C-s>', '<CMD>BufferPick<CR>', mode = 'n' },
     },
-    config = function()
-      require('plugins.configs.barbar')
-    end,
+    opts = {
+      animation = false,
+      icons = {
+        button = false,
+        separator = { left = '' },
+        inactive = {
+          separator = { left = '' },
+        },
+        modified = { button = false },
+        pinned = { button = '車', filename = true },
+      },
+      sidebar_filetypes = {
+        NvimTree = true,
+      },
+    },
   },
   {
     'lukas-reineke/indent-blankline.nvim',

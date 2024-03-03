@@ -1,58 +1,92 @@
--- stylua: ignore
-local options = {                  -- :help options
-  backup = false,                  -- Don't create a backup file
-  clipboard = 'unnamedplus',       -- Allow NeoVim to access system clipboard
-  conceallevel = 0,                -- Make `` visible in Markdown files
-  fileencoding = 'utf-8',          -- Use `utf-8` as encoding
-  hlsearch = true,                 -- Highlight all matches on previous search pattern
-  ignorecase = true,               -- Ignore case in search patterns
-  mouse = 'a',                     -- Allow the mouse to be used in NeoVim
-  showmode = false,                -- Hide NeoVim modes in the status bar
-  showtabline = 2,                 -- Always show tabs
-  smartcase = true,                -- Ignore `ignorecase` if search pattern contains upper case characters
-  smartindent = true,              -- Make indenting smarter on newline
-  splitbelow = true,               -- Force all horizontal splits to go below current window
-  splitright = true,               -- Force all vertical splits to go to the right of current window
-  swapfile = false,                -- Don't create a swapfile
-  termguicolors = true,            -- Set term gui colors
-  timeoutlen = 1000,               -- Time to wait for a mapped sequence to complete (in milliseconds)
-  updatetime = 300,                -- Faster completion (4000ms default)
-  writebackup = false,             -- If a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-  expandtab = true,                -- Convert tabs to spaces
-  shiftwidth = 2,                  -- The number of spaces inserted for each indentation
-  tabstop = 2,                     -- Insert 2 spaces for a tab
-  cursorline = true,               -- Highlight the current line
-  cursorlineopt = 'number',        -- Hightlight the current line number
-  number = true,                   -- Set numbered lines
-  relativenumber = true,           -- Don't set relative numbered lines
-  signcolumn = 'yes',              -- Always show the sign column, otherwise it would shift the text each time
-  wrap = false,                    -- Display long lines as one
-  scrolloff = 8,                   -- Minimal number of screen lines to keep above and below the cursor
-  sidescrolloff = 8,               -- Minimal number of screen columns to keep left and right the cursor
-  cmdheight = 2,                   -- More space in the neovim command line for displaying messages
-  pumheight = 10,                  -- Make popup menu smaller
-  background = 'dark',             -- Tell NeoVim what the background color is
-  laststatus = 3,                  -- Use global statusline
-  completeopt = 'menuone,noselect' -- When to display the auto complete popup menu
-}
+-- Make line numbers default
+vim.opt.number = true
 
-for option, setting in pairs(options) do
-  vim.opt[option] = setting
-end
+-- Enable mouse mode
+vim.opt.mouse = 'a'
+
+-- Don't show the mode, since it's already in status line
+vim.opt.showmode = false
+
+-- Sync clipboard between OS and Neovim
+vim.opt.clipboard = 'unnamedplus'
+
+-- Enable break indent
+vim.opt.breakindent = true
+
+-- Save undo history
+vim.opt.undofile = true
+
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Keep signcolumn on by default
+vim.opt.signcolumn = 'yes'
+
+-- Decrease update time
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+
+-- Configure how new splits should be opened
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- Sets how neovim will display certain whitespace in the editor
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+-- Preview substitutions live
+vim.opt.inccommand = 'split'
+
+-- Show which line your cursor is on
+vim.opt.cursorline = true
+
+-- Minimal number of screen lines to keep above, below, left and right of the cursor
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
+
+-- Set highlight on search, but clear on pressing <Esc> in normal mode
+vim.opt.hlsearch = true
+
+-- Allow cursor movement keys to wrap around lines and between lines
+-- Enhances navigation with arrow keys, h, l, backspace, and space
+vim.opt.whichwrap:append('<,>,[,],h,l')
+
+-- Treat hyphenated words as a single word for editing and navigation
+vim.opt.iskeyword:append({ '-' })
+
+-- Convert tabs to spaces
+vim.opt.expandtab = true
+
+-- Set number of spaces for indentations and tabs
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+
+-- Do not insert any text for a match until the user selects a match from the menu
+vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
 
 -- Disable providers
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
+-- Clear highlighting for ColorColumn
 vim.cmd('highlight clear ColorColumn')
-vim.cmd('autocmd FileType * set formatoptions-=cro')
-vim.cmd('autocmd FileType eruby setlocal indentexpr=')
-vim.cmd('set whichwrap+=<,>,[,],h,l')
-vim.cmd('set iskeyword+=-')
-vim.cmd([[
-  augroup highlight_yank
-  autocmd!
-  au TextYankPost * silent! lua vim.highlight.on_yank({timeout=200})
-  augroup END
-]])
+
+-- Remove 'c', 'r', 'o' from 'formatoptions' for all file types
+-- Prevents automatic comment formatting in new lines
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = '*',
+  callback = function()
+    vim.opt.formatoptions:remove({ 'c', 'r', 'o' })
+  end,
+})
+
+-- Highlight when yanking text
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking text',
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank({ timeout = 200 })
+  end,
+})

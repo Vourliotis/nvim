@@ -33,9 +33,7 @@ return {
       'saadparwaiz1/cmp_luasnip',
       {
         'windwp/nvim-autopairs',
-        config = function()
-          require('plugins.configs.autopairs')
-        end,
+        opts = { check_ts = true },
       },
       {
         'zbirenbaum/copilot-cmp',

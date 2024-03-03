@@ -3,7 +3,9 @@ local vscode = require('core.utils').vscode
 return {
   {
     'L3MON4D3/LuaSnip',
-    cond = not vscode,
+    cond = function()
+      return not vscode and vim.fn.executable('make') == 1
+    end,
     event = 'InsertEnter',
     build = 'make install_jsregexp',
     dependencies = {

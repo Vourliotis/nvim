@@ -40,7 +40,13 @@ return {
           { '<LEADER>fw', '<CMD>Telescope live_grep_args<CR>', mode = 'n' },
         },
       },
-      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+        cond = function()
+          return vim.fn.executable('make') == 1
+        end,
+      },
     },
     keys = {
       { '<LEADER>?', '<CMD>Telescope keymaps<CR>', mode = 'n' },

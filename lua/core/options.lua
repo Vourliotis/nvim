@@ -65,6 +65,9 @@ vim.opt.tabstop = 2
 -- Do not insert any text for a match until the user selects a match from the menu
 vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
 
+-- Disable line wrap
+vim.opt.wrap = false
+
 -- Disable providers
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0

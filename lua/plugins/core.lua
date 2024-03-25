@@ -147,4 +147,8 @@ return {
       size = 20,
     },
   },
+  {
+    'chentoast/marks.nvim',
+    opts = {},
+  },
 }

@@ -8,33 +8,6 @@ return {
     cmd = 'Telescope',
     dependencies = {
       {
-        'olimorris/persisted.nvim',
-        keys = {
-          { '<LEADER>sl', '<CMD>Telescope persisted<CR>', mode = 'n' },
-          { '<LEADER>ss', '<CMD>SessionSave<CR>', mode = 'n' },
-        },
-        opts = {
-          use_git_branch = true,
-          autosave = false,
-          after_save = function()
-            print('Session saved!')
-          end,
-          after_source = function(session)
-            print('Loaded session ' .. session.name)
-          end,
-          telescope = {
-            before_source = function()
-              -- Close all open buffers
-              -- Thanks to https://github.com/avently
-              vim.api.nvim_input('<ESC>:%bd<CR>')
-            end,
-            after_source = function(session)
-              print('Loaded session ' .. session.name)
-            end,
-          },
-        },
-      },
-      {
         'nvim-telescope/telescope-live-grep-args.nvim',
         keys = {
           { '<LEADER>fw', '<CMD>Telescope live_grep_args<CR>', mode = 'n' },

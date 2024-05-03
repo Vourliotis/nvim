@@ -82,5 +82,4 @@ telescope.setup({
 })
 
 telescope.load_extension('fzf')
-telescope.load_extension('persisted')
 telescope.load_extension('live_grep_args')

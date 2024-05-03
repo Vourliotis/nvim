@@ -123,4 +123,9 @@ return {
     'chentoast/marks.nvim',
     opts = {},
   },
+  {
+    'tiagovla/scope.nvim',
+    cond = not vscode,
+    opts = {},
+  },
 }

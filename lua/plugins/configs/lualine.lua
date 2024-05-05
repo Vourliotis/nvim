@@ -7,6 +7,9 @@ end
 local utils = require('ui.utils')
 
 local config = {
+  options = {
+    globalstatus = true,
+  },
   sections = {
     lualine_a = {
       {

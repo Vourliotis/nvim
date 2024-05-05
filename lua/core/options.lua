@@ -68,6 +68,9 @@ vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
 -- Disable line wrap
 vim.opt.wrap = false
 
+-- Enable true color support
+vim.opt.termguicolors = true
+
 -- Disable providers
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0

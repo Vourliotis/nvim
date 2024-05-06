@@ -54,3 +54,10 @@ alpha.setup({
   },
   opts = {},
 })
+
+vim.api.nvim_create_autocmd('TabNewEntered', {
+  desc = 'Open Alpha when creating a new tab',
+  callback = function()
+    vim.cmd('Alpha')
+  end,
+})

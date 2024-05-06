@@ -90,13 +90,6 @@ return {
     end,
   },
   {
-    'norcalli/nvim-colorizer.lua',
-    cond = not vscode,
-    config = function()
-      require('colorizer').setup()
-    end,
-  },
-  {
     'petertriho/nvim-scrollbar',
     cond = not vscode,
     config = function()

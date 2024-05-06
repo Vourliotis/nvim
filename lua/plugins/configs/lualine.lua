@@ -72,6 +72,12 @@ local config = {
         function()
           return require('gitblame').get_current_blame_text() or ''
         end,
+        cond = function()
+          local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
+          local excluded_filetypes = { 'help', 'alpha', 'dashboard', 'terminal', 'lazy', 'mason' }
+
+          return not vim.tbl_contains(excluded_filetypes, filetype)
+        end,
       },
       {
         'diff',

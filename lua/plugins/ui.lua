@@ -33,32 +33,37 @@ return {
     end,
   },
   {
-    'romgrk/barbar.nvim',
+    'akinsho/bufferline.nvim',
     cond = not vscode,
+    version = '*',
     lazy = false,
+    dependencies = {
+      'kyazdani42/nvim-web-devicons',
+    },
     keys = {
-      { '<Tab>', '<CMD>BufferNext<CR>', mode = 'n' },
-      { '<S-Tab>', '<CMD>BufferPrevious<CR>', mode = 'n' },
-      { '<S-h>', '<CMD>BufferMovePrevious<CR>', mode = 'n' },
-      { '<S-l>', '<CMD>BufferMoveNext<CR>', mode = 'n' },
-      { '<C-p>', '<CMD>BufferPin<CR>', mode = 'n' },
-      { '<C-s>', '<CMD>BufferPick<CR>', mode = 'n' },
+      { '<C-p>', '<Cmd>BufferLineTogglePin<CR>', mode = 'n' },
+      { '<S-Tab>', '<cmd>BufferLineCyclePrev<cr>', mode = 'n' },
+      { '<Tab>', '<cmd>BufferLineCycleNext<cr>', mode = 'n' },
+      { '<S-h>', '<CMD>BufferLineMovePrev<CR>', mode = 'n' },
+      { '<S-l>', '<CMD>BufferLineMoveNext<CR>', mode = 'n' },
     },
-    opts = {
-      animation = false,
-      icons = {
-        button = false,
-        separator = { left = '' },
-        inactive = {
-          separator = { left = '' },
+    opts = function(_, opts)
+      local bufferline = require('bufferline')
+
+      opts.options = {
+        show_close_icon = false,
+        show_buffer_close_icons = false,
+        style_preset = {
+          bufferline.style_preset.no_italic,
         },
-        modified = { button = false },
-        pinned = { button = '車', filename = true },
-      },
-      sidebar_filetypes = {
-        NvimTree = true,
-      },
-    },
+        indicator = { style = 'none' },
+        custom_filter = function(buf_number, _)
+          if vim.fn.bufname(buf_number) ~= '' then
+            return true
+          end
+        end,
+      }
+    end,
   },
   {
     'lukas-reineke/indent-blankline.nvim',

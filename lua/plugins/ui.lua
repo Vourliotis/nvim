@@ -42,8 +42,6 @@ return {
       { '<S-h>', '<CMD>BufferMovePrevious<CR>', mode = 'n' },
       { '<S-l>', '<CMD>BufferMoveNext<CR>', mode = 'n' },
       { '<C-p>', '<CMD>BufferPin<CR>', mode = 'n' },
-      { '<C-w>', '<CMD>BufferClose<CR>', mode = 'n' },
-      { '<A-w>', '<CMD>BufferClose!<CR>', mode = 'n' },
       { '<C-s>', '<CMD>BufferPick<CR>', mode = 'n' },
     },
     opts = {

@@ -4,17 +4,6 @@ if not present then
   return
 end
 
-local options = {
-  foldcolumn = '0',
-  foldlevel = 99,
-  foldlevelstart = 99,
-  foldenable = true,
-}
-
-for option, setting in pairs(options) do
-  vim.opt[option] = setting
-end
-
 local virtual_text_handler = function(virtText, lnum, endLnum, width, truncate)
   local newVirtText = {}
   local suffix = (' 󱞦 %d '):format(endLnum - lnum)

@@ -71,6 +71,16 @@ vim.opt.wrap = false
 -- Enable true color support
 vim.opt.termguicolors = true
 
+-- Disable foldcolumn
+vim.opt.foldcolumn = '0'
+
+-- Start with all folds open
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+
+-- Enable folding
+vim.opt.foldenable = true
+
 -- Disable providers
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0

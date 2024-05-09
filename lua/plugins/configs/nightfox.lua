@@ -12,6 +12,8 @@ local palettes = {
 local groups = {
   nightfox = {
     ['@variable.member'] = { fg = 'palette.orange.bright' },
+    ['@module'] = { fg = 'palette.yellow.base' },
+    ['@property'] = { fg = 'palette.orange.bright' },
     CursorLine = { bg = 'palette.bg2' },
     StatusLine = { bg = 'palette.bg2' },
     BufferLineFill = { bg = 'palette.bg0' },

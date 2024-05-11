@@ -1,11 +1,7 @@
-local vscode = require('core.utils').vscode
-
 return {
   {
     'L3MON4D3/LuaSnip',
-    cond = function()
-      return not vscode and vim.fn.executable('make') == 1
-    end,
+    cond = vim.fn.executable('make') == 1 and not vim.g.vscode,
     event = 'InsertEnter',
     build = 'make install_jsregexp',
     dependencies = {
@@ -25,7 +21,6 @@ return {
   },
   {
     'hrsh7th/nvim-cmp',
-    cond = not vscode,
     event = 'InsertEnter',
     dependencies = {
       'hrsh7th/cmp-nvim-lua',
@@ -60,7 +55,6 @@ return {
   },
   {
     'zbirenbaum/copilot.lua',
-    cond = not vscode,
     cmd = 'Copilot',
     build = ':Copilot auth',
     opts = {

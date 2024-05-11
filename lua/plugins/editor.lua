@@ -1,9 +1,8 @@
-local vscode = require('core.utils').vscode
-
 return {
   {
     'phaazon/hop.nvim',
     event = 'VeryLazy',
+    vscode = true,
     opts = {},
     keys = {
       { 's', '<CMD>HopChar2<CR>', mode = { 'n', 'v' } },
@@ -11,7 +10,6 @@ return {
   },
   {
     'stevearc/conform.nvim',
-    cond = not vscode,
     dependencies = { 'mason.nvim' },
     lazy = true,
     cmd = 'ConformInfo',
@@ -36,7 +34,6 @@ return {
   },
   {
     'mfussenegger/nvim-lint',
-    cond = not vscode,
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     opts = {
       events = { 'BufWritePost', 'BufReadPost', 'InsertLeave' },
@@ -57,7 +54,6 @@ return {
   },
   {
     'numToStr/Comment.nvim',
-    cond = not vscode,
     keys = {
       { '<C-_>', 'gcc', mode = 'n', remap = true },
       { '<C-/>', 'gcc', mode = 'n', remap = true },
@@ -68,13 +64,11 @@ return {
   },
   {
     'folke/todo-comments.nvim',
-    cond = not vscode,
     event = 'BufEnter',
     opts = {},
   },
   {
     'folke/trouble.nvim',
-    cond = not vscode,
     cmd = { 'TroubleToggle', 'Trouble' },
     opts = { use_diagnostic_signs = true },
     keys = {
@@ -84,7 +78,6 @@ return {
   },
   {
     'echasnovski/mini.bufremove',
-    cond = not vscode,
     keys = {
       {
         '<C-w>',

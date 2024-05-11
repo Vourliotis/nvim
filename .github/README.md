@@ -19,7 +19,7 @@ experience across both editors.
 
 Before you proceed, make sure you have the following installed:
 
-- [NeoVim 0.9+](https://github.com/neovim/neovim)
+- [NeoVim 0.10+](https://github.com/neovim/neovim)
 - [make](https://www.gnu.org/software/make/)
 - [fzf](https://github.com/junegunn/fzf) - a general-purpose command-line fuzzy finder
 - [ripgrep](https://github.com/BurntSushi/ripgrep) - a line-oriented search tool

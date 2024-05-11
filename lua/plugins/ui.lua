@@ -1,20 +1,15 @@
-local vscode = require('core.utils').vscode
-
 return {
   {
     'nvim-tree/nvim-web-devicons',
-    cond = not vscode,
   },
   {
     'goolord/alpha-nvim',
-    cond = not vscode,
     config = function()
       require('plugins.configs.alpha')
     end,
   },
   {
     'nvim-lualine/lualine.nvim',
-    cond = not vscode,
     dependencies = {
       {
         'f-person/git-blame.nvim',
@@ -34,7 +29,6 @@ return {
   },
   {
     'akinsho/bufferline.nvim',
-    cond = not vscode,
     version = '*',
     lazy = false,
     dependencies = {
@@ -67,14 +61,12 @@ return {
   },
   {
     'lukas-reineke/indent-blankline.nvim',
-    cond = not vscode,
     main = 'ibl',
     event = { 'BufReadPre', 'BufNewFile' },
     opts = { scope = { enabled = false } },
   },
   {
     'echasnovski/mini.indentscope',
-    cond = not vscode,
     event = { 'BufReadPre', 'BufNewFile' },
     init = function()
       vim.api.nvim_create_autocmd('FileType', {
@@ -94,14 +86,12 @@ return {
   },
   {
     'petertriho/nvim-scrollbar',
-    cond = not vscode,
     config = function()
       require('scrollbar').setup()
     end,
   },
   {
     'lukas-reineke/virt-column.nvim',
-    cond = not vscode,
     config = function()
       require('virt-column').setup({
         char = '▕',
@@ -110,7 +100,6 @@ return {
   },
   {
     'folke/noice.nvim',
-    cond = not vscode,
     event = 'VeryLazy',
     opts = {
       lsp = {

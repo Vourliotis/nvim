@@ -1,10 +1,7 @@
-local vscode = require('core.utils').vscode
-
 return {
   'nvim-lua/plenary.nvim',
   {
     'nvim-telescope/telescope.nvim',
-    cond = not vscode,
     cmd = 'Telescope',
     dependencies = {
       {
@@ -16,9 +13,7 @@ return {
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
-        cond = function()
-          return vim.fn.executable('make') == 1
-        end,
+        cond = vim.fn.executable('make') == 1 and not vim.g.vscode,
       },
     },
     keys = {
@@ -46,7 +41,6 @@ return {
   },
   {
     'echasnovski/mini.files',
-    cond = not vscode,
     version = '*',
     keys = {
       {
@@ -65,7 +59,6 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    cond = not vscode,
     build = ':TSUpdate',
     dependencies = {
       { 'nvim-treesitter/playground' },
@@ -112,7 +105,6 @@ return {
   },
   {
     'akinsho/toggleterm.nvim',
-    cond = not vscode,
     version = 'v2.*',
     opts = {
       open_mapping = [[<c-\>]],
@@ -125,7 +117,6 @@ return {
   },
   {
     'tiagovla/scope.nvim',
-    cond = not vscode,
     opts = {},
   },
 }

@@ -1,14 +1,10 @@
-local vscode = require('core.utils').vscode
-
 return {
   {
     'akinsho/git-conflict.nvim',
-    cond = not vscode,
     opts = {},
   },
   {
     'tanvirtin/vgit.nvim',
-    cond = not vscode,
     keys = {
       { '<LEADER>gd', '<CMD>VGit buffer_diff_preview<CR>', mode = 'n' },
       { '<LEADER>gh', '<CMD>VGit buffer_history_preview<CR>', mode = 'n' },

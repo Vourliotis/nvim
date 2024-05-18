@@ -17,6 +17,9 @@ if vim.g.vscode then
   require('vscode.lazy')
 end
 
-require('lazy').setup('plugins')
+require('lazy').setup({ spec = {
+  { import = 'plugins' },
+  { import = 'plugins.after' },
+} })
 
 vim.keymap.set('n', '<LEADER>l', '<CMD>Lazy<CR>')

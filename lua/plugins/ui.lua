@@ -32,7 +32,7 @@ return {
     version = '*',
     lazy = false,
     dependencies = {
-      'kyazdani42/nvim-web-devicons',
+      'nvim-tree/nvim-web-devicons',
     },
     keys = {
       { '<C-p>', '<Cmd>BufferLineTogglePin<CR>', mode = 'n' },

@@ -108,5 +108,9 @@ return {
         end,
       },
     },
+    config = function()
+      vim.keymap.del('n', '<C-w>d')
+      vim.keymap.del('n', '<C-w><C-d>')
+    end,
   },
 }

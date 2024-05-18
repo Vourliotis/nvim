@@ -10,6 +10,17 @@ local config = {
   options = {
     globalstatus = true,
   },
+  winbar = {
+    lualine_c = {
+      {
+        'aerial',
+        sep = '  ',
+        depth = 3,
+        colored = true,
+        color = { bg = utils.colors.bg },
+      },
+    },
+  },
   sections = {
     lualine_a = {
       {

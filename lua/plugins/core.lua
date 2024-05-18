@@ -78,20 +78,6 @@ return {
           require('plugins.configs.ufo')
         end,
       },
-      {
-        'nvim-treesitter/nvim-treesitter-context',
-        opts = { enable = false },
-        keys = {
-          {
-            '<LEADER>ck',
-            function()
-              return require('treesitter-context').go_to_context()
-            end,
-            mode = 'n',
-          },
-          { '<LEADER>cc', '<CMD>TSContextToggle<CR>', mode = 'n' },
-        },
-      },
       'nvim-treesitter/nvim-treesitter-textobjects',
       {
         'windwp/nvim-ts-autotag',

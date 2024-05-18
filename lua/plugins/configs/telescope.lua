@@ -78,8 +78,16 @@ telescope.setup({
         },
       },
     },
+    aerial = {
+      show_nesting = {
+        ['_'] = false,
+        json = true,
+        yaml = true,
+      },
+    },
   },
 })
 
 telescope.load_extension('fzf')
 telescope.load_extension('live_grep_args')
+telescope.load_extension('aerial')

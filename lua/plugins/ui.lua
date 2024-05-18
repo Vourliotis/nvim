@@ -117,4 +117,24 @@ return {
       'MunifTanjim/nui.nvim',
     },
   },
+  {
+    'stevearc/aerial.nvim',
+    lazy = false,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
+    keys = {
+      { '{', '<CMD>AerialPrev<CR>', mode = 'n' },
+      { '}', '<CMD>AerialNext<CR>', mode = 'n' },
+      { '<LEADER>at', '<CMD>AerialToggle<CR>', mode = 'n' },
+      { '<LEADER>fc', '<CMD>Telescope aerial<CR>', mode = 'n' },
+    },
+    opts = {
+      layout = {
+        max_width = { 90, 0.5 },
+        default_direction = 'prefer_left',
+      },
+    },
+  },
 }

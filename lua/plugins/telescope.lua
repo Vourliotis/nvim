@@ -9,7 +9,31 @@ return {
       },
       config = function()
         require('core.utils').on_load('telescope.nvim', function()
-          require('telescope').load_extension('live_grep_args')
+          local telescope = require('telescope')
+          local lga_actions = require('telescope-live-grep-args.actions')
+          local actions = require('telescope.actions')
+
+          telescope.setup({
+            extensions = {
+              live_grep_args = {
+                auto_quoting = true,
+                mappings = {
+                  i = {
+                    ['<esc>'] = actions.close,
+                    ['<C-k>'] = actions.move_selection_previous,
+                    ['<C-j>'] = actions.move_selection_next,
+                    ['<C-Up>'] = actions.cycle_history_next,
+                    ['<C-Down>'] = actions.cycle_history_prev,
+                    ['<C-h>'] = lga_actions.quote_prompt({ postfix = ' --iglob ' }),
+                    ['<C-l>'] = lga_actions.quote_prompt({ postfix = " --iglob '!spec' --iglob " }),
+                    ['<C-Space>'] = actions.to_fuzzy_refine,
+                  },
+                },
+              },
+            },
+          })
+
+          telescope.load_extension('live_grep_args')
         end)
       end,
     },
@@ -19,7 +43,19 @@ return {
       build = 'make',
       config = function()
         require('core.utils').on_load('telescope.nvim', function()
-          require('telescope').load_extension('fzf')
+          local telescope = require('telescope')
+          telescope.setup({
+            extensions = {
+              fzf = {
+                fuzzy = true,
+                override_generic_sorter = true,
+                override_file_sorter = true,
+                case_mode = 'smart_case',
+              },
+            },
+          })
+
+          telescope.load_extension('fzf')
         end)
       end,
     },
@@ -60,7 +96,7 @@ return {
     end
 
     local actions = require('telescope.actions')
-    local lga_actions = require('telescope-live-grep-args.actions')
+
     return {
       defaults = {
         mappings = {
@@ -94,29 +130,6 @@ return {
         help_tags = default('Help Tags'),
         keymaps = default('Keymaps'),
         pickers = default('Pickers'),
-      },
-      extensions = {
-        fzf_native = {
-          fuzzy = true,
-          override_generic_sorter = true,
-          override_file_sorter = true,
-          case_mode = 'smart_case',
-        },
-        live_grep_args = {
-          auto_quoting = true,
-          mappings = {
-            i = {
-              ['<esc>'] = actions.close,
-              ['<C-k>'] = actions.move_selection_previous,
-              ['<C-j>'] = actions.move_selection_next,
-              ['<C-Up>'] = actions.cycle_history_next,
-              ['<C-Down>'] = actions.cycle_history_prev,
-              ['<C-h>'] = lga_actions.quote_prompt({ postfix = ' --iglob ' }),
-              ['<C-l>'] = lga_actions.quote_prompt({ postfix = " --iglob '!spec' --iglob " }),
-              ['<C-Space>'] = actions.to_fuzzy_refine,
-            },
-          },
-        },
       },
     }
   end,

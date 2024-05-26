@@ -56,4 +56,18 @@ return {
       return filename
     end,
   },
+  config = function(_, opts)
+    vim.api.nvim_create_autocmd('BufEnter', {
+      pattern = vim.fn.expand('~') .. '/Obsidian/**.md',
+      callback = function()
+        local bufname = vim.api.nvim_buf_get_name(0)
+        local dirname = vim.fn.fnamemodify(bufname, ':h')
+
+        vim.fn.mkdir(dirname, 'p')
+        vim.api.nvim_command('write')
+      end,
+    })
+
+    require('obsidian').setup(opts)
+  end,
 }

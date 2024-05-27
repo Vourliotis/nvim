@@ -55,6 +55,9 @@ return {
 
       return filename
     end,
+    follow_url_func = function(url)
+      vim.fn.jobstart({ 'xdg-open', url })
+    end,
   },
   config = function(_, opts)
     vim.api.nvim_create_autocmd('BufEnter', {

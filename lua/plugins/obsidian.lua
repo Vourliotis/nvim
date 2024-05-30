@@ -48,7 +48,7 @@ return {
     end,
   },
   config = function(_, opts)
-    vim.api.nvim_create_autocmd('BufEnter', {
+    vim.api.nvim_create_autocmd('BufNewFile', {
       pattern = vim.fn.expand('~') .. '/Obsidian/**.md',
       callback = function()
         local bufname = vim.api.nvim_buf_get_name(0)

@@ -41,19 +41,7 @@ return {
       },
     },
     note_id_func = function(title)
-      local filename = ''
-
-      if title ~= nil then
-        filename = title:gsub(' ', '-'):gsub('[^A-Za-z0-9-]', ''):lower()
-      else
-        for _ = 1, 4 do
-          filename = filename .. string.char(math.random(65, 90))
-        end
-
-        filename = tostring(os.time()) .. '-' .. filename
-      end
-
-      return filename
+      return title
     end,
     follow_url_func = function(url)
       vim.fn.jobstart({ 'xdg-open', url })

@@ -2,6 +2,13 @@ return {
   'EdenEast/nightfox.nvim',
   priority = 1000,
   opts = {
+    options = {
+      styles = {
+        comments = 'italic',
+        keywordds = 'bold',
+        types = 'bold',
+      },
+    },
     palettes = {
       nightfox = {
         bg0 = '#1e2030',

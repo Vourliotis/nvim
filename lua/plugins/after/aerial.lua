@@ -7,8 +7,8 @@ return {
       'nvim-tree/nvim-web-devicons',
     },
     keys = {
-      { '{', '<CMD>AerialPrev<CR>', mode = 'n' },
-      { '}', '<CMD>AerialNext<CR>', mode = 'n' },
+      { '}', '<CMD>AerialPrev<CR>', mode = 'n' },
+      { '{', '<CMD>AerialNext<CR>', mode = 'n' },
       { '<LEADER>at', '<CMD>AerialToggle<CR>', mode = 'n' },
     },
     opts = {

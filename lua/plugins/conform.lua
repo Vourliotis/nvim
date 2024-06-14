@@ -19,6 +19,7 @@ return {
       javascriptreact = { { 'prettierd', 'prettier' } },
       css = { { 'prettierd', 'prettier' } },
       scss = { { 'prettierd', 'prettier' } },
+      markdown = { { 'prettierd', 'prettier' } },
     },
   },
 }

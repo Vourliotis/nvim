@@ -21,7 +21,6 @@ return {
     ensure_installed = {
       'ruby',
       'go',
-      'rust',
       'javascript',
       'lua',
       'vim',
@@ -29,8 +28,8 @@ return {
       'html',
       'css',
       'scss',
-      'svelte',
-      'jsdoc',
+      'markdown',
+      'markdown_inline',
     },
     highlight = {
       enable = true,

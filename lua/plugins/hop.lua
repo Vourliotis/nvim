@@ -1,9 +1,15 @@
 return {
-  'phaazon/hop.nvim',
+  'smoka7/hop.nvim',
   vscode = true,
-  event = 'VeryLazy',
+  version = '*',
   keys = {
-    { 's', '<CMD>HopChar2<CR>', mode = { 'n', 'v' } },
+    {
+      's',
+      function()
+        require('hop').hint_char2()
+      end,
+      mode = { 'n', 'v' },
+    },
   },
   opts = {},
 }

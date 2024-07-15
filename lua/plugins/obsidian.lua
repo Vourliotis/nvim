@@ -4,7 +4,7 @@ return {
   cond = function()
     local obsidian_path = vim.fn.expand('~/Obsidian/nvim')
     return vim.loop.fs_stat(obsidian_path) and vim.loop.fs_stat(obsidian_path).type == 'directory'
-  end,
+  end and not vim.g.vscode,
   version = '*',
   event = {
     'BufReadPre ~/Obsidian/**.md',

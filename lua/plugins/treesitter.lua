@@ -1,5 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  vscode = true,
   build = ':TSUpdate',
   dependencies = {
     'nvim-treesitter/playground',

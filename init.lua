@@ -9,5 +9,5 @@ require('lsp')
 
 -- VSCode only settings
 if vim.g.vscode then
-  require('vscode')
+  require('code')
 end

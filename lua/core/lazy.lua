@@ -14,7 +14,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 if vim.g.vscode then
-  require('vscode.lazy')
+  require('code.lazy')
 end
 
 require('lazy').setup({ spec = {

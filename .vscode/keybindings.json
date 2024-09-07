@@ -1,18 +1,4 @@
 [
-  // NeoVim
-  {
-    "command": "vscode-neovim.compositeEscape1",
-    "key": "j",
-    "when": "neovim.mode == insert && editorTextFocus",
-    "args": "j"
-  },
-  {
-    "command": "vscode-neovim.compositeEscape2",
-    "key": "k",
-    "when": "neovim.mode == insert && editorTextFocus",
-    "args": "k"
-  },
-
   // Navigations towards the editor
   {
     "key": "ctrl+l",
@@ -28,7 +14,7 @@
     "key": "ctrl+t",
     "command": "workbench.action.togglePanel"
   },
-  
+
   // Lists
   {
     "key": "j",
@@ -55,7 +41,7 @@
     "command": "list.collapse",
     "when": "listFocus && !inputFocus"
   },
-  
+
   // Quick Open
   {
     "key": "ctrl+j",
@@ -67,7 +53,6 @@
     "command": "workbench.action.quickOpenNavigatePrevious",
     "when": "inQuickOpen"
   },
-
 
   // File Explorer
   {
@@ -115,7 +100,7 @@
     "command": "explorer.newFolder",
     "when": "filesExplorerFocus && !inputFocus"
   },
-  
+
   // Suggestions
   {
     "key": "ctrl+j",
@@ -144,5 +129,4 @@
     "command": "-editor.action.startFindReplaceAction",
     "when": "editorFocus || editorIsOpen"
   }
-
 ]

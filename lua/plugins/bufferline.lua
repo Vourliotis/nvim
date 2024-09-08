@@ -3,7 +3,7 @@ return {
     'akinsho/bufferline.nvim',
     lazy = false,
     dependencies = {
-      'nvim-tree/nvim-web-devicons',
+      'echasnovski/mini.icons',
     },
     keys = {
       { '<C-p>', '<Cmd>BufferLineTogglePin<CR>', mode = 'n' },

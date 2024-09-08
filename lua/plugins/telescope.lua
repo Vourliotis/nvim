@@ -59,6 +59,7 @@ return {
         end)
       end,
     },
+    'echasnovski/mini.icons',
   },
   keys = {
     { '<LEADER>?', '<CMD>Telescope keymaps<CR>', mode = 'n' },

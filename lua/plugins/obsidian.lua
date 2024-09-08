@@ -59,5 +59,6 @@ return {
     follow_url_func = function(url)
       vim.fn.jobstart({ 'xdg-open', url })
     end,
+    disable_frontmatter = true,
   },
 }

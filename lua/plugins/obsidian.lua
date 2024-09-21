@@ -3,8 +3,10 @@ return {
   lazy = false,
   cond = function()
     local obsidian_path = vim.fn.expand('~/Obsidian/nvim')
-    return vim.loop.fs_stat(obsidian_path) and vim.loop.fs_stat(obsidian_path).type == 'directory'
-  end and not vim.g.vscode,
+    local stat = vim.loop.fs_stat(obsidian_path)
+
+    return stat and stat.type == 'directory' and not vim.g.vscode
+  end,
   version = '*',
   event = {
     'BufReadPre ~/Obsidian/**.md',

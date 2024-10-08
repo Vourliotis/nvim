@@ -5,6 +5,7 @@ return {
     { '<LEADER>gh', '<CMD>VGit buffer_history_preview<CR>', mode = 'n' },
     { '<LEADER>gn', '<CMD>VGit hunk_down<CR>', mode = 'n' },
     { '<LEADER>gp', '<CMD>VGit hunk_up<CR>', mode = 'n' },
+    { '<LEADER>gb', '<CMD>VGit toggle_live_blame<CR>', mode = 'n' },
   },
   opts = {
     settings = {

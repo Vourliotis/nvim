@@ -27,6 +27,7 @@ return {
                     ['<C-h>'] = lga_actions.quote_prompt({ postfix = ' --iglob ' }),
                     ['<C-l>'] = lga_actions.quote_prompt({ postfix = " --iglob '!spec' --iglob " }),
                     ['<C-Space>'] = actions.to_fuzzy_refine,
+                    ['<C-q>'] = actions.send_to_qflist,
                   },
                 },
               },

@@ -4,7 +4,6 @@ return {
     { 'williamboman/mason.nvim', opts = {} },
     'williamboman/mason-lspconfig.nvim',
     { 'WhoIsSethDaniel/mason-tool-installer.nvim', opts = {} },
-    'hrsh7th/nvim-cmp',
   },
   config = function()
     local lspconfig = require('lspconfig')
@@ -13,7 +12,6 @@ return {
     local handlers = require('lsp.handlers')
     local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
     capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
 
     local servers = {

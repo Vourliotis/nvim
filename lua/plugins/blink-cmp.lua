@@ -10,14 +10,7 @@ return {
       nerd_font_variant = 'normal',
       accept = { auto_brackets = { enabled = true } },
       trigger = { signature_help = { enabled = true } },
-      keymap = {
-        accept = '<CR>',
-        select_prev = { '<Up>', '<S-Tab>' },
-        select_next = { '<Down>', '<Tab>' },
-        show_documentation = '<C-k>',
-        scroll_documentation_up = '<C-p>',
-        scroll_documentation_down = '<C-n>',
-      },
+      keymap = 'super-tab',
       windows = {
         autocomplete = {
           border = 'single',

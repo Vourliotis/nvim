@@ -1,11 +1,34 @@
 return {
   'tanvirtin/vgit.nvim',
   keys = {
-    { '<LEADER>gd', '<CMD>VGit buffer_diff_preview<CR>', mode = 'n' },
-    { '<LEADER>gh', '<CMD>VGit buffer_history_preview<CR>', mode = 'n' },
-    { '<LEADER>gn', '<CMD>VGit hunk_down<CR>', mode = 'n' },
-    { '<LEADER>gp', '<CMD>VGit hunk_up<CR>', mode = 'n' },
-    { '<LEADER>gb', '<CMD>VGit toggle_live_blame<CR>', mode = 'n' },
+    {
+      'gk',
+      function()
+        require('vgit').hunk_up()
+      end,
+      mode = 'n',
+    },
+    {
+      'gj',
+      function()
+        require('vgit').hunk_down()
+      end,
+      mode = 'n',
+    },
+    {
+      '<LEADER>gh',
+      function()
+        require('vgit').buffer_history_preview()
+      end,
+      mode = 'n',
+    },
+    {
+      '<LEADER>gs',
+      function()
+        require('vgit').buffer_diff_preview()
+      end,
+      mode = 'n',
+    },
   },
   opts = {
     settings = {

@@ -56,7 +56,7 @@ return {
             path = 1,
             separator = { right = utils.separators.right },
             cond = utils.conditions.buffer_not_empty,
-            color = { bg = utils.colors.bg },
+            color = { bg = utils.colors.bg, fg = utils.colors.fg },
           },
         },
         lualine_c = {

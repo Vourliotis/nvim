@@ -10,7 +10,7 @@ return {
       nerd_font_variant = 'normal',
       accept = { auto_brackets = { enabled = true } },
       trigger = { signature_help = { enabled = true } },
-      keymap = 'super-tab',
+      keymap = { preset = 'super-tab' },
       windows = {
         autocomplete = {
           border = 'single',

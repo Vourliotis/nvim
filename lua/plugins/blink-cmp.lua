@@ -4,23 +4,7 @@ return {
     lazy = false,
     version = 'v0.*',
     opts = {
-      highlight = {
-        use_nvim_cmp_as_default = true,
-      },
-      nerd_font_variant = 'normal',
-      accept = { auto_brackets = { enabled = true } },
-      trigger = { signature_help = { enabled = true } },
       keymap = { preset = 'super-tab' },
-      windows = {
-        autocomplete = {
-          border = 'single',
-        },
-        documentation = {
-          auto_show = true,
-          auto_show_delay_ms = 50,
-          border = 'single',
-        },
-      },
     },
   },
   {

@@ -4,7 +4,6 @@ return {
   opts = {
     options = {
       styles = {
-        comments = 'italic',
         keywordds = 'bold',
         types = 'bold',
       },

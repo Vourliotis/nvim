@@ -1,5 +1,6 @@
 return {
   'echasnovski/mini.trailspace',
+  lazy = false,
   version = '*',
   keys = {
     {

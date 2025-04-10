@@ -5,6 +5,7 @@ return {
     version = 'v0.*',
     opts = {
       keymap = { preset = 'super-tab' },
+      fuzzy = { implementation = "lua" },
     },
   },
   {

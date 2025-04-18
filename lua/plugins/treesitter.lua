@@ -31,6 +31,7 @@ return {
       'scss',
       'markdown',
       'markdown_inline',
+      'java',
     },
     highlight = {
       enable = true,

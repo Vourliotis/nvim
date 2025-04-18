@@ -1,6 +1,6 @@
 return {
   'goolord/alpha-nvim',
-  dependencies = 'nvim-telescope/telescope.nvim',
+  dependencies = 'ibhagwan/fzf-lua',
   opts = function()
     local ascii = {
       '                                                              ',
@@ -31,9 +31,9 @@ return {
     local buttons = {
       type = 'group',
       val = {
-        dashboard.button('f', '  Find File', '<CMD>Telescope find_files<CR>'),
-        dashboard.button('w', '󰺯  Find Word', '<CMD>Telescope live_grep_args<CR>'),
-        dashboard.button('r', '󰔠  Recent File', '<CMD>Telescope oldfiles<CR>'),
+        dashboard.button('f', '  Find File', '<CMD>FzfLua files<CR>'),
+        dashboard.button('w', '󰺯  Find Word', '<CMD>FzfLua live_grep<CR>'),
+        dashboard.button('r', '󰔠  Recent File', '<CMD>FzfLua oldfiles<CR>'),
         dashboard.button('u', '  Update Plugins', '<CMD>Lazy sync<CR>'),
       },
       opts = { spacing = 1 },

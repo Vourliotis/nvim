@@ -1,19 +1,13 @@
 {
-  "vscode-neovim.logLevel": "debug",
-  "vscode-neovim.useCtrlKeysForInsertMode": true,
-  "vscode-neovim.useCtrlKeysForNormalMode": true,
   "vscode-neovim.compositeKeys": {
-    "jk": {
-      "command": "vscode-neovim.lua",
-      "args": [
-        [
-          "local code = require('vscode')",
-          "code.action('vscode-neovim.escape')"
-        ]
-      ]
-    }
-  },
-  "Lua.diagnostics.globals": [
-    "vim"
-  ]
+      "jk": {
+          "command": "vscode-neovim.lua",
+          "args": [
+            [
+              "local code = require('vscode')",
+              "code.action('vscode-neovim.escape')"
+            ]
+          ]
+      }
+  }
 }

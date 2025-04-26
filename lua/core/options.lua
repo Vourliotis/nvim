@@ -81,6 +81,9 @@ vim.opt.foldlevelstart = 99
 -- Enable folding
 vim.opt.foldenable = true
 
+-- Use 'g' by default with :s/foo/bar
+vim.opt.gdefault = true
+
 -- Disable providers
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0

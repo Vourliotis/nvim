@@ -19,6 +19,18 @@ return {
     },
   },
   {
+    'nvim-telescope/telescope.nvim',
+    optional = true,
+    keys = {
+      { '<LEADER>fc', '<CMD>Telescope aerial<CR>', mode = 'n' },
+      opts = function()
+        require('core.utils').on_load('telescope.nvim', function()
+          require('telescope').load_extension('aerial')
+        end)
+      end,
+    },
+  },
+  {
     'nvim-lualine/lualine.nvim',
     optional = true,
     dependencies = 'stevearc/aerial.nvim',

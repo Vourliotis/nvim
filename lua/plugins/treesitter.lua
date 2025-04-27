@@ -32,6 +32,8 @@ return {
       'markdown',
       'markdown_inline',
       'java',
+      'typescript',
+      'tsx',
     },
     highlight = {
       enable = true,

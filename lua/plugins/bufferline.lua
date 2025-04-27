@@ -7,6 +7,7 @@ return {
     },
     keys = {
       { '<C-p>', '<Cmd>BufferLineTogglePin<CR>', mode = 'n' },
+      { 'go', '<Cmd>BufferLinePick<CR>', mode = 'n' },
       { '<S-Tab>', '<cmd>BufferLineCyclePrev<cr>', mode = 'n' },
       { '<Tab>', '<cmd>BufferLineCycleNext<cr>', mode = 'n' },
       { '<S-h>', '<CMD>BufferLineMovePrev<CR>', mode = 'n' },

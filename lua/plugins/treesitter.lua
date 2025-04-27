@@ -34,6 +34,7 @@ return {
       'java',
       'typescript',
       'tsx',
+      'xml',
     },
     highlight = {
       enable = true,

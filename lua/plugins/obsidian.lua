@@ -28,7 +28,7 @@ return {
     })
   end,
   keys = {
-    { '<LEADER>ot', '<CMD>ObsidianToday<CR>', mode = 'n' },
+    { '<LEADER>oo', '<CMD>ObsidianToday<CR>', mode = 'n' },
     { '<LEADER>oy', '<CMD>ObsidianYesterday<CR>', mode = 'n' },
     { '<LEADER>os', '<CMD>ObsidianSearch<CR>', mode = 'n' },
     { '<LEADER>oq', '<CMD>ObsidianQuickSwitch<CR>', mode = 'n' },

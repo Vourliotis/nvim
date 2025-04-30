@@ -1,20 +1,8 @@
 return {
   'neovim/nvim-lspconfig',
-  dependencies = {
-    { 'williamboman/mason.nvim', opts = {} },
-    'williamboman/mason-lspconfig.nvim',
-    { 'WhoIsSethDaniel/mason-tool-installer.nvim', opts = {} },
-  },
   config = function()
-    local lspconfig = require('lspconfig')
-    local mason_lspconfig = require('mason-lspconfig')
-
-    local handlers = require('lsp.handlers')
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-    capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
-
-    local servers = {
+    local server_configurations = {
       lua_ls = {
         settings = {
           Lua = {
@@ -24,28 +12,17 @@ return {
           },
         },
       },
-      html = {
-        filetypes = { 'html', 'eruby' },
-      },
-      rubocop = {
-        -- The lspconfig of rubocop runs `bundle exec` in front of the cmd by
-        -- default when it detects a Gemfile, and as a result does not use the
-        -- executable installed by Mason. This overwrites that behaviour.
-        on_new_config = function(config, _)
-          config.cmd = { 'rubocop', '--lsp' }
-        end,
-      },
     }
 
-    mason_lspconfig.setup_handlers({
-      function(server_name)
-        local default_config = {
-          capabilities = capabilities,
-          on_attach = handlers.on_attach,
-        }
+    local servers = vim.tbl_keys(server_configurations or {})
+    vim.list_extend(servers, { 'stylua' })
 
-        lspconfig[server_name].setup(vim.tbl_extend('force', default_config, servers[server_name] or {}))
-      end,
-    })
+    for _, server in ipairs(servers) do
+      local server_configuration = server_configurations[server] or {}
+      server_configuration.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+
+      vim.lsp.enable(server)
+      vim.lsp.config(server, server_configuration)
+    end
   end,
 }

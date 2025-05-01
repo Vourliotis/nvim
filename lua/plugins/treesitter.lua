@@ -35,6 +35,7 @@ return {
       'typescript',
       'tsx',
       'xml',
+      'sql',
     },
     highlight = {
       enable = true,

@@ -4,6 +4,9 @@ return {
   dependencies = {
     {
       'nvim-telescope/telescope-live-grep-args.nvim',
+      keys = {
+        { '<LEADER>fw', '<CMD>Telescope live_grep_args<CR>', mode = 'n' },
+      },
       config = function()
         require('core.utils').on_load('telescope.nvim', function()
           local telescope = require('telescope')

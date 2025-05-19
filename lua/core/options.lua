@@ -113,3 +113,19 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank({ timeout = 200 })
   end,
 })
+
+local general_group = vim.api.nvim_create_augroup('general', {})
+
+vim.api.nvim_create_autocmd('FocusGained', {
+  desc = 'Reload files from disk when we focus neovim',
+  pattern = '*',
+  command = 'silent! checktime',
+  group = general_group,
+})
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  desc = 'Every time we enter an unmodified buffer, check if it changed on disk',
+  pattern = '*',
+  command = "if &buftype == '' && !&modified | exec 'checktime ' . expand('<abuf>') | endif",
+  group = general_group,
+})

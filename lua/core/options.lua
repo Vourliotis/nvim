@@ -129,3 +129,8 @@ vim.api.nvim_create_autocmd('BufEnter', {
   command = "if &buftype == '' && !&modified | exec 'checktime ' . expand('<abuf>') | endif",
   group = general_group,
 })
+
+if vim.fn.executable('rg') == 1 then
+  vim.o.grepprg = 'rg --vimgrep --no-heading --smart-case'
+  vim.o.grepformat = '%f:%l:%c:%m,%f:%l:%m'
+end

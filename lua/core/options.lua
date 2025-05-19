@@ -84,6 +84,9 @@ vim.opt.foldenable = true
 -- Use 'g' by default with :s/foo/bar
 vim.opt.gdefault = true
 
+-- Ignore swap file messages
+vim.opt.shortmess:append('A')
+
 -- Disable providers
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0

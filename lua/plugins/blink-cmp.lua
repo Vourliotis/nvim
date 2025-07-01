@@ -4,7 +4,7 @@ return {
     lazy = false,
     version = 'v0.*',
     opts = {
-      keymap = { preset = 'super-tab' },
+      keymap = { preset = 'enter' },
       fuzzy = { implementation = "lua" },
     },
   },

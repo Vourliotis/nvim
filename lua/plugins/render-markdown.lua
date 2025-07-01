@@ -10,6 +10,6 @@ return {
       sign = false,
       icons = {},
     },
-    code = { border = 'thick' },
+    code = { language_border = '' },
   },
 }

@@ -36,6 +36,7 @@ return {
       'tsx',
       'xml',
       'sql',
+      'terraform',
     },
     highlight = {
       enable = true,

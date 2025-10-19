@@ -31,6 +31,9 @@ bind('n', '<LEADER>n', '<CMD>noh<CR><cmd>echo ""<CR>')
 bind('n', '<LEADER>yf', '<CMD>lua vim.fn.setreg("+", vim.fn.expand("%:."))<CR>')
 bind('n', '<LEADER>yl', '<CMD>lua vim.fn.setreg("+", vim.fn.expand("%:.") .. ":" .. vim.fn.line("."))<CR>')
 
+-- Base64 decode and format JSON
+bind('n', '<LEADER>b64', '<CMD>.!base64 -d | jq .<CR>')
+
 -- TUI/GUI NeoVim only settings
 if not vim.g.vscode then
   -- Resize with arrows

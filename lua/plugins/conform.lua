@@ -2,7 +2,6 @@ return {
   'stevearc/conform.nvim',
   lazy = true,
   cmd = 'ConformInfo',
-  dependencies = 'mason.nvim',
   keys = {
     {
       "<leader>'f",

@@ -3,7 +3,6 @@ return {
   vscode = true,
   build = ':TSUpdate',
   dependencies = {
-    'nvim-treesitter/playground',
     'nvim-treesitter/nvim-treesitter-textobjects',
     {
       'RRethy/nvim-treesitter-endwise',

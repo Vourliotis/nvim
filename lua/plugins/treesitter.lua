@@ -2,6 +2,8 @@ return {
   'nvim-treesitter/nvim-treesitter',
   vscode = true,
   build = ':TSUpdate',
+  branch = 'main',
+  main = 'nvim-treesitter.config',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
     {
@@ -100,7 +102,4 @@ return {
       },
     },
   },
-  config = function(_, opts)
-    require('nvim-treesitter.configs').setup(opts)
-  end,
 }

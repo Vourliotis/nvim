@@ -7,10 +7,8 @@ return {
   dependencies = {
     {
       'RRethy/nvim-treesitter-endwise',
+      main = 'nvim-treesitter.config',
       opts = { endwise = { enable = true } },
-      config = function(_, opts)
-        require('nvim-treesitter.configs').setup(opts)
-      end,
     },
     {
       'windwp/nvim-ts-autotag',

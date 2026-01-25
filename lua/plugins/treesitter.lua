@@ -5,7 +5,6 @@ return {
   branch = 'main',
   main = 'nvim-treesitter.config',
   dependencies = {
-    'nvim-treesitter/nvim-treesitter-textobjects',
     {
       'RRethy/nvim-treesitter-endwise',
       opts = { endwise = { enable = true } },

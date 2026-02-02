@@ -35,6 +35,7 @@ return {
       'xml',
       'sql',
       'terraform',
+      'elixir',
     },
     highlight = {
       enable = true,

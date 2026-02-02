@@ -18,7 +18,7 @@ return {
     }
 
     local servers = vim.tbl_keys(server_configurations or {})
-    vim.list_extend(servers, { 'stylua' })
+    vim.list_extend(servers, { 'stylua', 'elixirls' })
 
     for _, server in ipairs(servers) do
       local server_configuration = server_configurations[server] or {}

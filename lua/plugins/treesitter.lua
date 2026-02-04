@@ -36,6 +36,7 @@ return {
       'sql',
       'terraform',
       'elixir',
+      'bash',
     },
     highlight = {
       enable = true,

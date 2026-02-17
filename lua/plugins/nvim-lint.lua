@@ -3,10 +3,7 @@ return {
   event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
   opts = {
     events = { 'BufWritePost', 'BufReadPost', 'InsertLeave' },
-    linters_by_ft = {
-      css = { 'stylelint' },
-      scss = { 'stylelint' },
-    },
+    linters_by_ft = {},
   },
   config = function(_, opts)
     require('lint').linters_by_ft = opts.linters_by_ft

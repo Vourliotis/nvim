@@ -63,6 +63,8 @@ return {
     'echasnovski/mini.icons',
   },
   keys = {
+    { '<LEADER>ff', '<CMD>Telescope find_files<CR>', mode = 'n' },
+    { '<LEADER>fr', '<CMD>Telescope oldfiles<CR>', mode = 'n' },
     { '<LEADER>?', '<CMD>Telescope keymaps<CR>', mode = 'n' },
     { '<LEADER>fp', '<CMD>Telescope pickers<CR>', mode = 'n' },
     { '<LEADER>fh', '<CMD>Telescope help_tags<CR>', mode = 'n' },

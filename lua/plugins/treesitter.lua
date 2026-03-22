@@ -4,6 +4,15 @@ return {
   build = ':TSUpdate',
   branch = 'main',
   main = 'nvim-treesitter.config',
+  config = function(_, opts)
+    require('nvim-treesitter.config').setup(opts)
+
+    vim.api.nvim_create_autocmd('FileType', {
+      callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+      end,
+    })
+  end,
   dependencies = {
     {
       'RRethy/nvim-treesitter-endwise',

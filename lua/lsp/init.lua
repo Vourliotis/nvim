@@ -36,6 +36,7 @@ end
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
   callback = function(event)
+    local builtin = require('telescope.builtin')
     local bind = function(keys, func, mode)
       mode = mode or 'n'
       vim.keymap.set(mode, keys, func, { buffer = event.buf })
@@ -43,13 +44,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     bind('gn', vim.lsp.buf.rename)
     bind('gca', vim.lsp.buf.code_action, { 'n', 'x' })
-    bind('gr', require('telescope.builtin').lsp_references)
-    bind('gi', require('telescope.builtin').lsp_implementations)
-    bind('gd', require('telescope.builtin').lsp_definitions)
+    bind('gr', builtin.lsp_references)
+    bind('gi', builtin.lsp_implementations)
+    bind('gd', builtin.lsp_definitions)
     bind('gD', vim.lsp.buf.declaration)
-    bind('gs', require('telescope.builtin').lsp_document_symbols)
-    bind('gw', require('telescope.builtin').lsp_dynamic_workspace_symbols)
-    bind('gt', require('telescope.builtin').lsp_type_definitions)
+    bind('gs', builtin.lsp_document_symbols)
+    bind('gw', builtin.lsp_dynamic_workspace_symbols)
+    bind('gt', builtin.lsp_type_definitions)
     bind('K', vim.lsp.buf.hover)
     bind('<C-i>', vim.lsp.buf.signature_help, 'i')
 

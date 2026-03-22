@@ -5,7 +5,7 @@ return {
     version = 'v0.*',
     opts = {
       keymap = { preset = 'enter' },
-      fuzzy = { implementation = "lua" },
+      fuzzy = { implementation = 'lua' },
     },
   },
   {

@@ -10,6 +10,9 @@ return {
       keymaps = {
         ['<C-h>'] = 'actions.parent',
       },
+      view_options = {
+        show_hidden = true,
+      },
     },
   },
   {

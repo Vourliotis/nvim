@@ -7,8 +7,21 @@ vim.opt.mouse = 'a'
 -- Don't show the mode, since it's already in status line
 vim.opt.showmode = false
 
--- Send copied text to the local clipboard over SSH using OSC 52
-vim.g.clipboard = 'osc52'
+-- Copy over SSH with OSC 52; use saved text for paste to avoid terminal timeouts
+local osc52 = require('vim.ui.clipboard.osc52')
+local clipboard = { copy = {}, paste = {} }
+for _, register in ipairs({ '+', '*' }) do
+  local saved = { {}, 'v' }
+  local copy = osc52.copy(register)
+  clipboard.copy[register] = function(lines, regtype)
+    saved = { lines, regtype }
+    copy(lines)
+  end
+  clipboard.paste[register] = function()
+    return saved
+  end
+end
+vim.g.clipboard = clipboard
 
 -- Sync clipboard between OS and Neovim
 vim.opt.clipboard = 'unnamedplus'
